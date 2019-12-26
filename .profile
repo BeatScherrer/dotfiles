@@ -30,3 +30,8 @@ export PATH=/home/beat/git/ardupilot/Tools/autotest:$PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# use ccache if it is installed
+if type ccache 
+  export PATH="usr/lib/ccache/bin/:$PATH"
+fi
+
