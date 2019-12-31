@@ -94,7 +94,7 @@ ForegroundVisited=145,61,136
 [General]
 ColorScheme=Breath
 Name=Breath
-dbfile=/home/beat/.mozilla/firefox/u4n1y6d3.default/places.sqlite
+dbfile=/home/beat/.mozilla/firefox/p2kfqs36.default/places.sqlite
 shadeSortColumn=true
 toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0
 
@@ -124,8 +124,8 @@ Speedbar Width=152
 View Style=DetailTree
 
 [KScreen]
-ScaleFactor=2
-ScreenScaleFactors=eDP1=2;DP1=2;HDMI1=2;VIRTUAL1=2;
+ScaleFactor=1
+ScreenScaleFactors=DVI-D-0=1;HDMI-0=1;HDMI-1=1;DP-0=1;DP-1=1;DP-2=1;DP-3=1;
 
 [WM]
 activeBackground=236,236,236
