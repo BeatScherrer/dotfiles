@@ -22,3 +22,7 @@ checkout the wanted configuration
 ```
 config checkout <branch>
 ```
+or to overwrite the local files:
+```
+config checkout -f <branch>
+```
