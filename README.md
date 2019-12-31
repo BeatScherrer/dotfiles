@@ -22,8 +22,3 @@ checkout the wanted configuration
 ```
 config checkout <branch>
 ```
-
-set the config to not show untracked files:
-```
-config config --local status.showUntrackedFiles no
-```
