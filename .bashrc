@@ -132,4 +132,5 @@ fi
 export XCURSOR_PATH=$RUNTIME/usr/share/icons
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
+alias runxampp='cd /opt/lampp && sudo ./xampp start && cd -'
+alias stopxamp='cd /opt/lampp && sudo ./xampp stop && cd -'
