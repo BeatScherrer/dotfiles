@@ -9,7 +9,7 @@ GLCore=true
 GLPreferBufferSwap=a
 GLTextureFilter=2
 HiddenPreviews=5
-OpenGLIsUnsafe=false
+OpenGLIsUnsafe=true
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
@@ -18,8 +18,8 @@ Id_1=e5645347-190f-4559-b61e-028f539ccdca
 Id_2=44ba006b-c841-4a10-ab23-4b001bdc35f7
 Rows=2
 
-[Plugins]
-zoomEnabled=false
-
 [ModifierOnlyShortcuts]
 Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
+
+[Plugins]
+zoomEnabled=false
