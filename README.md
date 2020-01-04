@@ -22,8 +22,7 @@ checkout the wanted configuration
 ```
 config checkout <branch>
 ```
-
-set the config to not show untracked files:
+or to overwrite the local files:
 ```
-config config --local status.showUntrackedFiles no
+config checkout -f <branch>
 ```
