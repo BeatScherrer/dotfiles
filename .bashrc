@@ -134,3 +134,7 @@ export XCURSOR_PATH=$RUNTIME/usr/share/icons
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias runxampp='cd /opt/lampp && sudo ./xampp start && cd -'
 alias stopxamp='cd /opt/lampp && sudo ./xampp stop && cd -'
+
+# youtube downloader alias
+alias youtubemp3='youtube-dl -f bestaudio[ext=mp3]'
+alias youtubemp4='youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
