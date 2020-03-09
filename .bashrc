@@ -138,3 +138,15 @@ alias stopxamp='cd /opt/lampp && sudo ./xampp stop && cd -'
 # youtube downloader alias
 alias youtubemp3='youtube-dl -f bestaudio[ext=mp3]'
 alias youtubemp4='youtube-dl -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+
+# add ccache to path if it exists
+if type ccache &> /dev/null; then
+  export PATH=/usr/lib/ccache:$PATH
+fi
+
+# source ros environment if it exists
+if type roscore &> /dev/null; then
+  echo "sourcing ros: /opt/ros/melodic/setup.bash"
+  . /opt/ros/melodic/setup.bash
+fi
+
