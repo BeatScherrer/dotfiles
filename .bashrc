@@ -145,8 +145,19 @@ if type ccache &> /dev/null; then
 fi
 
 # source ros environment if it exists
-if type roscore &> /dev/null; then
+if [[ -f "/opt/ros/melodic/setup.bash" ]]; then
   echo "sourcing ros: /opt/ros/melodic/setup.bash"
   . /opt/ros/melodic/setup.bash
+fi
+
+if [[ -f "$HOME/catkin_ws/devel/setup.bash" ]]; then
+  echo "sourcing catkin_ws: ~/catkin_ws"
+  . ~/catkin_ws/devel/setup.bash
+fi
+
+# export display variable if in chroot
+if [[ -n $debian_chroot ]]; then
+  export DISPLAY=:0
+  export LC_ALL=C
 fi
 
