@@ -1,0 +1,45 @@
+# ~/.aliases: Personal aliases to be loaded by bash and zsh
+# This file contains aliases in the sh format to be sourced
+# in either bash or zsh (or other) shells.
+
+# ---------------------------------------------------------
+# Safety aliases
+# ---------------------------------------------------------
+alias rm='rm -I --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+
+# ---------------------------------------------------------
+# dotfiles
+# --------------------------------------------------------
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# ---------------------------------------------------------
+# color aliases
+# ---------------------------------------------------------
+alias grep='grep --color=auto'
+
+# ---------------------------------------------------------
+# convenience aliases
+# ---------------------------------------------------------
+alias untar='tar -xzvf'
+alias c='clear'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# ---------------------------------------------------------
+# General setup
+# ---------------------------------------------------------
+
+# automatically source ROS melodic if the script is present
+if [[ -f "/opt/ros/melodic/setup.sh" ]]; then
+  echo "sourcing ROS /opt/ros/melodic/setup.sh"
+  source /opt/ros/melodic/setup.sh
+fi
