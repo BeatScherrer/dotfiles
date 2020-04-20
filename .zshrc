@@ -8,7 +8,7 @@ export ZSH="/home/beat/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="beat"
+ZSH_THEME="powerlevel9k"
 
 # You may need to manually set your language environment
 export LANG=de_CH.UTF-8
@@ -119,4 +119,10 @@ alias sourcezsh="source ~/.zshrc"
 alias cdcatkin="~/catkin_ws"
 
 echo "sourcing catkin workspace ~/catkin_ws/"
-source ~/catkin_ws/devel/setup.zsh
+if [[ -e ~/catkin_ws/devel/setup.zsh ]]; then
+  source ~/catkin_ws/devel/setup.zsh
+fi
+
+if [[ $ZSH_THEME == "powerlevel9k" ]]; then
+  source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+fi
