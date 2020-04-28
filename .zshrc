@@ -8,10 +8,10 @@ export ZSH="/home/beat/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="beat"
+ZSH_THEME="powerlevel9k"
 
 # You may need to manually set your language environment
-export LANG=de_CH.UTF-8
+# export LANG=de_CH.UTF-8
 # export LANGUAGE=de_CH.UTF-8
 
 # Set list of themes to pick from when loading at random
@@ -49,7 +49,7 @@ export LANG=de_CH.UTF-8
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -116,7 +116,9 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sourcezsh="source ~/.zshrc"
 
 # ROS alias
-alias cdcatkin="~/catkin_ws"
 
-echo "sourcing catkin workspace ~/catkin_ws/"
-source ~/catkin_ws/devel/setup.zsh
+if [[ -e "$HOME/catkin_ws/devel/setup.zsh" ]]; then
+  echo "sourcing catkin workspace ~/catkin_ws/"
+  source ~/catkin_ws/devel/setup.zsh
+  alias cdcatkin="~/catkin_ws"
+fi
