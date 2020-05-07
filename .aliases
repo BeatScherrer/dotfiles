@@ -30,6 +30,9 @@ alias grep='grep --color=auto'
 alias untar='tar -xzvf'
 alias c='clear'
 
+alias clipboard='xclip -selection clipboard'
+alias cdgit='cd ~/git/'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -43,3 +46,6 @@ if [[ -f "/opt/ros/melodic/setup.sh" ]]; then
   echo "sourcing ROS /opt/ros/melodic/setup.sh"
   source /opt/ros/melodic/setup.sh
 fi
+
+# add toptask alias
+alias toptask="javaws /opt/javatoptask/jtt.jnlp"
