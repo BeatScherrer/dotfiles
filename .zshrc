@@ -10,6 +10,13 @@ export ZSH="/home/beat/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k"
 
+# Set variables for chroot
+if [[ -z ${debian_chroot:-} ]] && [ -r /etc/debian_chroot ]; then
+  export DISPLAY=:1
+  ZSH_THEME="agnoster"
+  LANG="en_US.UTF-8"
+fi
+
 # You may need to manually set your language environment
 # export LANG=de_CH.UTF-8
 # export LANGUAGE=de_CH.UTF-8
@@ -88,10 +95,6 @@ else
   export EDITOR='mvim'
 fi
 
-# Set variables for chroot
-if [[ -z ${debian_chroot:-} ]] && [ -r /etc/debian_chroot ]; then
-  export DISPLAY=:0
-fi
 
 # set variable identifying the chroot you work
 
@@ -116,9 +119,8 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sourcezsh="source ~/.zshrc"
 
 # ROS alias
-
-if [[ -e "$HOME/catkin_ws/devel/setup.zsh" ]]; then
-  echo "sourcing catkin workspace ~/catkin_ws/"
-  source ~/catkin_ws/devel/setup.zsh
-  alias cdcatkin="~/catkin_ws"
+if [[ -f "$HOME/catkin_ws/devel/setup.zsh" ]]; then
+  echo "sourcing ~/catkin_ws/devel/setup.zsh"
+  source "$HOME/catkin_ws/devel/setup.zsh"
+  alias cdcatkin='cd ~/catkin_ws'
 fi
