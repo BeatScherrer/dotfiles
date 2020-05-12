@@ -1,8 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Source general settings (across shell)
+source "$HOME/.profile"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/beat/.oh-my-zsh"
+
+
+if [[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]]; then
+  export CHROOT=$(cat /etc/debian_chroot)
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -10,12 +18,33 @@ export ZSH="/home/beat/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k"
 
+zsh_chroot(){
+  if [[ -n $CHROOT ]]; then
+
+    local chroot_name=$(cat /etc/debian_chroot)
+    local color='%F{yellow}'
+
+    # TODO add symbol to chroot
+    echo -n "%{$color%} $chroot_name%{%f%}"
+  fi
+}
+
 # Set variables for chroot
-if [[ -z ${debian_chroot:-} ]] && [ -r /etc/debian_chroot ]; then
+if [[ $CHROOT ]]; then
   export DISPLAY=:1
+
+  # TODO fix powerlevel9k to be used from within chroot
   ZSH_THEME="agnoster"
   LANG="en_US.UTF-8"
+
+  echo "sourcing ~/catkin_ws/devel/setup.zsh"
+  source ~/catkin_ws/devel/setup.zsh
+  alias cdcatkin='cd $HOME/catkin_ws'
 fi
+
+POWERLEVEL9K_CUSTOM_CHROOT="zsh_chroot"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_chroot virtualenv context dir vcs)
 
 # You may need to manually set your language environment
 # export LANG=de_CH.UTF-8
@@ -81,7 +110,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -115,12 +144,5 @@ alias bionic='schroot -c ubuntu_bionic'
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-
 alias sourcezsh="source ~/.zshrc"
 
-# ROS alias
-if [[ -f "$HOME/catkin_ws/devel/setup.zsh" ]]; then
-  echo "sourcing ~/catkin_ws/devel/setup.zsh"
-  source "$HOME/catkin_ws/devel/setup.zsh"
-  alias cdcatkin='cd ~/catkin_ws'
-fi
