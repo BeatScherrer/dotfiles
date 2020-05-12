@@ -23,6 +23,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # color aliases
 # ---------------------------------------------------------
 alias grep='grep --color=auto'
+# ccat is must be installed manually in ubuntu therefore just not use it in ubuntu
+#alias cat='ccat'
 
 # ---------------------------------------------------------
 # convenience aliases
@@ -40,12 +42,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ---------------------------------------------------------
 # General setup
 # ---------------------------------------------------------
-
-# automatically source ROS melodic if the script is present
-if [[ -f "/opt/ros/melodic/setup.sh" ]]; then
-  echo "sourcing ROS /opt/ros/melodic/setup.sh"
-  source /opt/ros/melodic/setup.sh
-fi
 
 # add toptask alias
 alias toptask="javaws /opt/javatoptask/jtt.jnlp"

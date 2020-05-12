@@ -31,7 +31,13 @@ export PATH=/home/beat/git/ardupilot/Tools/autotest:$PATH
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # use ccache if it is installed
-if type ccache 
-  export PATH="usr/lib/ccache/bin/:$PATH"
+if type ccache &> /dev/null; then
+  export PATH=/usr/lib/ccache/bin/:$PATH
+fi
+
+# source ros if present
+if [ -f "/opt/ros/melodic/setup.sh" ]; then
+	echo "sourcing ROS /opt/ros/melodic/setup.sh"
+	source "/opt/ros/melodic/setup.sh"
 fi
 
