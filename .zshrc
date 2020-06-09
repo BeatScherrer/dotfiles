@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -7,44 +14,31 @@ source "$HOME/.profile"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/beat/.oh-my-zsh"
 
-
 if [[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]]; then
   export CHROOT=$(cat /etc/debian_chroot)
+fi
+
+# Set variables for chroot
+if [[ $CHROOT ]]; then
+  export DISPLAY=:1
+
+  # TODO fix powerlevel10k to be used from within chroot
+  #ZSH_THEME="agnoster"
+  LANG="en_US.UTF-8"
+
+  echo "sourcing ~/catkin_ws/devel/setup.zsh"
+  source ~/catkin_ws/devel/setup.zsh
+  echo "sourcing ~/heap_simulation_catkin_ws/devel/setup.zsh"
+  source ~/heap_simulation_catkin_ws/devel/setup.zsh
+  alias cdcatkin='cd $HOME/catkin_ws'
+  alias clearheap='rosservice call /m545_clear_emergency_stop'
 fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel9k"
-
-zsh_chroot(){
-  if [[ -n $CHROOT ]]; then
-
-    local chroot_name=$(cat /etc/debian_chroot)
-    local color='%F{yellow}'
-
-    # TODO add symbol to chroot
-    echo -n "%{$color%} $chroot_name%{%f%}"
-  fi
-}
-
-# Set variables for chroot
-if [[ $CHROOT ]]; then
-  export DISPLAY=:1
-
-  # TODO fix powerlevel9k to be used from within chroot
-  ZSH_THEME="agnoster"
-  LANG="en_US.UTF-8"
-
-  echo "sourcing ~/catkin_ws/devel/setup.zsh"
-  source ~/catkin_ws/devel/setup.zsh
-  alias cdcatkin='cd $HOME/catkin_ws'
-fi
-
-POWERLEVEL9K_CUSTOM_CHROOT="zsh_chroot"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_chroot virtualenv context dir vcs)
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # You may need to manually set your language environment
 # export LANG=de_CH.UTF-8
@@ -146,3 +140,5 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sourcezsh="source ~/.zshrc"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

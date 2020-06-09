@@ -39,5 +39,7 @@ fi
 if [ -f "/opt/ros/melodic/setup.sh" ]; then
 	echo "sourcing ROS /opt/ros/melodic/setup.sh"
 	source "/opt/ros/melodic/setup.sh"
+  # gazebo
+  export IGN_IP=127.0.0.1
 fi
 
