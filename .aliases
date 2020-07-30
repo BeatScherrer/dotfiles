@@ -39,6 +39,10 @@ alias cdgit='cd ~/git/'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# ROS aliases
+alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf & cd - '
+alias tf2='cd /var/tmp && rosrun tf2_tools view_frames.py && evince frames.pdf & cd - '
+
 # ---------------------------------------------------------
 # General setup
 # ---------------------------------------------------------
