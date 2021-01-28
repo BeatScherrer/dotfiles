@@ -1,0 +1,11 @@
+{
+	"messages": [
+		"Removing {0}",
+		"Detected 'cmake.sourceDirectory' setting update, attempting automatic reconfigure..."
+	],
+	"keys": [
+		"removing",
+		"cmakelists.save.trigger.reconfigure"
+	],
+	"filePath": "src\\drivers\\cmfileapi-driver"
+}

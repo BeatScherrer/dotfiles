@@ -1,0 +1,8 @@
+{
+  "tikzcd": {
+    "name": "tikzcd",
+    "detail": "tikzcd",
+    "snippet": "",
+    "package": "tikz-cd"
+  }
+}

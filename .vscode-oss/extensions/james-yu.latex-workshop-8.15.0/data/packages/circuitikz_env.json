@@ -1,0 +1,20 @@
+{
+  "circuitikz": {
+    "name": "circuitikz",
+    "detail": "circuitikz",
+    "snippet": "",
+    "package": "circuitikz"
+  },
+  "pgfdecoration": {
+    "name": "pgfdecoration",
+    "detail": "pgfdecoration",
+    "snippet": "",
+    "package": "circuitikz"
+  },
+  "pgfmetadecoration": {
+    "name": "pgfmetadecoration",
+    "detail": "pgfmetadecoration",
+    "snippet": "",
+    "package": "circuitikz"
+  }
+}

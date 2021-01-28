@@ -1,0 +1,15 @@
+{
+	"messages": [
+		"Executing command: {0}",
+		"Processing \"data\" event from proc stdout",
+		"Processing \"data\" event from proc stderr",
+		"Resolving process on \"close\" event"
+	],
+	"keys": [
+		"executing.command",
+		"processing.data.event.stdout",
+		"processing.data.event.stderr",
+		"resolving.close.event"
+	],
+	"filePath": "src\\proc"
+}

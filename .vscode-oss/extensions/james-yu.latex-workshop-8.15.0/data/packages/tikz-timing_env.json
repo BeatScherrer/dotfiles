@@ -1,0 +1,14 @@
+{
+  "tikztimingtable": {
+    "name": "tikztimingtable",
+    "detail": "tikztimingtable",
+    "snippet": "",
+    "package": "tikz-timing"
+  },
+  "pgfonlayer": {
+    "name": "pgfonlayer",
+    "detail": "pgfonlayer",
+    "snippet": "",
+    "package": "tikz-timing"
+  }
+}

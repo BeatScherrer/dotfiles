@@ -1,0 +1,43 @@
+{
+	"messages": [
+		"Click to select the active folder",
+		"Unconfigured",
+		"Click to select the current build variant",
+		"Loading...",
+		"Click to change the active kit",
+		"No active kit",
+		"No Kit Selected",
+		"Set the active target to build",
+		"Select the target to launch",
+		"Launch the debugger for the selected target",
+		"Launch the selected target in the terminal window",
+		"Run CTest tests",
+		"Run CTest",
+		"{0}/{1} test passing",
+		"{0}/{1} tests passing",
+		"Build the selected target",
+		"Build",
+		"Stop"
+	],
+	"keys": [
+		"click.to.select.workspace.tooltip",
+		"unconfigured",
+		"click.to.select.variant.tooltip",
+		"loading.status",
+		"click.to.change.kit.tooltip",
+		"no.active.kit",
+		"no.kit.selected",
+		"set.active.target.tooltip",
+		"select.target.tooltip",
+		"launch.debugger.tooltip",
+		"launch.tooltip",
+		"run.ctest.tests.tooltip",
+		"run.ctest",
+		"test.passing",
+		"tests.passing",
+		"build.tooltip",
+		"build",
+		"stop"
+	],
+	"filePath": "src\\status"
+}

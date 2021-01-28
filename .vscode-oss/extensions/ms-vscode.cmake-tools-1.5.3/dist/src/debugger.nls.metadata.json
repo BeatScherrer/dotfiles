@@ -1,0 +1,17 @@
+{
+	"messages": [
+		"Unable to find GDB in default search path and {0}.",
+		"Enable pretty-printing for gdb",
+		"Unable to find GDB in default search path and {0}.",
+		"No compiler found in cache file.",
+		"Unable to automatically determine debugger corresponding to compiler: {0}"
+	],
+	"keys": [
+		"gdb.not.found",
+		"enable.pretty.printing",
+		"gdb.not.found",
+		"no.compiler.found.in.cache",
+		"unable.to.determine.debugger.for.compiler"
+	],
+	"filePath": "src\\debugger"
+}

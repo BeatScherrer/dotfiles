@@ -1,0 +1,11 @@
+{
+	"messages": [
+		"Invalid variable reference {0} in string: {1}",
+		"Exception while executing command {0} for string: {1} {2}"
+	],
+	"keys": [
+		"invalid.variable.reference",
+		"exception.executing.command"
+	],
+	"filePath": "src\\expand"
+}

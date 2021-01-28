@@ -1,0 +1,11 @@
+{
+	"messages": [
+		"Invalid version string {0}",
+		"Our own extension is null! What gives?"
+	],
+	"keys": [
+		"invalid.version.string",
+		"extension.is.null"
+	],
+	"filePath": "src\\util"
+}

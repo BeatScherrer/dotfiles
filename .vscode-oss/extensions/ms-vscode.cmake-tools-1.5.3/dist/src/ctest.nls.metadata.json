@@ -1,0 +1,17 @@
+{
+	"messages": [
+		"CTest path is not set",
+		"CTest run was terminated",
+		"CTest finished with return code {0}",
+		"CTest path is not set",
+		"There was an error running ctest to determine available test executables"
+	],
+	"keys": [
+		"ctest.path.not.set",
+		"ctest.run.terminated",
+		"ctest.finished.with.code",
+		"ctest.path.not.set",
+		"ctest.error"
+	],
+	"filePath": "src\\ctest"
+}

@@ -1,0 +1,15 @@
+{
+	"messages": [
+		"Failed writing to file {0}",
+		"Cache object version ({0}.{1}) of cmake-file-api is unexpected. Expecting ({2}.{3}). IntelliSense configuration may be incorrect.",
+		"Unknown cache entry type: {0}.",
+		"Code model version ({0}.{1}) of cmake-file-api is unexpected. Expecting ({2}.{3}). IntelliSense configuration may be incorrect."
+	],
+	"keys": [
+		"failed.writing.to.file",
+		"cache.object.version",
+		"cache.entry.unknowntype",
+		"code.model.version"
+	],
+	"filePath": "src\\drivers\\cmakefileapi\\api_helpers"
+}
