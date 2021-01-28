@@ -1,0 +1,28 @@
+{
+    "editor.fontFamily": "'Noto Mono for Powerline', 'Droid Sans Fallback','Font Awesome 5 Pro','Font Awesome 5 Brands','Material Icons' ",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "explorer.confirmDelete": false,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.padding.bottom": 1,
+    "workbench.colorTheme": "gravel-pit-dark",
+    "files.associations": {
+      "*.jsonnet": "jsonc"
+    },
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 0,
+    "C_Cpp.updateChannel": "Insiders",
+    "editor.wordWrap": "wordWrapColumn"
+}
