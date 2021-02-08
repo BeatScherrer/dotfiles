@@ -1,0 +1,116 @@
+[global]
+  alignment = left
+  allow_markup = yes
+  bounce_freq = 0
+  browser = /usr/bin/google-chrome-beta -new-tab
+  dmenu = /usr/bin/dmenu -p dunst
+  follow = mouse
+  font = Noto Color Emoji 12, Roboto 24
+  format = "<b>%s</b>\n%b"
+  geometry = "400x80+1520+48"
+  horizontal_padding = 8
+  icon_folders = /usr/share/icons/Notifications
+  icon_position = left
+  idle_threshold = 120
+  ignore_newline = no
+  indicate_hidden = yes
+  line_height = 5
+  max_icon_size = 64
+  monitor = 0
+  padding = 6
+  separator_color = auto
+  separator_height = 0
+  show_age_threshold = -1
+  show_indicators = no
+  sort = yes
+  startup_notification = false
+  sticky_history = no
+  transparency = 10
+  word_wrap = yes
+
+[frame]
+  color = "#ffffff"
+  width = 0
+
+[shortcuts]
+  close = ctrl+space
+  close_all = ctrl+shift+space
+  context = ctrl+shift+period
+  history = ctrl+grave
+
+[urgency_critical]
+  background = "#ffffff"
+  foreground = "#262626"
+  timeout = 0
+
+[urgency_low]
+  background = "#ffffff"
+  foreground = "#262626"
+  timeout = 5
+
+[urgency_normal]
+  background = "#ffffff"
+  foreground = "#262626"
+  timeout = 5
+
+[AN2Linux]
+  appname = AN2Linux
+  format = "%s\n%b"
+  timeout = 10
+
+[Discord]
+  appname = Discord Canary
+  format = "Discord\n%s\n%b"
+  new_icon = Discord
+
+[Dropbox]
+  appname = Dropbox
+  format = "Dropbox\n%s\n%b"
+  new_icon = Dropbox
+  timeout = 0
+
+[ImageMagick]
+  appname = ImageMagick
+  format = "System Notification\n%s\n%b"
+  timeout = 0
+
+[Mozilla Firefox]
+  appname = Firefox
+  format = "Mozilla Firefox\n%s\n%b"
+  new_icon = Mozilla Firefox
+  timeout = 0
+
+[NCMPCPP]
+  appname = NCMPCPP
+  format = "Now Playing\n%s\n%b"
+  timeout = 0
+
+[Redshift]
+  appname = Redshift
+  format = "System Notification\n%s\n%b\n%i"
+  new_icon = Redshift
+  timeout = 0
+
+[Spotify]
+  appname = Spotify
+  format = ""
+  new_icon = Spotify
+  script = ~/.scripts/song_change.zsh
+
+[Transmission]
+  appname = Transmission
+  format = "Transmission\n%s\n%b"
+  new_icon = Transmission
+  timeout = 0
+
+[UpdateChecker]
+  appname = UpdateChecker
+  format = "System Notification\n%s\n%b"
+  new_icon = UpdateChecker
+  timeout = 0
+
+[Volume]
+  appname = Volume
+  format = "System Notification\n%s\n%b"
+  new_icon = Volume
+  timeout = 0
