@@ -1,9 +1,0 @@
-{
-	"messages": [
-		"The setting 'useCMakeServer' is replaced by 'cmakeCommunicationMode'. Please upgrade your configuration."
-	],
-	"keys": [
-		"please.upgrade.configuration"
-	],
-	"filePath": "src\\config"
-}
