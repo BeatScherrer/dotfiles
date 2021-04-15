@@ -68,5 +68,8 @@ source $HOME/.fehbg
 # launch compositor
 picom
 
+# launch notification manager
+dunst
+
 
 
