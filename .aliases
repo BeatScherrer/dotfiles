@@ -8,3 +8,7 @@ alias sourcezsh='source ~/.zshrc'
 alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
+
+if [[ $(which code-insiders) ]];then
+  alias code='code-insiders'
+fi
