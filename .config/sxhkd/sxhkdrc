@@ -73,9 +73,14 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+# open the window switcher
+super + Tab
+	rofi -show window \
+  -kb-cancel 'Super+Escape,Escape' \
+  -kb-accept-entry '!Super+Tab' \
+  -kb-row-down 'Super+Tab,Down' \
+  -kb-row-up 'Super+Shift+Tab,Up' \
+  -selected-row 1
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -135,3 +140,7 @@ super + shift + x
 # reload sxhkdrc
 super + shift + r
   pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# show help menu
+super + slash
+  ~/.config/sxhkd/scripts/sxhkd-help
