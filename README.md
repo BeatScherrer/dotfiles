@@ -26,3 +26,15 @@ or to overwrite the local files:
 ```
 config checkout -f <branch>
 ```
+# tmux Shortcuts
+the prefix is configured to be: `ctrl + a`  for more convenience.
+## Navigation
+| command | efffect |
+|--|--|
+|`prefix, <h,j,k,l>` | navigate left,down,up,right |
+|`prefix, e,o` | split pane horizontally,vertically|
+|`prefix, ',',$`| rename window, session |
+|`prefix, s,r` | save,reload session|
+|`prefix, ctrl + ←,↓,↑,→` | resize pane to direction|
+|`prefix, m` | toggle maximize pane|
+|`prefix, a`| toggle sync to all panes|
