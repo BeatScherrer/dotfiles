@@ -32,6 +32,7 @@ the prefix is configured to be: `ctrl + a`  for more convenience.
 | command | efffect |
 |--|--|
 |`prefix, <h,j,k,l>` | navigate left,down,up,right |
+|`prefix, <1,2,...>`| navigate to tab with number |
 |`prefix, <e,o>` | split pane horizontally,vertically|
 |`prefix, x`|close pane|
 |`prefix, <',',$>`| rename window, session |
