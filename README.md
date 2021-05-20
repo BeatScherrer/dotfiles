@@ -32,9 +32,9 @@ the prefix is configured to be: `ctrl + a`  for more convenience.
 | command | efffect |
 |--|--|
 |`prefix, <h,j,k,l>` | navigate left,down,up,right |
-|`prefix, e,o` | split pane horizontally,vertically|
-|`prefix, ',',$`| rename window, session |
-|`prefix, s,r` | save,reload session|
-|`prefix, ctrl + ←,↓,↑,→` | resize pane to direction|
+|`prefix, <e,o>` | split pane horizontally,vertically|
+|`prefix, <',',$>`| rename window, session |
+|`prefix, <s,r>` | save,reload session|
+|`prefix, ctrl + <←,↓,↑,→>` | resize pane to direction|
 |`prefix, m` | toggle maximize pane|
 |`prefix, a`| toggle sync to all panes|
