@@ -36,7 +36,7 @@
   close = ctrl+space
   close_all = ctrl+shift+space
   context = ctrl+shift+period
-  history = ctrl+grave
+  history = ctrl+shift+grave
 
 [urgency_critical]
   background = "#ffffff"
