@@ -33,6 +33,7 @@ the prefix is configured to be: `ctrl + a`  for more convenience.
 |--|--|
 |`prefix, <h,j,k,l>` | navigate left,down,up,right |
 |`prefix, <e,o>` | split pane horizontally,vertically|
+|`prefix, x`|close pane|
 |`prefix, <',',$>`| rename window, session |
 |`prefix, <s,r>` | save,reload session|
 |`prefix, ctrl + <←,↓,↑,→>` | resize pane to direction|
