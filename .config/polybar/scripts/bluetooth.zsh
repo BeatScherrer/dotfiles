@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # check if bluetooth is powered on
-if [[ $(bluetoothctl show | grep "Powered: yes" ) ]]; then
+if [[ $(bluetoothctl show | grep "Powered: yes" ) && $(which bluetoothctl) ]]; then
   # bluetooth is powered on, check if device is connected
 
   # check if device is connected

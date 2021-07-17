@@ -1,10 +1,11 @@
 # only startx if not in schroot
-if [[ -z "${debian_chroot:-}" && -f /etc/debian_chroot ]]; then
+if [[ -f "/etc/debian_chroot" ]];then
   export CHROOT=$(cat /etc/debian_chroot)
 fi
 
-if [[ -n $CHROOT ]]; then
+if [[ -z "$CHROOT" ]]; then
   exec startx
+  true
 fi
 
 

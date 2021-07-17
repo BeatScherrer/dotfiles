@@ -144,3 +144,30 @@ super + shift + r
 # show help menu
 super + slash
   ~/.config/sxhkd/scripts/sxhkd-help
+
+#
+# Media key control
+
+# Volume +
+XF86AudioRaiseVolume
+  pactl set-sink-volume 0 +5%
+
+# Volume -
+XF86AudioLowerVolume
+  pactl set-sink-volume 0 -5%
+
+# Play/Pause
+XF86AudioPlay 
+  playerctl play-pause
+
+# Play/Pause
+XF86AudioPause
+  playerctl play-pause
+
+# Next track
+XF86AudioNext
+  playerctl next
+
+# Previous track
+XF86AudioPrev
+  playerctl previous
