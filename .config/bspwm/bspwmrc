@@ -10,7 +10,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #
 # (Order is important. More important monitors first. (Like if VGA1 is attached to
 #  laptop, it should be the main monitor, not LVDS1, so VGA1 is before LVDS1.))
-monitors=('DP-0' 'DP-1' 'HDMI-1' 'HDMI-0' 'DVI-D-1' 'DVI-0' 'DVI-1' 'VGA1' 'LVDS1' 'LVDS-1' )
+monitors=('DP-0' 'DP-1' 'DP-2' 'HDMI-1' 'HDMI-0' 'DVI-D-1' 'DVI-0' 'DVI-1' 'VGA1' 'LVDS1' 'LVDS-1' )
 i=1
 for m in ${monitors[@]}; do
  if bspc query -M | grep "$m"; then
@@ -22,7 +22,7 @@ for m in ${monitors[@]}; do
  fi
 done
 
-bspc monitor HDMI-1 -d I II III
+bspc monitor DP-2 -d I II III
 bspc monitor HDMI-0 -d IV V VI
 
 bspc wm --reorder-monitors HDMI-1
@@ -57,6 +57,7 @@ bspc rule --add Lutris state=floating focus=on
 bspc rule --add Back In Time state=floating focus=on
 bspc rule --add Steam state=floating focus=on
 bspc rule --add git-gui state=floating
+bspc rule --add qemu-system-x86_64 state=floating
 
 bspc config external_rules_command ~/.config/bspwm/external_rules.sh
 

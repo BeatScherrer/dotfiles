@@ -5,9 +5,9 @@
   browser = /usr/bin/google-chrome-beta -new-tab
   dmenu = /usr/bin/dmenu -p dunst
   follow = mouse
-  font = Noto Color Emoji 12, Roboto 12
+  font = Noto Color Emoji 24, Roboto 24
   format = "<b>%s</b>\n%b"
-  geometry = "400x80+1520+48"
+  geometry = "400x80+2560+48"
   horizontal_padding = 8
   icon_folders = /usr/share/icons/Notifications
   icon_position = left
