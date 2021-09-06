@@ -11,14 +11,10 @@ if [[ $(bluetoothctl show | grep "Powered: yes" ) && $(which bluetoothctl) ]]; t
     name_line=$(echo info | bluetoothctl | grep 'Name')
     parts=("${(@s|:|)name_line}")
     name=$parts[2]
-    echo "\U00e1a8 $name"
+    echo " $name"
   else
     # no device connected
-
-    echo "\U00e1a7"
   fi
 else
   # bluetooth is not powered on
-
-  echo "\U00e1a9"
 fi

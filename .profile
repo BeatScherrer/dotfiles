@@ -4,7 +4,7 @@ if [[ -f "/etc/debian_chroot" ]];then
 fi
 
 if [[ -z "$CHROOT" ]]; then
-  exec startx
+  #exec startx
   true
 fi
 
@@ -14,3 +14,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # for java top task 
 export _JAVA_AWT_WM_NONREPARENTING=1
+. "$HOME/.cargo/env"

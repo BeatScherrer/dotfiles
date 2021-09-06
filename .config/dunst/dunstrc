@@ -7,7 +7,7 @@
   follow = mouse
   font = Noto Color Emoji 24, Roboto 24
   format = "<b>%s</b>\n%b"
-  geometry = "400x80+2560+48"
+  geometry = "600x80+2260+48"
   horizontal_padding = 8
   icon_folders = /usr/share/icons/Notifications
   icon_position = left

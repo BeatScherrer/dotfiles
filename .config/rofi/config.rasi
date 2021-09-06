@@ -2,6 +2,6 @@
 
 configuration {
   show-icons:         true;
+  theme: "launchers/colorful/style_1";
   icon-theme:         "Papirus";
 }
-@import "launchers/misc/slate.rasi"
