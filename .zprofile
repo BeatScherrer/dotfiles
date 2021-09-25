@@ -4,5 +4,11 @@ if [[ -f /etc/debian_chroot ]];then
 fi
 
 if [[ -z "$CHROOT" ]]; then
-  exec startx
+
+  if [[ $(tty) == "/dev/tty1" ]]; then
+    exec startx
+  else
+    echo "not running grahical environment except in tty1"
+  fi
+  
 fi
