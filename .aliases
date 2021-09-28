@@ -9,4 +9,6 @@ alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
 
+alias 'rm -rf'='rm -rfi'
+
 source $HOME/.mtr_aliases

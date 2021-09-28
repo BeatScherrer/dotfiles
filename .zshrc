@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/sbin:/usr/local/sbin:/sbin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/beat/.oh-my-zsh"
@@ -99,8 +99,6 @@ source ~/.aliases
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# add local bin to path
-export PATH=$HOME/.local/bin:$PATH
 
 if [[ -f "$HOME/.zshrc_mt" ]];then
   source "$HOME/.zshrc_mt"
