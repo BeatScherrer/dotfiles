@@ -5,7 +5,7 @@
   browser = /usr/bin/google-chrome-beta -new-tab
   dmenu = /usr/bin/dmenu -p dunst
   follow = mouse
-  font = Noto Color Emoji 24, Roboto 24
+  font = Noto Color Emoji 14, Roboto 12
   format = "<b>%s</b>\n%b"
   geometry = "600x80+2260+80"
   horizontal_padding = 8

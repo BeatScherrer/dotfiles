@@ -3,8 +3,8 @@ if [[ -f "/etc/debian_chroot" ]];then
   export CHROOT=$(cat /etc/debian_chroot)
 fi
 
-if [[ -z "$CHROOT" ]]; then
-  #exec startx
+if [[ -z "$CHROOT" && $(tty) == "/dev/tty1" ]]; then
+  exec startx
   true
 fi
 
