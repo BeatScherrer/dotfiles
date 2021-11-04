@@ -10,7 +10,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #
 # (Order is important. More important monitors first. (Like if VGA1 is attached to
 #  laptop, it should be the main monitor, not LVDS1, so VGA1 is before LVDS1.))
-monitors=('DP-0' 'DP-1' 'DP-2' 'HDMI-1' 'HDMI-0' 'DVI-D-1' 'DVI-0' 'DVI-1' 'VGA1' 'LVDS1' 'LVDS-1' )
+monitors=('DP-2' 'DP-1' 'DP-0' 'HDMI-1' 'HDMI-0' 'DVI-D-1' 'DVI-0' 'DVI-1' 'VGA1' 'LVDS1' 'LVDS-1' )
 i=1
 for m in ${monitors[@]}; do
  if bspc query -M | grep "$m"; then
@@ -22,8 +22,8 @@ for m in ${monitors[@]}; do
  fi
 done
 
-bspc monitor DP-0 -d I II III
-bspc monitor DP-2 -d IV V VI
+bspc monitor DP-2 -d I II III
+bspc monitor DP-0 -d IV V VI
 
 #bspc wm --reorder-monitors HDMI-1
 

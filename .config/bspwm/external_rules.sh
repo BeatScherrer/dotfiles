@@ -13,5 +13,6 @@ case $class in
      pid=$(xprop -id $wid _NET_WM_PID | awk '{print $NF}')
      [ -n "$pid" ] && cmd="$(ps -q "$pid" -o comm= 2>/dev/null)"
      [ "$cmd" = spotify ] && echo "desktop=^5"
+     [ "$cmd" = steam ] && echo "desktop=^3"
      ;;
 esac
