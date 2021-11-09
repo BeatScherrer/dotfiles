@@ -8,4 +8,5 @@ alias sourcezsh='source ~/.zshrc'
 alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
-alias cdseeme='cdgit && cd beat/see-me'
+
+source $HOME/.mtr_aliases

@@ -37,10 +37,10 @@
 
 
 !! URXVT appearance
-URxvt.font: xft:Noto Mono for Powerline:style=Regular:size=10,xft:Font Awesome 5 Pro:style=Regular:size=10,xft:Font Awesome 5 Brands:style=Regular:size=10
-URxvt.boldFont: xft:Noto Mono for Powerline:style=Regular:size=10
-URxvt.italicFont: xft:Noto Mono for Powerline:style=Regular:size=10
-URxvt.boldItalicfont: xft:Noto Mono for Powerline:style=Regular:size=10
+URxvt.font: xft:Noto Mono for Powerline:style=Regular:size=12,xft:Font Awesome 5 Pro:style=Regular:size=12,xft:Font Awesome 5 Brands:style=Regular:size=12
+URxvt.boldFont: xft:Noto Mono for Powerline:style=Regular:size=12
+URxvt.italicFont: xft:Noto Mono for Powerline:style=Regular:size=12
+URxvt.boldItalicfont: xft:Noto Mono for Powerline:style=Regular:size=12
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
