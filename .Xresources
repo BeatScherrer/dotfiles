@@ -68,3 +68,5 @@ URxvt.perl-ext-common: default,url-select
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
+
+!!Xft.dpi: 192
