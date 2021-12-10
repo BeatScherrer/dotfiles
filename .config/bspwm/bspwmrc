@@ -49,6 +49,9 @@ bspc rule --add Screenkey manage=off
 bspc rule --add vlc state=floating follow=on
 bspc rule --add Signal:signal desktop='IV' follow=off foxus off
 
+# steam fly away issue fix
+bspc rule -a Steam border=off
+
 # floating windows
 bspc rule --add Pavucontrol state=floating
 bspc rule --add feh state=floating

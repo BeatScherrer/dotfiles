@@ -2,6 +2,7 @@
 
 configuration {
   show-icons:         true;
-  theme: "launchers/colorful/style_1";
   icon-theme:         "Papirus";
 }
+
+@theme "launchers/colorful/style_1"
