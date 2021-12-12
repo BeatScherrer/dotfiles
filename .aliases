@@ -8,7 +8,10 @@ alias sourcezsh='source ~/.zshrc'
 alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
+alias cdseeme='cdgit && cd beat/see-me'
 
 alias 'rm -rf'='rm -rfi'
 
-source $HOME/.mtr_aliases
+if [[ -f "$HOME/.mtr_aliases" ]]; then
+  source $HOME/.mtr_aliases
+fi
