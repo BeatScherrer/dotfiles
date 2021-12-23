@@ -5,6 +5,10 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias sourcezsh='source ~/.zshrc'
 
+# wtf
+alias wts='stty sane; clear;'
+
+# navigation
 alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
