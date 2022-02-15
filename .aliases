@@ -13,6 +13,8 @@ alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
 alias cdseeme='cdgit && cd beat/see-me'
+alias cdnavlog='cdws && cd analysis/navigation_analysis'
+alias cdnas='cd /mnt/wutang_nas'
 
 alias 'rm -rf'='rm -rfi'
 
