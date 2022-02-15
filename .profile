@@ -1,7 +1,5 @@
 # only startx if not in schroot
-if [[ -f "/etc/debian_chroot" ]];then
-  export CHROOT=$(cat /etc/debian_chroot)
-fi
+export CHROOT="$SCHROOT_CHROOT_NAME"
 
 if [[ -z "$CHROOT" && $(tty) == "/dev/tty1" ]]; then
   exec startx
