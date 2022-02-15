@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/usr/sbin:/usr/local/sbin:/sbin:$PATH
 export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
@@ -10,6 +17,7 @@ export ZSH="/home/beat/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="beat_agnoster"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -104,14 +112,56 @@ bindkey "^[[B" history-substring-search-down
 source ~/.aliases
 
 # Set nvm stuff
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
 
 
-if [[ -f "$HOME/.zshrc_mt" ]];then
-  source "$HOME/.zshrc_mt"
+if [[ -f "${HOME}/.zshrc_mt" ]];then
+  source "${HOME}/.zshrc_mt"
 fi
 
 # convenience function
 pause() read -s -k "?$*"$'\n'
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
+
+# build and flash the beat_v1 sofle keymap
+flashSofle() {(
+set -e
+  cd "${HOME}/qmk_firmware/keyboards/sofle/keymaps/beat_v1"
+  qmk compile
+  # erase firmware
+  sudo dfu-programmer atmega32u4 erase --force
+  sudo dfu-programmer atmega32u4 flash "${HOME}/qmk_firmware/.build/sofle_rev1_beat_v1.hex"
+  cd -
+)
+}
+
+patchToNas() {
+  #get branch name
+  ref="$(git rev-parse --abbrev-ref HEAD | cut -f 2 -d '/' | cut -f 1,2 -d '-')"
+  echo "$ref"
+  
+  if [[ -z "$ref" ]]; then
+    echo "issue while parsing ticket number"
+  fi
+  
+  git diff > "/mnt/wutang_nas/patches/${ref}.patch"
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/beat/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/beat/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/beat/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/beat/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
