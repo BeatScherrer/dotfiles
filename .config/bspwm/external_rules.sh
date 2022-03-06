@@ -14,5 +14,6 @@ case $class in
      [ -n "$pid" ] && cmd="$(ps -q "$pid" -o comm= 2>/dev/null)"
      [ "$cmd" = spotify ] && echo "desktop=^5"
      [ "$cmd" = steam ] && echo "desktop=^3"
+     [ "$cmd" = "mt-gnuplot-visualizer" ] && echo "state=floating"
      ;;
 esac

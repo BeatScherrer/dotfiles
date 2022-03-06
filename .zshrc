@@ -140,12 +140,23 @@ patchToNas() {
   #get branch name
   ref="$(git rev-parse --abbrev-ref HEAD | cut -f 2 -d '/' | cut -f 1,2 -d '-')"
   echo "$ref"
-  
+
   if [[ -z "$ref" ]]; then
-    echo "issue while parsing ticket number"
+    echo "issue while parsing ticket number in current git repo"
   fi
-  
+
   git diff > "/mnt/wutang_nas/patches/${ref}.patch"
+}
+
+applyFromNas() {
+  ref="$(git rev-parse --abbrev-ref HEAD | cut -f 2 -d '/' | cut -f 1,2 -d '-' )"
+
+  if [[ -z "$ref" ]]; then
+    echo "issue while parsing ticke number in current git repo"
+  fi
+
+  git apply --ignore-space-change --ignore-whitespace "/mnt/wutang_nas/patches/${ref}.patch"
+
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
