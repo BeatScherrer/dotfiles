@@ -105,18 +105,18 @@ window:
 
 # Font configuration
 font:
-  size: 11
+  size: 9
   normal:
     family: Inconsolata for Powerline
     style: Regular
   bold:
-    family: Inconsolata for Powerline
+    family: Roboto Mono for Powerline
     style: Bold
   italic:
-    family: Inconsolata for Powerline
+    family: Roboto Mono for Powerline
     style: Italic
   bold_italic:
-    family: Inconsolata for Powerline
+    family: Roboto Mono for Powerline
     style: Bold Italic
 
   # Point size

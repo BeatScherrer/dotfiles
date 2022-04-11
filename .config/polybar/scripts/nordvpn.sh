@@ -1,6 +1,5 @@
 #!/bin/sh
 
-STATUS_LINE=$(nordvpn status 2>/dev/null | grep Status)
 STATUS="$(nordvpn status 2>/dev/null | grep Status | tr -d ' ' | cut -d ':' -f2)"
 
 if [[ "$STATUS" == "Connected" ]]; then

@@ -9,14 +9,19 @@ alias sourcezsh='source ~/.zshrc'
 alias wts='stty sane; clear;'
 
 # navigation
+alias cddata1='cd /media/data1'
+
 alias cdgit='cd $HOME/git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
 alias cdseeme='cdgit && cd beat/see-me'
 alias cdnavlog='cdws && cd analysis/navigation_analysis'
 alias cdnas='cd /mnt/wutang_nas'
+alias cdwine='cd $HOME/.wine'
 
 alias 'rm -rf'='rm -rfi'
+
+# wine aliases
 
 if [[ -f "$HOME/.mtr_aliases" ]]; then
   source $HOME/.mtr_aliases

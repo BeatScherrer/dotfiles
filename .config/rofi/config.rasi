@@ -5,4 +5,4 @@ configuration {
   icon-theme:         "Papirus";
 }
 
-@theme "launchers/colorful/style_1"
+@theme "./themes/beat"

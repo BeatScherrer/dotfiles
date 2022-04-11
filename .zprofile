@@ -7,8 +7,10 @@ if [[ -z "$CHROOT" ]]; then
 
   if [[ $(tty) == "/dev/tty1" ]]; then
     exec startx
+  elif [[ $(tty) == "/dev/tty2" ]]; then
+    export WLR_NO_HARDWARE_CURSORS=1
+    exec sway
   else
-    echo "not running grahical environment except in tty1"
+    echo "not running graphical environment. use tty1 for bspwm and tty2 for sway"
   fi
-  
 fi
