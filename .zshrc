@@ -1,9 +1,11 @@
+zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/usr/sbin:/usr/local/sbin:/sbin:$PATH
@@ -11,6 +13,9 @@ export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/beat/.oh-my-zsh"
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,6 +88,7 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-nvm
   history-substring-search
 )
 
@@ -111,18 +117,10 @@ bindkey "^[[B" history-substring-search-down
 # user aliases
 source ~/.aliases
 
-# Set nvm stuff
-export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
-
 
 if [[ -f "${HOME}/.zshrc_mt" ]];then
   source "${HOME}/.zshrc_mt"
 fi
-
-# convenience function
-pause() read -s -k "?$*"$'\n'
-[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
 
 # build and flash the beat_v1 sofle keymap
 flashSofle() {(
