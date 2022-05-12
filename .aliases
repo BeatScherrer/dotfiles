@@ -7,6 +7,11 @@ alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
 
+# convenience
+if [[ -z "$SCHROOT_SESSION_ID" ]]; then
+  alias cat='bat'
+fi
+
 # wtf
 alias wts='stty sane; clear;'
 
@@ -26,8 +31,7 @@ alias 'rm -rf'='rm -rfi'
 # schroot aliases
 alias ubuntu-see-me='schroot -c chroot:see-me'
 
-# wine aliases
-
+alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
 
 if [[ -f "$HOME/.mtr_aliases" ]]; then
   source $HOME/.mtr_aliases

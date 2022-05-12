@@ -107,6 +107,18 @@ window:
 font:
   size: 10
   normal:
+<<<<<<< HEAD
+    family: PragmataPro
+    style: Regular
+  bold:
+    family: PragmataPro
+    style: Bold
+  italic:
+    family: PragmataPro
+    style: Italic
+  bold_italic:
+    family: PragmataPro
+=======
     family: PragmataPro Mono Liga
     style: Regular
   bold:
@@ -117,6 +129,7 @@ font:
     style: Italic
   bold_italic:
     family: PragmataPro Mono Liga
+>>>>>>> e393bda9 (merge)
     style: Bold Italic
 
   # Point size
