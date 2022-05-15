@@ -107,16 +107,16 @@ window:
 font:
   size: 9
   normal:
-    family: Inconsolata for Powerline
+    family: PragmataPro
     style: Regular
   bold:
-    family: Roboto Mono for Powerline
+    family: PragmataPro
     style: Bold
   italic:
-    family: Roboto Mono for Powerline
+    family: PragmataPro
     style: Italic
   bold_italic:
-    family: Roboto Mono for Powerline
+    family: PragmataPro
     style: Bold Italic
 
   # Point size

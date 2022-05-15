@@ -1,8 +1,10 @@
 #!/bin/sh
 
+# overwrite aliases
+alias vim='nvim'
+
 # config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 alias sourcezsh='source ~/.zshrc'
 
 # wtf
@@ -21,7 +23,11 @@ alias cdwine='cd $HOME/.wine'
 
 alias 'rm -rf'='rm -rfi'
 
+# schroot aliases
+alias ubuntu-see-me='schroot -c chroot:see-me'
+
 # wine aliases
+
 
 if [[ -f "$HOME/.mtr_aliases" ]]; then
   source $HOME/.mtr_aliases
