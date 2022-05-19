@@ -32,8 +32,8 @@ keymap("n", "<C-l>", "<C-w>l")
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")
 keymap("n", "<C-Down>", ":resize -2<CR>")
-keymap("n", "<C-Left>", ":vertical resize -2<CR>")
-keymap("n", "<C-Right>", ":vertical resize +2<CR>")
+keymap("n", "<C-Left>", ":vertical resize +2<CR>")
+keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 
 -- Navigate buffers
 keymap("n", "<S-l>", "bnext<CR>")
@@ -53,9 +53,8 @@ keymap("v", ">", ">gv")
 keymap("v", "p", '"_dP') -- keep buffer when pasting
 
 -- NvimTree
-keymap('n', '<C-n>', '<cmd>NvimTreeToggle<cr>')            -- open/close
-keymap('n', '<leader>f', '<cmd>NvimTreeRefresh<cr>')       -- refresh
-keymap('n', '<leader>n', '<cmd>NvimTreeFindFile<cr>')      -- search file
+keymap('n', '<C-e>', '<cmd>NvimTreeToggle<cr>')            -- open/close
+keymap('n', '<leader>ef', '<cmd>NvimTreeFindFile<cr>')      -- search file
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>")

@@ -20,6 +20,9 @@ nvim_treesitter.setup {
     'typescript', 'vim'
   },
   ignore_install = {""},
+  autopairs = {
+    enable = true
+  },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   highlight = {

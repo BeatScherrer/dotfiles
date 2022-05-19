@@ -39,8 +39,16 @@ if not status_ok then
   return
 end
 
+packer.init({
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded"}
+    end
+  }
+})
+
 -- Install plugins
-return packer.startup({function(use)
+return packer.startup(function(use)
   -- Add you plugins here:
   use 'wbthomason/packer.nvim' -- packer can manage itself
   use 'nvim-lua/popup.nvim'
@@ -95,13 +103,21 @@ return packer.startup({function(use)
   use {
     'hrsh7th/nvim-cmp',
     requires = {
-      'L3MON4D3/LuaSnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
       'saadparwaiz1/cmp_luasnip',
     },
   }
+
+  -- snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
 
   -- Statusline
   use {
@@ -129,11 +145,5 @@ return packer.startup({function(use)
   if packer_bootstrap then
     packer.sync()
   end
-end,
-  config = {
-    display = {
-      open_fn = function()
-        return packer.util.float({ border = "rounded"})
-      end
-  }
-}})
+end
+)
