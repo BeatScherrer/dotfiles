@@ -40,9 +40,11 @@ if not status_ok then
 end
 
 -- Install plugins
-return packer.startup(function(use)
+return packer.startup({function(use)
   -- Add you plugins here:
   use 'wbthomason/packer.nvim' -- packer can manage itself
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   -- File explorer
   use 'kyazdani42/nvim-tree.lua'
@@ -50,8 +52,11 @@ return packer.startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/plenary.nvim'}}
+    requires = {
+      'nvim-lua/plenary.nvim',
+    }
   }
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Indent line
   use 'lukas-reineke/indent-blankline.nvim'
@@ -71,7 +76,11 @@ return packer.startup(function(use)
   use 'preservim/tagbar'
 
   -- Treesitter interface
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate"
+  }
+  use "p00f/nvim-ts-rainbow"
 
   -- Color schemes
   use 'navarasu/onedark.nvim'
@@ -118,6 +127,13 @@ return packer.startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    require('packer').sync()
+    packer.sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = function()
+        return packer.util.float({ border = "rounded"})
+      end
+  }
+}})

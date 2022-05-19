@@ -40,8 +40,8 @@ keymap("n", "<S-l>", "bnext<CR>")
 keymap("n", "<S-h>", "bprevious<CR>")
 
 -- Fast config access
-keymap("n", "<leader>vs", ":source ~/.config/nvim/init.lua<cr>")
-keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<cr>")
+keymap("n", "<leader>vs", "<cmd>source ~/.config/nvim/init.lua<cr>")
+keymap("n", "<leader>ve", "<cmd>edit ~/.config/nvim/init.lua<cr>")
 
 -- stay in visual mode wen indenting
 keymap("v", "<", "<gv")
@@ -52,8 +52,11 @@ keymap("v", ">", ">gv")
 --keymap("v", "<A-k>", ":m -1<CR>==", opts)
 keymap("v", "p", '"_dP') -- keep buffer when pasting
 
-
 -- NvimTree
-keymap('n', '<C-n>', ':NvimTreeToggle<CR>')            -- open/close
-keymap('n', '<leader>f', ':NvimTreeRefresh<CR>')       -- refresh
-keymap('n', '<leader>n', ':NvimTreeFindFile<CR>')      -- search file
+keymap('n', '<C-n>', '<cmd>NvimTreeToggle<cr>')            -- open/close
+keymap('n', '<leader>f', '<cmd>NvimTreeRefresh<cr>')       -- refresh
+keymap('n', '<leader>n', '<cmd>NvimTreeFindFile<cr>')      -- search file
+
+-- Telescope
+keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>")
+keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>")

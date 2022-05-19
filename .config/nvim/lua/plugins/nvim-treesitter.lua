@@ -19,10 +19,20 @@ nvim_treesitter.setup {
     'bash', 'c', 'cpp', 'css', 'html', 'javascript', 'json', 'lua', 'python',
     'typescript', 'vim'
   },
+  ignore_install = {""},
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
+    disable = {""},
+    additional_vim_regex_highlighting = true,
   },
+  indent = {enable = true, disable = { "" }},
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    --colors = {}, -- table with hex strings
+    --termcolors = {} -- table of colour name strings
+  }
 }
