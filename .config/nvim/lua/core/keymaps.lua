@@ -23,11 +23,12 @@ keymap('', '<right>', '<nop>')
 -- Clear search highlighting with <leader> and c
 keymap('n', '<leader>c', ':nohl<CR>')
 
--- Window navigation
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
+-- Window navigation, clashes with lsp keymappings, maybe set the tmux
+-- prefix to <C-w> for consistency
+--keymap("n", "<C-h>", "<C-w>h")
+--keymap("n", "<C-j>", "<C-w>j")
+--keymap("n", "<C-k>", "<C-w>k")
+--keymap("n", "<C-l>", "<C-w>l")
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")
@@ -54,8 +55,15 @@ keymap("v", "p", '"_dP') -- keep buffer when pasting
 
 -- NvimTree
 keymap('n', '<C-e>', '<cmd>NvimTreeToggle<cr>')            -- open/close
-keymap('n', '<leader>ef', '<cmd>NvimTreeFindFile<cr>')      -- search file
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>")
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>")
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
+keymap("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
+
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
+keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
+keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
+

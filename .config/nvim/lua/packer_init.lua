@@ -89,15 +89,13 @@ return packer.startup(function(use)
     run = ":TSUpdate"
   }
   use "p00f/nvim-ts-rainbow"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Color schemes
   use 'navarasu/onedark.nvim'
   use 'tanvirtin/monokai.nvim'
   use { 'rose-pine/neovim', as = 'rose-pine' }
   use 'folke/tokyonight.nvim'
-
-  -- LSP
-  use 'neovim/nvim-lspconfig'
 
   -- Autocomplete
   use {
@@ -111,6 +109,13 @@ return packer.startup(function(use)
     },
   }
 
+  -- unit test
+  use {
+    "rcarriga/vim-ultest",
+    requires = {"vim-test/vim-test"},
+    run = ":UpdateRemotePlugins"
+  }
+
   -- snippets
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
@@ -118,6 +123,14 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
+
+  -- buffer line
+  use {
+    "akinsho/bufferline.nvim",
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+
 
   -- Statusline
   use {
@@ -132,6 +145,16 @@ return packer.startup(function(use)
     config = function()
       require('gitsigns').setup()
     end
+  }
+
+  -- markdown preview
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = "cd app && npm install",
+    setup = function()
+     vim.g.mkdp_filetypes = {"markdown"}
+    end,
+    ft = {"markdown"},
   }
 
   -- Dashboard (start screen)

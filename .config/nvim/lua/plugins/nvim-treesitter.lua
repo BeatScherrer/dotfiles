@@ -15,10 +15,7 @@ end
 -- See: https://github.com/nvim-treesitter/nvim-treesitter#quickstart
 nvim_treesitter.setup {
   -- A list of parser names, or "all"
-  ensure_installed = {
-    'bash', 'c', 'cpp', 'css', 'html', 'javascript', 'json', 'lua', 'python',
-    'typescript', 'vim'
-  },
+  ensure_installed = { "vim", "bash", "c", "cpp", "rust", "lua", "python", "typescript", "javascript", "html", "toml", "yaml", "json" },
   ignore_install = {""},
   autopairs = {
     enable = true

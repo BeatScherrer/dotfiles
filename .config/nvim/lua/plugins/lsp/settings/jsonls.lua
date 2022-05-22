@@ -1,5 +1,5 @@
 local default_schemas = nil
-local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
+local status_ok, jsonls_settings = pcall(require, "lspsettings.jsonls")
 if status_ok then
   default_schemas = jsonls_settings.get_default_schemas()
 end
@@ -177,7 +177,7 @@ end
 
 local extended_schemas = extend(schemas, default_schemas)
 
-local opts = {
+return {
   settings = {
     json = {
       schemas = extended_schemas,
@@ -193,6 +193,3 @@ local opts = {
     },
   },
 }
-
-return opts
-
