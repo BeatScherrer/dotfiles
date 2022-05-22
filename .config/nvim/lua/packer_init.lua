@@ -70,12 +70,12 @@ return packer.startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- Autopair
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-    end
-  }
+  --use {
+  --  'windwp/nvim-autopairs',
+  --  config = function()
+  --    require('nvim-autopairs').setup()
+  --  end
+  --}
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
@@ -127,15 +127,20 @@ return packer.startup(function(use)
   -- buffer line
   use {
     "akinsho/bufferline.nvim",
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
   }
-
-
 
   -- Statusline
   use {
-    'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    "NTBBloodbath/galaxyline.nvim",
+    config = function()
+      require("galaxyline.themes.eviline")
+    end,
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    },
   }
 
   -- git labels
@@ -162,6 +167,12 @@ return packer.startup(function(use)
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
+
+  --float term
+  use {
+    "voldikss/vim-floaterm"
+  }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

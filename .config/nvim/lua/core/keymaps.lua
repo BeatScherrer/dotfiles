@@ -1,4 +1,3 @@
-local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true}
 
 local function keymap(mode, lhs, rhs, opts)
@@ -25,6 +24,8 @@ keymap('n', '<leader>c', ':nohl<CR>')
 
 -- Window navigation, clashes with lsp keymappings, maybe set the tmux
 -- prefix to <C-w> for consistency
+keymap("n", "<C-w>v", "<C-w>v;")
+keymap("n", "<C-w>h", "<C-w>s;")
 --keymap("n", "<C-h>", "<C-w>h")
 --keymap("n", "<C-j>", "<C-w>j")
 --keymap("n", "<C-k>", "<C-w>k")
