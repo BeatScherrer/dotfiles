@@ -105,18 +105,18 @@ window:
 
 # Font configuration
 font:
-  size: 9 
+  size: 8 
   normal:
-    family: PragmataProMonoLiga Nerd Font
+    family: JetBrainsMono Nerd Font Mono
     style: Regular
   bold:
-    family: PragmataProLiga Nerd Font
+    family: JetBrainsMono Nerd Font Mono
     style: Bold
   italic:
-    family: PragmataProLiga Nerd Font
+    family: JetBrainsMono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: PragmataProLiga Nerd Font
+    family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
 
   # Point size

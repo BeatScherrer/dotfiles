@@ -135,12 +135,13 @@ return packer.startup(function(use)
 
 	-- Statusline
 	use({
-		"NTBBloodbath/galaxyline.nvim",
-		config = function()
-			require("galaxyline.themes.eviline")
-		end,
+		"glepnir/galaxyline.nvim",
+		branch = "main",
+		-- your statusline
+		-- some optional icons
 		requires = {
-			"kyazdani42/nvim-web-devicons",
+			{ "kyazdani42/nvim-web-devicons", opt = true },
+			{ "SmiteshP/nvim-gps", opt = false },
 		},
 	})
 
@@ -151,6 +152,10 @@ return packer.startup(function(use)
 		config = function()
 			require("gitsigns").setup()
 		end,
+	})
+	use({
+		"sindrets/diffview.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 
 	-- markdown preview
@@ -172,10 +177,9 @@ return packer.startup(function(use)
 	--float term
 	use("akinsho/toggleterm.nvim")
 
-  -- misc
+	-- misc
 	use("wfxr/minimap.vim")
-  use("f-person/git-blame.nvim")
-
+	use("f-person/git-blame.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

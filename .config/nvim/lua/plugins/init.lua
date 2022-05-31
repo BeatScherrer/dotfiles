@@ -1,13 +1,15 @@
-require "plugins/nvim-cmp"
-require "plugins/nvim-treesitter"
-require "plugins/alpha-nvim"
-require "plugins/nvim-tree"
-require "plugins/telescope"
-require "plugins/nvim-autopairs"
-require "plugins/lsp"
-require "plugins/null-ls"
-require "plugins/bufferline"
-require "plugins/toggleterm"
-require "plugins/minimap"
-require "plugins/indent-blankline"
+require("plugins/nvim-cmp")
+require("plugins/nvim-treesitter")
+require("plugins/alpha-nvim")
+require("plugins/nvim-tree")
+require("plugins/telescope")
+require("plugins/nvim-autopairs")
+require("plugins/lsp")
+require("plugins/null-ls")
+require("plugins/bufferline")
+require("plugins/toggleterm")
+require("plugins/minimap")
+require("plugins/indent-blankline")
+require("plugins/galaxyline")
+require("plugins/nvim-gps")
 --require "plugins/markdown_preview"
