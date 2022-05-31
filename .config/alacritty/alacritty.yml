@@ -107,16 +107,16 @@ window:
 font:
   size: 8 
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrainsMonoNL Nerd Font
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrainsMonoNL Nerd Font 
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrainsMonoNL Nerd Font 
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrainsMonoNL Nerd Font 
     style: Bold Italic
 
   # Point size
