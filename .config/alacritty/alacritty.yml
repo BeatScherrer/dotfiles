@@ -108,13 +108,13 @@ font:
   size: 8 
   normal:
     family: JetBrainsMonoNL Nerd Font
-    style: Regular
+    style: Light
   bold:
     family: JetBrainsMonoNL Nerd Font 
     style: Bold
   italic:
     family: JetBrainsMonoNL Nerd Font 
-    style: Italic
+    style: Light Italic
   bold_italic:
     family: JetBrainsMonoNL Nerd Font 
     style: Bold Italic

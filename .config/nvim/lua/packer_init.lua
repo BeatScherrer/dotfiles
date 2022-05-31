@@ -109,6 +109,13 @@ return packer.startup(function(use)
 		},
 	})
 
+  use({
+    "terrortylor/nvim-comment",
+    config = function()
+      require("nvim_comment").setup()
+    end
+  })
+
 	-- unit test
 	use({
 		"rcarriga/vim-ultest",
@@ -145,7 +152,7 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- git labels
+	-- git
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
@@ -157,6 +164,7 @@ return packer.startup(function(use)
 		"sindrets/diffview.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	use("f-person/git-blame.nvim")
 
 	-- markdown preview
 	use({
@@ -174,12 +182,11 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
-	--float term
+  -- Terminal
 	use("akinsho/toggleterm.nvim")
 
 	-- misc
 	use("wfxr/minimap.vim")
-	use("f-person/git-blame.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
