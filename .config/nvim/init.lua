@@ -1,11 +1,10 @@
 require("core/options")
 require("core/keymaps")
+require("core/colorscheme")
 
 require("packer_init")
 
 require("plugins")
-
-vim.cmd([[colorscheme rose-pine]])
 
 -- TODO:
 -- Quickfix setup to jump to the compilation error location directly (requires to overwrite the make command?)

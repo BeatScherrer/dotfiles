@@ -96,6 +96,7 @@ return packer.startup(function(use)
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	use("folke/tokyonight.nvim")
 	use({ "jacoborus/tender.vim", as = "tender" })
+	use("RRethy/nvim-base16")
 
 	-- Autocomplete
 	use({
@@ -109,12 +110,12 @@ return packer.startup(function(use)
 		},
 	})
 
-  use({
-    "terrortylor/nvim-comment",
-    config = function()
-      require("nvim_comment").setup()
-    end
-  })
+	use({
+		"terrortylor/nvim-comment",
+		config = function()
+			require("nvim_comment").setup()
+		end,
+	})
 
 	-- unit test
 	use({
@@ -182,7 +183,7 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
-  -- Terminal
+	-- Terminal
 	use("akinsho/toggleterm.nvim")
 
 	-- misc
