@@ -17,7 +17,7 @@ function set_colorscheme(name)
 	-- 	vim.notify("colorscheme " .. name .. " not found!")
 	-- 	return
 	-- end
-	vim.cmd("colorscheme base16-" .. name)
+	vim.cmd("colorscheme " .. name)
 
 	-- execute `kitty @ set-colors -c <color>` to change terminal window's
 	-- colors and newly created terminal windows colors

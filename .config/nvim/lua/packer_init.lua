@@ -188,6 +188,12 @@ return packer.startup(function(use)
 
 	-- misc
 	use("wfxr/minimap.vim")
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

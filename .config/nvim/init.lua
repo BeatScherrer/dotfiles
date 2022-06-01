@@ -11,3 +11,4 @@ require("plugins")
 -- set up task runner, e.g jedrzejboczar/toggletasks.nvim
 -- move plugin configs from packer_init to plugin setting
 -- make splits/tabs with own buffer list
+-- create gravel-pit theme
