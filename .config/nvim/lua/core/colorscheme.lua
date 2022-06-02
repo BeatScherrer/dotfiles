@@ -21,15 +21,15 @@ function set_colorscheme(name)
 
 	-- execute `kitty @ set-colors -c <color>` to change terminal window's
 	-- colors and newly created terminal windows colors
-	vim.loop.spawn("kitty", {
-		args = {
-			"@",
-			"set-colors",
-			"-c",
-			-- string.format(vim.env.XDG_CONFIG_HOME .. "kitty/base16-kitty/colors/%s.conf", name),
-			string.format("~/.config/kitty/base16-kitty/colors/base16-%s.conf", name),
-		},
-	}, nil)
+	--vim.loop.spawn("kitty", {
+	--	args = {
+	--		"@",
+	--		"set-colors",
+	--		"-c",
+	--		-- string.format(vim.env.XDG_CONFIG_HOME .. "kitty/base16-kitty/colors/%s.conf", name),
+	--		string.format("~/.config/kitty/base16-kitty/colors/base16-%s.conf", name),
+	--	},
+	--}, nil)
 end
 
 set_colorscheme(theme_name)

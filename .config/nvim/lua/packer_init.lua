@@ -97,6 +97,7 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim")
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("RRethy/nvim-base16")
+  use("arcticicestudio/nord-vim")
 
 	-- Autocomplete
 	use({

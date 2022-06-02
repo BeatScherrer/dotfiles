@@ -177,19 +177,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Kitty
-eval "kitty @ set-colors -c ~/.config/kitty/base16-kitty/colors/base16-$(cat ~/.config/kitty/.base16_theme).conf"
+if [[ "$TERM" == "xterm-kitty" ]]; then
+  eval "kitty @ set-colors -c ~/.config/kitty/base16-kitty/colors/base16-$(cat ~/.config/kitty/.base16_theme).conf"
+fi
 
-function toggle-theme() {
-	current_theme=$(awk '$1=="include" {print $2}' "$HOME/.config/kitty/kitty.conf")
-	new_theme="rose-pine.conf"
-
-	if [ "$current_theme" = "rose-pine.conf" ]; then
-		new_theme="rose-pine-dawn.conf"
-	fi
-
-	# Set theme for active sessions. Requires `allow_remote_control yes`
-	kitty @ set-colors --all --configured "~/.config/kitty/$new_theme"
-
-	# Update config for persistence
-	sed -i '' -e "s/include.*/include $new_theme/" "$HOME/.config/kitty/kitty.conf"
-}

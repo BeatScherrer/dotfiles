@@ -36,8 +36,8 @@ nvim_tree.setup({
 	open_on_tab = false,
 	sort_by = "name",
 	update_cwd = false,
-	reload_on_bufenter = false,
-	respect_buf_cwd = false,
+	reload_on_bufenter = true,
+	respect_buf_cwd = true,
 	view = {
 		adaptive_size = false,
 		width = 30,
