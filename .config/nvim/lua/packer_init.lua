@@ -172,16 +172,6 @@ return packer.startup(function(use)
 	})
 	use("f-person/git-blame.nvim")
 
-	-- markdown preview
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	})
-
 	-- Dashboard (start screen)
 	use({
 		"goolord/alpha-nvim",
@@ -192,7 +182,6 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	-- misc
-	use("wfxr/minimap.vim")
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -200,6 +189,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use("karb94/neoscroll.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

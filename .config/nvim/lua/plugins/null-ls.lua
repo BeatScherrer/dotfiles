@@ -15,6 +15,5 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.shfmt,
 		formatting.rustfmt,
-		formatting.jsontools,
 	},
 })

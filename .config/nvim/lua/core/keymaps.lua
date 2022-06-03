@@ -74,6 +74,9 @@ keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
 keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 
+-- minimap
+keymap("n", "<leader>mt", "<cmd>MinimapToggle<cr>")
+
 keymap("n", "<leader>cf", "<cmd>Format<cr>")
 
 keymap("n", "<C-\\>", "<cmd>FloatermToggle<cr>")

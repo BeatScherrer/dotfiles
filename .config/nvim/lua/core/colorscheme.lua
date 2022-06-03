@@ -2,15 +2,13 @@
 -- credits to rrhety. from: https://rrethy.github.io/book/colorscheme.html
 
 -- local base16_theme_fname = vim.fn.expand(vim.env.XDG_CONFIG_HOME .. "/.base16_theme")
-base16_theme_fname = vim.fn.expand("~/.config/kitty/.base16_theme")
-theme_name = vim.fn.readfile(base16_theme_fname)[1]
-
-vim.notify(theme_name)
+theme_fname = vim.fn.expand("~/.config/theme")
+theme_name = vim.fn.readfile(theme_fname)[1]
 
 -- this function is the only way we should be setting our colorscheme
 function set_colorscheme(name)
 	-- write our colorscheme back to our single source of truth
-	vim.fn.writefile({ name }, base16_theme_fname)
+	vim.fn.writefile({ name }, theme_fname)
 	-- set Neovim's colorscheme
 	-- local status_ok = pcall(vim.cmd, "colorscheme base16-" .. name)
 	-- if not status_ok then
