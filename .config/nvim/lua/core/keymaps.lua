@@ -58,7 +58,7 @@ keymap("v", ">", ">gv")
 keymap("v", "p", '"_dP') -- keep beuffe when pasting
 
 -- NvimTree
-keymap("n", "<C-e>", "<cmd>NvimTreeToggle<cr>") -- open/close
+keymap("n", "<C-t>", "<cmd>NvimTreeToggle<cr>") -- open/close
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")

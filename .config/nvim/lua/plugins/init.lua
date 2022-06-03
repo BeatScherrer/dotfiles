@@ -13,4 +13,5 @@ require("plugins/indent-blankline")
 require("plugins/galaxyline")
 require("plugins/lualine")
 require("plugins/nvim-gps")
+require("plugins/neoscroll")
 --require "plugins/markdown_preview"

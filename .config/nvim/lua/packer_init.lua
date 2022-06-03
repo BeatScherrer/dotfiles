@@ -199,6 +199,7 @@ return packer.startup(function(use)
 			require("colorizer").setup()
 		end,
 	})
+	use("karb94/neoscroll.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
