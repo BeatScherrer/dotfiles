@@ -17,7 +17,11 @@ function set_colorscheme(name)
 	-- 	vim.notify("colorscheme " .. name .. " not found!")
 	-- 	return
 	-- end
-	vim.cmd("colorscheme " .. name)
+	status_ok, _ = pcall(vim.cmd, "colorscheme " .. name)
+	if not status_ok then
+		vim.notify("setting fallback colorscheme")
+		return
+	end
 
 	-- execute `kitty @ set-colors -c <color>` to change terminal window's
 	-- colors and newly created terminal windows colors

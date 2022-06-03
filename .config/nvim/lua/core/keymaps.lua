@@ -40,8 +40,9 @@ keymap("n", "<C-Left>", ":vertical resize +2<CR>")
 keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 
 -- Navigate buffers
-keymap("n", "<S-l>", "bnext<CR>")
-keymap("n", "<S-h>", "bprevious<CR>")
+keymap("n", "<leader>bl", "<cmd>bnext<cr>")
+keymap("n", "<leader>bh", "<cmd>bprevious<cr>")
+keymap("n", "<leader>bf", "<cmd>Telescope buffer<cr>")
 
 -- Fast config access
 keymap("n", "<leader>vs", "<cmd>source ~/.config/nvim/init.lua<cr>")
@@ -54,18 +55,19 @@ keymap("v", ">", ">gv")
 -- Move text up and down, TODO
 --keymap("v", "<A-j>", ":m .+1<CR>===", opts)
 --keymap("v", "<A-k>", ":m -1<CR>==", opts)
-keymap("v", "p", '"_dP') -- keep buffer when pasting
+keymap("v", "p", '"_dP') -- keep beuffe when pasting
 
 -- NvimTree
 keymap("n", "<C-e>", "<cmd>NvimTreeToggle<cr>") -- open/close
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+keymap("n", "<leader>fb", "<cmd>Telescope buffer<cr>")
+keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>")
 keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
 keymap("n", "<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
 keymap("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
+keymap("n", "<leader>fg", "<cmd>Telescope grep_string<cr>")
 
 -- git
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")

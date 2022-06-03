@@ -11,5 +11,6 @@ require("plugins/toggleterm")
 require("plugins/minimap")
 require("plugins/indent-blankline")
 require("plugins/galaxyline")
+require("plugins/lualine")
 require("plugins/nvim-gps")
 --require "plugins/markdown_preview"

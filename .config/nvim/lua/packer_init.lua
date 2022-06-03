@@ -97,7 +97,8 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim")
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("RRethy/nvim-base16")
-  use("arcticicestudio/nord-vim")
+	use("arcticicestudio/nord-vim")
+	use("cocopon/iceberg.vim")
 
 	-- Autocomplete
 	use({
@@ -143,16 +144,19 @@ return packer.startup(function(use)
 	})
 
 	-- Statusline
-	use({
-		"glepnir/galaxyline.nvim",
-		branch = "main",
-		-- your statusline
-		-- some optional icons
-		requires = {
-			{ "kyazdani42/nvim-web-devicons", opt = true },
-			{ "SmiteshP/nvim-gps", opt = false },
-		},
-	})
+	-- use({
+	-- 	"glepnir/galaxyline.nvim",
+	-- 	branch = "main",
+	-- 	-- your statusline
+	-- 	-- some optional icons
+	-- 	requires = {
+	-- 		{ "kyazdani42/nvim-web-devicons", opt = true },
+	-- 		{ "SmiteshP/nvim-gps", opt = false },
+	-- 	},
+	-- })
+	use({ "nvim-lualine/lualine.nvim", requires = {
+		{ "SmiteshP/nvim-gps", opt = false },
+	} })
 
 	-- git
 	use({
