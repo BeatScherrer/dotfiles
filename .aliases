@@ -8,7 +8,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
 
 # convenience
-if [[ -z "$SCHROOT_SESSION_ID" ]]; then
+if [ -z "$SCHROOT_SESSION_ID" ]; then
 	alias cat='bat'
 fi
 
@@ -18,11 +18,13 @@ alias wts='stty sane; clear;'
 # navigation
 alias cddata1='cd /media/data1'
 alias cdconfig='cd ~/.config'
-alias cdnvim='cd ~/.config/nvim'
-alias cdkitty='cd ~/.config/kitty'
-alias cdbspwm='cd ~/.config/bspwm'
+alias cdnvim='cdconfig && cd nvim'
+alias cdkitty='cdconfig && cd kitty'
+alias cdbspwm='cdconfig && cd bspwm'
+alias cdsway='cdconfig && cd sway'
 
-alias cdgit='cd $HOME/git'
+alias cdws='cd "$HOME/workspace"'
+alias cdgit='cdws && cd git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
 alias cdseeme='cdgit && cd beat/see-me'
@@ -37,6 +39,6 @@ alias ubuntu-see-me='schroot -c chroot:see-me'
 
 alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
 
-if [[ -f "$HOME/.mtr_aliases" ]]; then
-	source $HOME/.mtr_aliases
+if [ -f "$HOME/.mtr_aliases" ]; then
+	. "$HOME/.mtr_aliases"
 fi
