@@ -1,5 +1,11 @@
 #!/usr/bin/zsh
 
+# set XDG directories
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
 # only startx if not in schroot
 if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
 

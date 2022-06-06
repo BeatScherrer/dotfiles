@@ -19,7 +19,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu rofi -modi drun -show drun | xargs swaymsg exec --
-set $menu wofi --show drun | xargs swaymsg exec --
+set $menu wofi --show drun -I | xargs swaymsg exec --
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #e4aa80 #e4aa80 #000000 #e4aa80   #e4aa80

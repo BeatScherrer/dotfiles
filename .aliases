@@ -18,6 +18,7 @@ alias wts='stty sane; clear;'
 # navigation
 alias cddata1='cd /media/data1'
 alias cdconfig='cd ~/.config'
+alias cdlog='cd /var/log'
 alias cdnvim='cdconfig && cd nvim'
 alias cdkitty='cdconfig && cd kitty'
 alias cdbspwm='cdconfig && cd bspwm'
