@@ -7,7 +7,7 @@ sleep 0.1
 
 IMAGE_URL="/tmp/screenshot.png"
 
-success=$(grim -g "$IMAGE_URL" - | wl-copy)
+success=$(grim "$IMAGE_URL" - | wl-copy)
 
 if $success; then
 	dunstify -h string:c-dunst-stack-tag:screenshot "screenshot taken" $IMAGE_URL -i $IMAGE_URL
