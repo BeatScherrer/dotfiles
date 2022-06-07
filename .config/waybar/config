@@ -93,7 +93,9 @@
     },
 
     "custom/scrot": {
-      "on-click": "$HOME/.config/waybar/scripts/scrot.sh",
+      "on-click": "$HOME/.config/waybar/scripts/screenshot_window.sh",
+      "on-click-right": "$HOME/.config/waybar/scripts/screenshot_area.sh",
+      "on-click-middle": "$HOME/.config/waybar/scripts/screenshot_all.sh",
       "format": "",
       "tooltip": false
       },

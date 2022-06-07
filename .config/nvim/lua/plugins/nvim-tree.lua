@@ -83,7 +83,7 @@ nvim_tree.setup({
 		timeout = 500,
 	},
 	view = {
-		adaptive_size = true,
+		adaptive_size = false,
 		width = 30,
 		height = 30,
 		hide_root_folder = false,
@@ -94,7 +94,7 @@ nvim_tree.setup({
 				{ key = { "<CR>", "o" }, cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("close_node") },
 				{ key = "v", cb = tree_cb("vsplit") },
-				{ key = "<C-e>", action = ""}, -- remove since this is bound to opening the tree
+				{ key = "<C-e>", action = "" }, -- remove since this is bound to opening the tree
 			},
 		},
 		number = false,

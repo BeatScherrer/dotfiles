@@ -62,7 +62,7 @@ keymap("n", "<C-t>", "<cmd>NvimTreeToggle<cr>") -- open/close
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-keymap("n", "<leader>fb", "<cmd>Telescope buffer<cr>")
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>")
 keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
 keymap("n", "<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
