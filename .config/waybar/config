@@ -23,6 +23,7 @@
     "height": 30,
 
     "modules-left": [
+        "custom/launcher",
         "sway/workspaces",
         "sway/mode"
     ],
@@ -50,6 +51,7 @@
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
+    
 
     "battery": {
         "interval": 10,
@@ -91,6 +93,14 @@
           "critical": 90
         }
     },
+
+    "custom/launcher": {
+      "on-click": "wofi --show drun -I | xargs swaymsg exec --",
+      "on-click-right": "$HOME/.config/waybar/scripts/screenshot_area.sh",
+      "on-click-middle": "$HOME/.config/waybar/scripts/screenshot_all.sh",
+      "format": "",
+      "tooltip": false
+      },
 
     "custom/scrot": {
       "on-click": "$HOME/.config/waybar/scripts/screenshot_window.sh",

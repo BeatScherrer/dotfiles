@@ -80,6 +80,7 @@
 #clock,
 #cpu,
 #custom-keyboard-layout,
+#custom-launcher,
 #memory,
 #mode,
 #network,
@@ -147,6 +148,11 @@
   color: @bg;
   background-color: @fg;
   margin-right: 10px;
+}
+
+#custom-launcher {
+  font-size: 32px;
+  padding: 5 10px;
 }
 
 #memory {
