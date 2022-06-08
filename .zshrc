@@ -119,6 +119,7 @@ bindkey "^[[B" history-substring-search-down
 source ~/.aliases
 
 
+# source MT-Robot zshrc
 if [[ -f "${HOME}/.zshrc_mt" ]];then
   source "${HOME}/.zshrc_mt"
 fi
