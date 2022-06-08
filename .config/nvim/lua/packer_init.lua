@@ -112,12 +112,16 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- Commenting
 	use({
 		"terrortylor/nvim-comment",
 		config = function()
 			require("nvim_comment").setup()
 		end,
 	})
+
+	-- Tasks
+	use("tpope/vim-dispatch")
 
 	-- unit test
 	use({
@@ -171,6 +175,10 @@ return packer.startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use("f-person/git-blame.nvim")
+	use({
+		"TimUntersberger/neogit",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 
 	-- Dashboard (start screen)
 	use({

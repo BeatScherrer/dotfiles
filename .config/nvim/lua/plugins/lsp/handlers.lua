@@ -87,6 +87,10 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	if client.name == "cmake" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
 	if client.name == "efm" then
 		client.resolved_capabilities.document_formatting = false
 	end
