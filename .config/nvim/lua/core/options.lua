@@ -13,3 +13,5 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 vim.opt.termguicolors = true
 vim.opt.laststatus = 3
+
+vim.opt.makeprg = "cd build && schroot -c chroot:mt_ubuntu18 -- make; cd - "
