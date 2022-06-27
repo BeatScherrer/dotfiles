@@ -116,8 +116,7 @@ bindkey "^[[B" history-substring-search-down
 # export ARCHFLAGS="-arch x86_64"
 
 # user aliases
-source ~/.aliases
-
+source "$HOME/.aliases"
 
 # source MT-Robot zshrc
 if [[ -f "${HOME}/.zshrc_mt" ]];then

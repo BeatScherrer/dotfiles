@@ -130,6 +130,11 @@ _G.packer_plugins = {
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gravel-pit.nvim"] = {
+    loaded = true,
+    path = "/home/beat/.local/share/nvim/site/pack/packer/start/gravel-pit.nvim",
+    url = "/home/beat/workspace/git/beat/gravel-pit.nvim/"
+  },
   ["iceberg.vim"] = {
     loaded = true,
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/iceberg.vim",
@@ -176,11 +181,6 @@ _G.packer_plugins = {
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -223,6 +223,11 @@ _G.packer_plugins = {
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-cpp-tools"] = {
+    loaded = true,
+    path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-treesitter-cpp-tools",
+    url = "https://github.com/Badhi/nvim-treesitter-cpp-tools"
+  },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
@@ -247,6 +252,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/beat/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,

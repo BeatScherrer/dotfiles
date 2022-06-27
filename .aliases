@@ -41,5 +41,5 @@ alias ubuntu-see-me='schroot -c chroot:see-me'
 alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
 
 if [ -f "$HOME/.mtr_aliases" ]; then
-	. "$HOME/.mtr_aliases"
+	source "$HOME/.mtr_aliases"
 fi

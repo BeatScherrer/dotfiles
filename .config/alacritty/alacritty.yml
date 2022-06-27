@@ -105,7 +105,7 @@ window:
 
 # Font configuration
 font:
-  size: 12
+  size: 10
   normal:
     family: JetBrainsMonoNL Nerd Font
     style: Light
@@ -146,30 +146,26 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+   background: '#1d1f21'
+   foreground: '#c5c8c6'
+  
+   dim_foreground: '#828482'
+   bright_foreground: '#eaeaea'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+  cursor:
+   text: CellBackground
+   cursor: CellForeground
 
-  # Cursor colors
+  # bright
+  # primary:
+  #   background: '#c5c8c6'
+  #   foreground: '#1d1f21'
   #
-  # Colors which should be used to draw the terminal cursor.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
+  #   dim_foreground: '#eaeaea'
+  #   bright_foreground: '#828482'
 
   # Vi mode cursor colors
   #
@@ -237,15 +233,25 @@ font:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  normal:
+    black: "#282a2e"
+    white: "#707880"
+    red: "#a54242"
+    green: "#8c9440"
+    yellow: "#de935f"
+    blue: "#5f819d"
+    magenta: "#85678f"
+    cyan: "#5e8d87"
+
+  bright:
+    black: "#555b65"
+    white: "#c5c8c6"
+    red: "#cc6666"
+    green: "#b5bd68"
+    blue: "#81a2be"
+    yellow: "#ffeac3"
+    magenta: "#b294bb"
+    cyan: "#8abeb7"
 
   # Bright colors
   #bright:
