@@ -100,7 +100,7 @@ return packer.startup(function(use)
 	-- use("RRethy/nvim-base16")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	use("/home/beat/workspace/git/beat/gravel-pit.nvim/")
+	use("BeatScherrer/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
@@ -125,13 +125,6 @@ return packer.startup(function(use)
 
 	-- Tasks
 	use("tpope/vim-dispatch")
-
-	-- unit test
-	use({
-		"rcarriga/vim-ultest",
-		requires = { "vim-test/vim-test" },
-		run = ":UpdateRemotePlugins",
-	})
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")

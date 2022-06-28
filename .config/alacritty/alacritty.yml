@@ -105,7 +105,7 @@ window:
 
 # Font configuration
 font:
-  size: 10
+  size: 12
   normal:
     family: JetBrainsMonoNL Nerd Font
     style: Light
