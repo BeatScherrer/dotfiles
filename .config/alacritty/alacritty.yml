@@ -84,10 +84,10 @@ window:
 
   # Window class (Linux/BSD only):
   #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
+  # Application instance name
+  #instance: Alacritty
+  # General application class
+  #general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
@@ -96,27 +96,27 @@ window:
   #gtk_theme_variant: None
 
 #scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  #history: 10000
+# Maximum number of lines in the scrollback buffer.
+# Specifying '0' will disable scrolling.
+#history: 10000
 
-  # Scrolling distance multiplier.
-  #multiplier: 3
+# Scrolling distance multiplier.
+#multiplier: 3
 
 # Font configuration
 font:
-  size: 12
+  size: 8
   normal:
     family: JetBrainsMonoNL Nerd Font
     style: Light
   bold:
-    family: JetBrainsMonoNL Nerd Font 
+    family: JetBrainsMonoNL Nerd Font
     style: Bold
   italic:
-    family: JetBrainsMonoNL Nerd Font 
+    family: JetBrainsMonoNL Nerd Font
     style: Light Italic
   bold_italic:
-    family: JetBrainsMonoNL Nerd Font 
+    family: JetBrainsMonoNL Nerd Font
     style: Bold Italic
 
   # Point size
