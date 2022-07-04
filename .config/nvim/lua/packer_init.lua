@@ -164,6 +164,7 @@ return packer.startup(function(use)
 		"TimUntersberger/neogit",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	use("tpope/vim-fugitive")
 
 	-- Dashboard (start screen)
 	use({

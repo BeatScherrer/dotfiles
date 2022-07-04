@@ -52,6 +52,11 @@ keymap("n", "<leader>ve", "<cmd>edit ~/.config/nvim/init.lua<cr>")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
+-- quickfix shortcuts
+keymap("n", "<leader>qf", "<cmd>cf<cr>")
+keymap("n", "<leader>qn", "<cmd>cn<cr>")
+keymap("n", "<leader>qp", "<cmd>cp<cr>")
+
 -- Move text up and down, TODO
 --keymap("v", "<A-j>", ":m .+1<CR>===", opts)
 --keymap("v", "<A-k>", ":m -1<CR>==", opts)
@@ -68,6 +73,7 @@ keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
 keymap("n", "<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
 keymap("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
 keymap("n", "<leader>fg", "<cmd>Telescope grep_string<cr>")
+keymap("n", "<leader>fo", "<cmd>Telescope resume<cr>")
 
 -- git
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
