@@ -11,6 +11,9 @@ if not status_ok then
 	return
 end
 
+--vim.opt.foldmethod = "expr"
+--vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- See: https://github.com/nvim-treesitter/nvim-treesitter#quickstart
 nvim_treesitter.setup({
 	-- A list of parser names, or "all"
