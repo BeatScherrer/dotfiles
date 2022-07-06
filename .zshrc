@@ -181,3 +181,7 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
   eval "kitty @ set-colors -c ~/.config/kitty/base16-kitty/colors/base16-$(cat ~/.config/kitty/.base16_theme).conf"
 fi
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
