@@ -65,6 +65,16 @@ return packer.startup(function(use)
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
 
+	-- Sessions
+	use("rmagatti/auto-session")
+	use({
+		"rmagatti/session-lens",
+		requires = {
+			"rmagatti/auto-session",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
+
 	-- Indent line
 	use("lukas-reineke/indent-blankline.nvim")
 
