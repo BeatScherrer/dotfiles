@@ -110,7 +110,7 @@ return packer.startup(function(use)
 	-- use("RRethy/nvim-base16")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	use("BeatScherrer/gravel-pit.nvim")
+	use("/home/beat/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
@@ -161,9 +161,6 @@ return packer.startup(function(use)
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("gitsigns").setup()
-		end,
 	})
 	use({
 		"sindrets/diffview.nvim",

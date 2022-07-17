@@ -17,4 +17,5 @@ vim.opt.fillchars = {
 	diff = " ",
 }
 
+-- TODO: How can we get this project based??
 vim.opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18 -- /usr/bin/zsh -ic "make"; cd - '
