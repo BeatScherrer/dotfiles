@@ -135,6 +135,7 @@ return packer.startup(function(use)
 
 	-- Tasks
 	use("tpope/vim-dispatch")
+	use("NoahTheDuke/vim-just")
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")
@@ -144,6 +145,12 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
+
+	-- Debugger
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use("theHamsta/nvim-dap-virtual-text")
+	use("nvim-telescope/telescope-dap.nvim")
 
 	-- buffer line
 	use({

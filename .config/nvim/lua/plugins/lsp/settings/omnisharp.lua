@@ -14,7 +14,7 @@ return {
 	root_dir = root_dir,
 	cmd = {
 		omnisharp_bin,
-		"--languageserver",
+		"-lsp",
 		"--hostPID",
 		tostring(pid),
 		"--source /home/beat/workspace/ucc/web-gui/src/MTRobot.UCC",
