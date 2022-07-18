@@ -25,6 +25,7 @@ alias cdbspwm='cdconfig && cd bspwm'
 alias cdsway='cdconfig && cd sway'
 
 alias cdws='cd "$HOME/workspace"'
+alias cdsandbox='cdws && cd sandbox'
 alias cdgit='cdws && cd git'
 alias cdcarlo='cdgit && cd beat/carlo'
 alias cdkb='cdgit && cd beat/kitebuddies'
