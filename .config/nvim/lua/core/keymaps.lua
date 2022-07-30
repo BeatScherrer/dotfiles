@@ -74,6 +74,7 @@ keymap("n", "<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
 keymap("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
 keymap("n", "<leader>fg", "<cmd>Telescope grep_string<cr>")
 keymap("n", "<leader>fo", "<cmd>Telescope resume<cr>")
+keymap("n", "<leader>f?", "<cmd>Telescope help_tags<cr>")
 
 -- git
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")

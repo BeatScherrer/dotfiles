@@ -136,6 +136,7 @@ return packer.startup(function(use)
 	-- Tasks
 	use("tpope/vim-dispatch")
 	use("NoahTheDuke/vim-just")
+	use("/home/beat/workspace/git/beat/just.nvim")
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")
