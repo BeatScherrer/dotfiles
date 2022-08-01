@@ -110,7 +110,7 @@ return packer.startup(function(use)
 	-- use("RRethy/nvim-base16")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	use("/home/beat/workspace/git/beat/gravel-pit.nvim")
+	use("BeatScherrer/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
