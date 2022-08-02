@@ -180,6 +180,7 @@ return packer.startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use("tpope/vim-fugitive")
+	use("ThePrimeagen/git-worktree.nvim")
 
 	-- Dashboard (start screen)
 	use({

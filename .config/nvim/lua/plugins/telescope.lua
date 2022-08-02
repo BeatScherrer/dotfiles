@@ -6,6 +6,8 @@ end
 
 local actions = telescope.actions
 
+telescope.load_extension("git_worktree")
+
 telescope.setup({
 	defaults = {
 		-- Default configuration for telescope goes here:
