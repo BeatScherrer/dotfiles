@@ -1,10 +1,11 @@
-require("core/options")
-require("core/keymaps")
-require("core/colorscheme")
-
 require("packer_init")
 
 require("plugins")
+
+-- load these at the end to overwrite settings that were set somewhere unpredictable
+require("core/keymaps")
+require("core/colorscheme")
+require("core/options")
 
 -- TODO:
 -- Quickfix setup to jump to the compilation error location directly (requires to overwrite the make command?)
