@@ -86,3 +86,11 @@ keymap("n", "<leader>mt", "<cmd>MinimapToggle<cr>")
 keymap("n", "<leader>cf", "<cmd>Format<cr>")
 keymap("n", "<C-\\>", "<cmd>ToggleTerm<cr>")
 keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>")
+
+-- dap
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
+keymap("n", "<leader>dn", "<cmd>lua require'dap'.step_over()<cr>")
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>")
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>")
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")

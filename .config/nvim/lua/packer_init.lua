@@ -124,6 +124,7 @@ return packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 		},
 	})
+	use("github/copilot.vim")
 
 	-- Commenting
 	use({
@@ -152,6 +153,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("theHamsta/nvim-dap-virtual-text")
+	use({ "ravenxrz/DAPInstall.nvim" })
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- buffer line

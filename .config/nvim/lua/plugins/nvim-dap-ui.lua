@@ -1,7 +1,26 @@
-local status_ok, dap_ui = pcall(require, "dapui")
+local status_dap_ui_ok, dap_ui = pcall(require, "dapui")
 
-if not status_ok then
+local status_dap_ok, dap = pcall(require, "dap")
+
+if not status_dap_ok then
+	vim.notify("could not find 'dap'")
+end
+
+if not status_dap_ui_ok then
 	vim.notify("could not find nvim-dap-ui")
+end
+
+-- attach to dap events
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dap_ui.open()
+end
+
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dap_ui.close()
+end
+
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dap_ui.close()
 end
 
 dap_ui.setup({
@@ -29,20 +48,20 @@ dap_ui.setup({
 		{
 			elements = {
 				-- Elements can be strings or table with id and size keys.
-				{ id = "scopes", size = 0.25 },
-				"breakpoints",
-				"stacks",
-				"watches",
+				{ id = "breakpoints", size = 0.4 },
+				{ id = "scopes", size = 0.6 },
+				-- "stacks",
+				-- "watches",
 			},
-			size = 40, -- 40 columns
-			position = "left",
+			size = 60, -- 40 columns
+			position = "right",
 		},
 		{
 			elements = {
-				"repl",
+				-- 		"repl",
 				"console",
 			},
-			size = 0.25, -- 25% of total lines
+			size = 0.2, -- 20% of total lines
 			position = "bottom",
 		},
 	},

@@ -3,13 +3,15 @@ if not status_ok then
 	vim.notify("could not find dap")
 end
 
--- keymaps
-vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<cr>")
-vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<cr>")
-vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<cr>")
-vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<cr>")
-vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<cr>")
-vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+local dap_install_status_ok, dap_install = pcall(require, "dap-install")
+if not dap_install_status_ok then
+	vim.notify("could not find 'dap-install'")
+	return
+end
+
+dap_install.setup()
+
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 -- Adapters
 dap.adapters.lldb = {
