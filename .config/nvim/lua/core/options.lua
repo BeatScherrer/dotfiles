@@ -15,6 +15,7 @@ vim.opt.termguicolors = true
 vim.opt.laststatus = 3
 vim.opt.fillchars = {
 	diff = " ",
+	eob = " ",
 }
 
 -- TODO: How can we get this project based??
