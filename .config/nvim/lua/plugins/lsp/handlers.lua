@@ -80,7 +80,19 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
+local function rustKeymaps(bufnr)
+	-- add additional rust-tools specific command maps
+	local opts = { noremap = true, silent = true }
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ha", "<cmd>RustHoverActions<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>RustCodeAction<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>cx", "<cmd>RustExpandMacro<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oc", "<cmd>RustOpenCargo<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>od", "<cmd>RustOpenExternalDocs<CR>", opts)
+end
+
 M.on_attach = function(client, bufnr)
+	lsp_keymaps(bufnr)
+
 	if client.name == "tsserver" then
 		client.server_capabilities.document_formatting = false
 	end
@@ -104,9 +116,9 @@ M.on_attach = function(client, bufnr)
 
 	if client.name == "rust_analyzer" then
 		client.server_capabilities.document_formatting = false
+		rustKeymaps(bufnr)
 	end
 
-	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
 
