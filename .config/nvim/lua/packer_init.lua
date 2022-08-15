@@ -142,10 +142,11 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
 
-	-- LSP
+	-- LSP & language support
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("simrat39/rust-tools.nvim")
 
 	-- Debugger
 	use("mfussenegger/nvim-dap")
