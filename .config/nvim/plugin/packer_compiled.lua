@@ -302,6 +302,11 @@ _G.packer_plugins = {
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/beat/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["session-lens"] = {
     loaded = true,
     path = "/home/beat/.local/share/nvim/site/pack/packer/start/session-lens",
