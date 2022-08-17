@@ -76,7 +76,6 @@ return packer.startup(function(use)
 	})
 
 	-- Indent line
-	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs")
 
 	-- Icons
@@ -203,6 +202,8 @@ return packer.startup(function(use)
 		end,
 	})
 	use("karb94/neoscroll.nvim")
+
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

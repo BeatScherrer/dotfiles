@@ -1,3 +1,10 @@
+local status_ok, cokeline = pcall(require, "cokeline")
+
+if not status_ok then
+	vim.notify("could not find 'cokeline'")
+	return
+end
+
 local get_hex = require("cokeline/utils").get_hex
 
 local active_fg = "#FFFFFF"
@@ -5,7 +12,7 @@ local active_bg = "#5e8d87"
 local inactive_fg = "#c7c7c7"
 local inactive_bg = "#262626"
 
-require("cokeline").setup({
+cokeline.setup({
 	default_hl = {
 		fg = function(buffer)
 			return buffer.is_focused and active_fg or inactive_fg
