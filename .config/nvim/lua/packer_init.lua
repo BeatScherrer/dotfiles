@@ -77,14 +77,7 @@ return packer.startup(function(use)
 
 	-- Indent line
 	use("lukas-reineke/indent-blankline.nvim")
-
-	-- Autopair
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup()
-		end,
-	})
+	use("windwp/nvim-autopairs")
 
 	-- Icons
 	use("kyazdani42/nvim-web-devicons")
@@ -110,7 +103,8 @@ return packer.startup(function(use)
 	-- use("RRethy/nvim-base16")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	use("BeatScherrer/gravel-pit.nvim")
+	-- use("BeatScherrer/gravel-pit.nvim")
+	use("/home/beat/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
@@ -163,6 +157,13 @@ return packer.startup(function(use)
 			"kyazdani42/nvim-web-devicons",
 		},
 	})
+	-- use({
+	-- 	"noib3/nvim-cokeline",
+	-- 	requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+	-- 	config = function()
+	-- 		require("cokeline").setup()
+	-- 	end,
+	-- })
 
 	use({ "nvim-lualine/lualine.nvim", requires = {
 		{ "SmiteshP/nvim-gps", opt = false },
