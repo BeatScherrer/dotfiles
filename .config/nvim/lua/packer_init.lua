@@ -53,10 +53,9 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
 
-	-- File explorer
+	-- PDE Plugins
+	use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use("kyazdani42/nvim-tree.lua")
-
-	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -64,8 +63,6 @@ return packer.startup(function(use)
 		},
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
-
-	-- Sessions
 	use("rmagatti/auto-session")
 	use({
 		"rmagatti/session-lens",
@@ -74,12 +71,10 @@ return packer.startup(function(use)
 			"nvim-telescope/telescope.nvim",
 		},
 	})
-
-	-- Indent line
 	use("windwp/nvim-autopairs")
-
-	-- Icons
 	use("kyazdani42/nvim-web-devicons")
+	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-gps", opt = false } } })
+	use("karb94/neoscroll.nvim")
 
 	-- Tag viewer
 	use("preservim/tagbar")
@@ -99,11 +94,10 @@ return packer.startup(function(use)
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	use("folke/tokyonight.nvim")
 	use({ "jacoborus/tender.vim", as = "tender" })
-	-- use("RRethy/nvim-base16")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	-- use("BeatScherrer/gravel-pit.nvim")
-	use("/home/beat/workspace/git/beat/gravel-pit.nvim")
+	use("BeatScherrer/gravel-pit.nvim")
+	--use("/home/beat/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
@@ -120,17 +114,12 @@ return packer.startup(function(use)
 	use("github/copilot.vim")
 
 	-- Commenting
-	use({
-		"terrortylor/nvim-comment",
-		config = function()
-			require("nvim_comment").setup()
-		end,
-	})
+	use("terrortylor/nvim-comment")
 
 	-- Tasks
 	use("tpope/vim-dispatch")
 	use("NoahTheDuke/vim-just")
-	use("/home/beat/workspace/git/beat/just.nvim")
+	use("/home/beat/workspace/git/beat/just.nvim") -- TODO change to github once v1
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")
@@ -146,16 +135,11 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("theHamsta/nvim-dap-virtual-text")
-	use({ "ravenxrz/DAPInstall.nvim" })
+	use("ravenxrz/DAPInstall.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- buffer line
-	use({
-		"akinsho/bufferline.nvim",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-		},
-	})
+	use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	-- use({
 	-- 	"noib3/nvim-cokeline",
 	-- 	requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
@@ -164,45 +148,19 @@ return packer.startup(function(use)
 	-- 	end,
 	-- })
 
-	use({ "nvim-lualine/lualine.nvim", requires = {
-		{ "SmiteshP/nvim-gps", opt = false },
-	} })
-
 	-- git
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-	use({
-		"sindrets/diffview.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+	use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "sindrets/diffview.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("f-person/git-blame.nvim")
-	use({
-		"TimUntersberger/neogit",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+	use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" } })
 	use("tpope/vim-fugitive")
 	use("ThePrimeagen/git-worktree.nvim")
-
-	-- Dashboard (start screen)
-	use({
-		"goolord/alpha-nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
 
 	-- misc
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	})
-	use("karb94/neoscroll.nvim")
-
+	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
