@@ -31,3 +31,8 @@ if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
     echo "not running graphical environment. use tty1 for bspwm and tty2 for sway"
   fi
 fi
+
+if [[ -d "/opt/homebrew" ]]; then
+  echo "directory homebrew exists"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
