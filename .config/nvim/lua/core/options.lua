@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.cursorline = true
 vim.opt.number = true
+vim.wo.signcolumn = "yes"
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.scrolloff = 10
@@ -20,3 +21,12 @@ vim.opt.fillchars = {
 
 -- TODO: How can we get this project based??
 vim.opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18 -- /usr/bin/zsh -ic "make"; cd - '
+
+-- Neovide settings
+if vim.g.neovide then
+	vim.notify("in neovide")
+	vim.g.neovide_refresh_rate = 60
+	vim.g.neovide_remember_window_size = true
+	vim.g.neovide_cursor_animation_length = 0.05
+	vim.g.neovide_cursor_trail_length = 0.6
+end
