@@ -96,8 +96,8 @@ return packer.startup(function(use)
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	use("BeatScherrer/gravel-pit.nvim")
-	--use("/home/beat/workspace/git/beat/gravel-pit.nvim")
+	--use("BeatScherrer/gravel-pit.nvim")
+	use("/home/beat/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete
@@ -151,7 +151,6 @@ return packer.startup(function(use)
 	-- git
 	use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use({ "sindrets/diffview.nvim", requires = { "nvim-lua/plenary.nvim" } })
-	use("f-person/git-blame.nvim")
 	use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" } })
 	use("tpope/vim-fugitive")
 	use("ThePrimeagen/git-worktree.nvim")
