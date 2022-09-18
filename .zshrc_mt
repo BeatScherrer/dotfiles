@@ -151,10 +151,22 @@ mt-rti-spy() {
   mt-spy -topicRegex "$1" -printSample
 }
 
+####################
+# UCC functionality
+####################
 cleanbuild ()
 {
     dotnet nuget locals all -c; # when nuget package changed with the same version, generally unneeded
     dotnet restore;
     dotnet clean; # generally unneeded
     dotnet build
+}
+
+nugetPushIDLStorageV ()
+{
+    if [[ -z "${1-}" ]]; then
+        echo "usage: nugetPushIDLStorageV: <version>" 1>&2;
+        return 1;
+    fi;
+    nuget push "MTRobot.UCC.Data.IDLStorage*$1*.nupkg" -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b'
 }
