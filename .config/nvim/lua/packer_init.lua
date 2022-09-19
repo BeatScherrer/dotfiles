@@ -96,8 +96,13 @@ return packer.startup(function(use)
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
+<<<<<<< Updated upstream
 	--use("BeatScherrer/gravel-pit.nvim")
 	use("$HOME/workspace/git/beat/gravel-pit.nvim")
+=======
+	use("BeatScherrer/gravel-pit.nvim")
+	--use("/home/beat/workspace/git/beat/gravel-pit.nvim")
+>>>>>>> Stashed changes
 	use("nvim-treesitter/playground")
 
 	-- Autocomplete

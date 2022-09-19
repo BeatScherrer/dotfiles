@@ -1,0 +1,42 @@
+[user]
+	name = Beat Scherrer
+	email = b.scherrer@mt-robot.com
+
+[core]
+  editor = vim
+  hooksPath = ~/.git_hooks
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status -s
+  br = branch
+  pl = pull
+  pa = pull --recurse-submodules
+  fa = fetch --all
+  cs = clone --recursive -b
+  hist = log -20 --graph --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  subup = submodule update --init --recursive
+
+[push]
+  default = simple
+
+[merge]
+	tool = vimdiff
+
+[mergetool]
+  prompt = true
+  keepBackup = false
+
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[diff]
+	tool = vimdiff
+  prompt = false
+
+[difftool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE
+
