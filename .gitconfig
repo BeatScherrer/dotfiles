@@ -34,7 +34,7 @@
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [diff]
-	tool = vimdiff
+  tool = vimdiff
   prompt = false
 
 [difftool "vimdiff"]

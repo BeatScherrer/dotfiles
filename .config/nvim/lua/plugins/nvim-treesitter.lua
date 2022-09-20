@@ -47,7 +47,7 @@ nvim_treesitter.setup({
 	indent = { enable = true, disable = { "" } },
 	rainbow = {
 		enable = true,
-		extended_mode = true,
+		extended_mode = false,
 		colors = {
 			"#ffeac3",
 			"#cc6666",

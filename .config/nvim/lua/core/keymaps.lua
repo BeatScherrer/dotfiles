@@ -76,6 +76,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope grep_string<cr>")
 keymap("n", "<leader>fo", "<cmd>Telescope resume<cr>")
 keymap("n", "<leader>f?", "<cmd>Telescope help_tags<cr>")
 keymap("n", "<leader>fh", "<cmd>Telescope highlights<cr>")
+keymap("n", "<leader>fj", "<cmd>Telescope just<cr>")
 
 -- git
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
