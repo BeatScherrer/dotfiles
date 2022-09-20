@@ -1,6 +1,6 @@
 [user]
 	name = Beat Scherrer
-	email = b.scherrer@mt-robot.com
+	email = beat.scherrer@gmail.com
 
 [core]
   editor = vim
@@ -19,6 +19,9 @@
   type = cat-file -t
   dump = cat-file -p
   subup = submodule update --init --recursive
+  last = log  -1 HEAD
+  unstage = reset HEAD --
+  mh = merge -Xignore-space-change -Xrename-threshold=25
 
 [push]
   default = simple
