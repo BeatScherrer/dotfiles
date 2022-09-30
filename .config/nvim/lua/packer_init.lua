@@ -117,7 +117,7 @@ return packer.startup(function(use)
 	use("terrortylor/nvim-comment")
 
 	-- Tasks
-	-- use("tpope/vim-dispatch")
+	use("tpope/vim-dispatch")
 	use("NoahTheDuke/vim-just")
 	-- use("BeatScherrer/just.nvim")
 	use("$HOME/workspace/git/beat/just.nvim") -- use this for developing just.nvim
