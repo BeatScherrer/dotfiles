@@ -8,7 +8,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
 
 # convenience
-if [ -z "$SCHROOT_SESSION_ID" ]; then
+if $(which bat); then
 	alias cat='bat'
 fi
 
