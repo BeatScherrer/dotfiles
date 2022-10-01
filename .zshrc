@@ -193,4 +193,6 @@ fi
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if [[ -x "$(command -v ng)" ]]; then
+  source <(ng completion script)
+fi

@@ -8,7 +8,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
 
 # convenience
-if $(which bat); then
+if [[ -x "$(command -v bat)" ]]; then
 	alias cat='bat'
 fi
 
