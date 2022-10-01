@@ -12,7 +12,7 @@ telescope.load_extension("just")
 telescope.setup({
 	defaults = {
 		layout_strategy = "vertical",
-		layout_config = { height = 0.95, width = 0.95 },
+		layout_config = { height = 0.9, width = 0.9 },
 		-- Default configuration for telescope goes here:
 		-- config_key = value,
 		mappings = {

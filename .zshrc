@@ -190,3 +190,7 @@ export NVM_DIR="$HOME/.config/nvm"
 if [[ -e "$HOME/.cargo.env" ]]; then
   source "$HOME/.cargo/env"
 fi
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

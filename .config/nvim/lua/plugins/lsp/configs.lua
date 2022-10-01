@@ -19,6 +19,7 @@ local servers = {
 	"taplo",
 	"tsserver",
 	"tailwindcss",
+	"prismals",
 }
 
 lsp_installer.setup()
