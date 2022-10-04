@@ -75,6 +75,7 @@ if [[ -n "$SCHROOT_GID" ]];then
   export CC="ccache gcc"
   export CXX="ccache g++"
   export CCACHE_BASEDIR="/home/beat/workspace/mtr_sys"
+  export DISPLAY=:0
 fi
 
 #
