@@ -31,5 +31,5 @@ if vim.g.neovide then
 	vim.g.neovide_remember_window_size = true
 	vim.g.neovide_cursor_animation_length = 0.05
 	vim.g.neovide_cursor_trail_length = 0.6
-	vim.opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h10" }
+	vim.opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h8" }
 end
