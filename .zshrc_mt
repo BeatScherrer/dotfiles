@@ -42,31 +42,42 @@ if [[ -f "/opt/ros/melodic/setup.zsh" ]]; then
 fi
 
 function sourceros2(){
+  export MT_ROS_VERSION=galactic
+
   echo -n "$fg[yellow]"
-  echo "sourcing ros2"
-  source /opt/ros/galactic/setup.zsh
+  echo "sourcing ros2: ${MT_ROS_VERSION}"
+  source "/opt/ros/${MT_ROS_VERSION}/setup.zsh"
   source "${HOME}/workspace/ros2_connextdds/install/setup.zsh"
 
-  export RMW_IMPLEMENTATION=rmw_connextdds
   export UNITR_MODEL="a1"
-  export ROS_DOMAIN_ID=12
+  export ROS_DOMAIN_ID=1
 
   if [[ -f "$HOME/workspace/ros2_ws/install/setup.zsh" ]]; then
     echo "sourcing ros2_ws"
-    #source $HOME/workspace/ros2_ws/install/setup.zsh
+    source $HOME/workspace/ros2_ws/install/setup.zsh
   fi
 
-  echo -n "$fg[yellow]"
+  if [[ -f "$HOME/workspace/rmw_connextdds/install/setup.zsh" ]]; then
+    echo "sourcing rmw_connextdds"
+    export RMW_IMPLEMENTATION=rmw_connextdds
+  else
+    echo "WARNING: rmw_connextdds is not available. Make sure to build it!"
+  fi
+
+  if [[ -f "$HOME/workspace/ros2_connextdds/install/setup.zsh" ]]; then
+    echo "sourcing ros2_connextdds"
+  fi
+
+  echo -n "$fg[white]"
 }
 
 function sourcerti(){
-  source "/opt/rti_connext_dds-6.0.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
+  source "/opt/rti_connext_dds-6.1.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.zsh"
 }
 
-# source ros2 automatically if present
-#if [[ -f "/opt/ros/foxy/setup.zsh" ]]; then
-#  sourceros2
-#fi
+if [[ -f "/opt/ros/galactic/setup.zsh" ]]; then
+ sourceros2
+fi
 
 #
 #  ccache
@@ -100,11 +111,6 @@ alias cdws='cd $HOME/workspace'
 alias cdros='cdws && cd ros2_ws'
 alias cdmtr='cdws && cd mtr_sys'
 
-# set display variable if in chroot
-if [[ -n "$CHROOT" ]]; then
-  export DISPLAY=:0
-fi
-
 # add rti tools to path if present
 if [[ -d "/opt/rti_connext_dds-6.1.0/bin" ]]; then export PATH=/opt/rti_connext_dds-6.1.0/bin:$PATH
 fi
@@ -114,10 +120,6 @@ cleanws() {
   if [[ -d "build" && -d "install" && -d "log" ]];then
     rm -rf build install log
   fi
-}
-
-sshneato() {
-  ssh -X mtr@neato.mt
 }
 
 sshr() {
@@ -138,14 +140,6 @@ sshv ()
 
 sshm() {
   ssh mtr@ms-$1.mt
-}
-
-syncros() {
-  rsync -r /home/beat/workspace/ros_ws/*neato* mtr@neato.mt:/home/mtr/catkin_ws/
-}
-
-sync-config() {
-  rsync test/*  root@neato.mt:/etc/mtr_sys/
 }
 
 mt-rti-spy() {
@@ -170,4 +164,15 @@ nugetPushIDLStorageV ()
         return 1;
     fi;
     nuget push "MTRobot.UCC.Data.IDLStorage*$1*.nupkg" -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b'
+}
+
+############
+# Simulation
+############
+rungazebo()
+{
+  xhost +local:;
+  schroot -c mt_ubuntu20 /bin/zsh -- -ic ' \
+   sourceros2 && \
+    ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }
