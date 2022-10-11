@@ -17,7 +17,7 @@ vim.opt.fillchars = {
 	diff = " ",
 	eob = " ",
 }
-vim.opt.errorformat:append("./%f: line %l: %m") --shell
+-- vim.opt.errorformat:append("./%f: line %l: %m") --shell
 
 vim.wo.signcolumn = "yes"
 vim.g.do_filetype_lua = 1

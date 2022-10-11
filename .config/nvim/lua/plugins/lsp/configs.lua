@@ -20,6 +20,8 @@ local servers = {
 	"tsserver",
 	"tailwindcss",
 	"prismals",
+	-- "efm",
+	"bashls",
 }
 
 lsp_installer.setup()
