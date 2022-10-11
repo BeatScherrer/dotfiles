@@ -18,7 +18,7 @@ cdsrc() {
 }
 
 function sourceros(){
-  echo -n "$fg[yellow]"
+  echo -n "$fg[cyan]"
   echo "sourcing ros"
   source /opt/ros/melodic/setup.zsh
   #echo "setting ROS_MASTER_URI=http:10.0.52.114:11311/"
@@ -31,9 +31,10 @@ function sourceros(){
     source "$HOME/workspace/ros_ws/devel/setup.zsh"
   fi
 
-  echo -n "$reset_colour"
   
   alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
+
+  echo -n "$reset_color"
 }
 
 # source ros automatically if present
@@ -44,7 +45,7 @@ fi
 function sourceros2(){
   export MT_ROS_VERSION=galactic
 
-  echo -n "$fg[yellow]"
+  echo -n "$fg[cyan]"
   echo "sourcing ros2: ${MT_ROS_VERSION}"
   source "/opt/ros/${MT_ROS_VERSION}/setup.zsh"
   source "${HOME}/workspace/ros2_connextdds/install/setup.zsh"
@@ -57,18 +58,16 @@ function sourceros2(){
     source $HOME/workspace/ros2_ws/install/setup.zsh
   fi
 
-  if [[ -f "$HOME/workspace/rmw_connextdds/install/setup.zsh" ]]; then
-    echo "sourcing rmw_connextdds"
+  if [[ -f "$HOME/workspace/ros2_connextdds/install/setup.zsh" ]]; then
+    echo "sourcing ros2_connextdds"
+    source "$HOME/workspace/ros2_connextdds/install/setup.zsh"
+    echo "setting RMW_IMPLEMENTATION=rmw_connextdds"
     export RMW_IMPLEMENTATION=rmw_connextdds
   else
     echo "WARNING: rmw_connextdds is not available. Make sure to build it!"
   fi
 
-  if [[ -f "$HOME/workspace/ros2_connextdds/install/setup.zsh" ]]; then
-    echo "sourcing ros2_connextdds"
-  fi
-
-  echo -n "$fg[white]"
+  echo -n "$reset_color"
 }
 
 function sourcerti(){
