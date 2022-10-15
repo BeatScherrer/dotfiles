@@ -162,6 +162,7 @@ return packer.startup(function(use)
 	-- misc
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
+	use("ggandor/leap.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
