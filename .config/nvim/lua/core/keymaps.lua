@@ -8,8 +8,6 @@ local function keymap(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- TODO move respective keymaps to plugin configs
-
 -- Leader key
 keymap("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
@@ -58,9 +56,9 @@ keymap("n", "<leader>qn", "<cmd>cn<cr>")
 keymap("n", "<leader>qp", "<cmd>cp<cr>")
 
 -- Move text up and down, TODO
---keymap("v", "<A-j>", ":m .+1<CR>===", opts)
---keymap("v", "<A-k>", ":m -1<CR>==", opts)
-keymap("v", "p", '"_dP') -- keep beuffe when pasting
+keymap("n", "<A-k>", "<cmd>m .-2<cr>==", opts)
+keymap("n", "<A-j>", "<cmd>m .+1<cr>==", opts)
+keymap("v", "p", '"_dP') -- keep buffer when pasting
 
 -- NvimTree
 keymap("n", "<C-t>", "<cmd>NvimTreeToggle<cr>") -- open/close
