@@ -2,13 +2,14 @@
 
 # overwrite aliases
 alias vim='nvim'
+alias egrep='grep -E'
 
 # config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
 
 # convenience
-if [[ -x "$(command -v bat)" ]]; then
+if [ -x "$(command -v bat)" ]; then
 	alias cat='bat'
 fi
 
@@ -43,5 +44,5 @@ alias ubuntu-see-me='schroot -c chroot:see-me'
 alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
 
 if [ -f "$HOME/.mtr_aliases" ]; then
-	source "$HOME/.mtr_aliases"
+	. "$HOME/.mtr_aliases"
 fi
