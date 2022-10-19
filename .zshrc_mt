@@ -97,7 +97,7 @@ export CCACHE_PREFIX="distcc"
 alias ubuntu20='schroot -c mt_ubuntu20'
 alias ubuntu18='schroot -c mt_ubuntu18'
 alias debian='schroot -c mt_jessie'
-alias make='export CCACHE_BASEDIR=$(pwd); echo "Set CCACHE_BASEDIR ${CCACHE_BASEDIR} -- Building with -j\"$(distcc -j)\""; make -j "$(distcc -j)"'
+alias make='export CCACHE_BASEDIR=$(pwd); echo "Set CCACHE_BASEDIR ${CCACHE_BASEDIR} -- Building with -j16"; make -j16'
 alias sourcews='source ./install/setup.zsh'
 
 __make() {
