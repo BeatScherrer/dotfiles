@@ -1,35 +1,43 @@
-vim.opt.clipboard = "unnamedplus"
-vim.opt.mouse = "a"
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 4
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
-vim.opt.termguicolors = true
-vim.opt.laststatus = 3
-vim.opt.fillchars = {
+local opt = vim.opt
+local g = vim.g
+
+opt.clipboard = "unnamedplus"
+opt.mouse = "a"
+opt.smartcase = true
+opt.smartindent = true
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.cursorline = true
+opt.number = true
+opt.relativenumber = true
+opt.numberwidth = 4
+opt.scrolloff = 10
+opt.sidescrolloff = 10
+opt.termguicolors = true
+opt.laststatus = 3
+opt.fillchars = {
 	diff = " ",
 	eob = " ",
 }
--- vim.opt.errorformat:append("./%f: line %l: %m") --shell
+
+-- treesitter folding
+opt.foldmethod = "expr"
+opt.foldexptr = "nvim_treesitter#foldexpr()"
+
+-- opt.errorformat:append("./%f: line %l: %m") --shell
 
 vim.wo.signcolumn = "yes"
-vim.g.do_filetype_lua = 1
+g.do_filetype_lua = 1
 
 -- TODO: How can we get this project based??
-vim.opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18 -- /usr/bin/zsh -ic "make"; cd - '
+opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18 -- /usr/bin/zsh -ic "make"; cd - '
 
 -- Neovide settings
-if vim.g.neovide then
-	vim.g.neovide_refresh_rate = 60
-	vim.g.neovide_remember_window_size = true
-	vim.g.neovide_cursor_animation_length = 0.05
-	vim.g.neovide_cursor_trail_length = 0.6
-	vim.opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h8" }
+if g.neovide then
+	g.neovide_refresh_rate = 60
+	g.neovide_remember_window_size = true
+	g.neovide_cursor_animation_length = 0.05
+	g.neovide_cursor_trail_length = 0.6
+	opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h8" }
 end
