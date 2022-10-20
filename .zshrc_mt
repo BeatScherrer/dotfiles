@@ -90,7 +90,7 @@ fi
 
 #
 # distcc
-export CCACHE_PREFIX="distcc"
+#export CCACHE_PREFIX="distcc"
 
 #
 # Aliases
