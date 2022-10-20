@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+## Navigational aliases
+alias develop='cd $HOME/workspace/mtr_sys/src/mtrsys-core-develop'
+alias cdws='cd ${HOME}/workspace'
+alias cdros='cdws && cd ros2_ws'
+alias cdmtr='cdws && cd mtr_sys'
+alias cdnavlog='cd $HOME/workspace/analysis/navigation_analysis'
+alias cducc='cdws && cd ucc/web-gui'
+
+#
+## Schroot aliases
+alias ubuntu20='schroot -c mt_ubuntu20'
+alias ubuntu18='schroot -c mt_ubuntu18'
+alias ubuntu18-cpp17='schroot -c mt_ubuntu18-cpp17'
+alias debian='schroot -c mt_jessie'
+alias debian2='schroot -c mt_jessie2'
