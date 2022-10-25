@@ -170,6 +170,13 @@ nugetPushIDLStorageV ()
     nuget push "MTRobot.UCC.Data.IDLStorage*$1*.nupkg" -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b'
 }
 
+nugetList() {
+  nuget list IDLStorage -source http://ms-build.mt/nuget -AllVersions -PreRelease
+}
+
+nugetDelete() {
+  nuget delete MTRobot.UCC.Data.IDLStorage $1 -Source "C:\NugetRepository"
+}
 ############
 # Simulation
 ############
