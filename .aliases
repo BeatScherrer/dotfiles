@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# system
+alias hibernate='systemctl hibernate'
+
 # overwrite aliases
 alias vim='nvim'
 alias egrep='grep -E'

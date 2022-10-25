@@ -20,7 +20,6 @@ local servers = {
 	"tsserver",
 	"tailwindcss",
 	"prismals",
-	-- "efm",
 	"bashls",
 }
 

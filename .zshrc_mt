@@ -2,6 +2,11 @@
 
 autoload -U colors && colors
 
+#aliases
+if [[ -f "${HOME}/.aliases_mt" ]];then
+  source "${HOME}/.aliases_mt"
+fi
+
 # Helper function to change to git dir
 ccd() {
   cd "${HOME}/workspace/mtr_sys/${1:-develop}/mtrsys-core"

@@ -12,7 +12,7 @@ null_ls.setup({
 		formatting.clang_format.with({ extra_args = { "-style=file" } }),
 		formatting.stylua,
 		formatting.prettier,
-		formatting.shfmt.with({ extras_args = { "--indent 2" } }),
+		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),
 		formatting.rustfmt,
 	},
 })
