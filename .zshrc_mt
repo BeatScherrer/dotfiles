@@ -183,7 +183,7 @@ nugetDelete() {
 rungazebo()
 {
   xhost +local:;
-  schroot -c mt_ubuntu20 /bin/zsh -- -ic ' \
+  schroot -c mt_ubuntu20 /usr/bin/zsh -- -ic ' \
    sourceros2 && \
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }
