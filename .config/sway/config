@@ -34,7 +34,7 @@ output * bg "$HOME/.local/share/wallpapers/Starry\ Nebula\ 219.png" fill
 # Example configuration:
 #
 output DP-1 resolution 5120x2160 position 0,0
-output DP-2 resolution 1920x1080 position 5120,0 transform 90
+output DP-2 resolution 1920x1080 position 5120,0 transform 270
 
 workspace 1 output DP-1
 workspace 2 output DP-1

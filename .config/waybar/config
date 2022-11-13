@@ -24,8 +24,7 @@
 
     "modules-left": [
         "custom/launcher",
-        "sway/workspaces",
-        "sway/mode"
+        "wlr/workspaces",
     ],
     "modules-center": [
         /* "sway/window", */
@@ -160,7 +159,7 @@
         "max-length": 120
     },
 
-    "sway/workspaces": {
+    "wlr/workspaces": {
         "all-outputs": false,
         "disable-scroll": true,
         "format": "{icon} {name}",

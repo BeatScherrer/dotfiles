@@ -3,6 +3,7 @@ local g = vim.g
 
 opt.clipboard = "unnamedplus"
 opt.mouse = "a"
+opt.ignorecase = true
 opt.smartcase = true
 opt.smartindent = true
 opt.expandtab = true

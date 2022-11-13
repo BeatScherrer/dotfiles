@@ -11,8 +11,33 @@ alias cducc2='cdws && cd ucc2/web-gui'
 
 #
 ## Schroot aliases
+alias ubuntu22='schroot -c mt_ubuntu22'
 alias ubuntu20='schroot -c mt_ubuntu20'
 alias ubuntu18='schroot -c mt_ubuntu18'
 alias ubuntu18-cpp17='schroot -c mt_ubuntu18-cpp17'
 alias debian='schroot -c mt_jessie'
 alias debian2='schroot -c mt_jessie2'
+
+# Simulation
+alias simon='sudo systemctl start mt-sim.target'
+alias simoff='sudo systemctl stop -- $(systemctl show -p BindsTo mt-sim.target | cut -d= -f2);'
+## @fn simschrootrobot()
+## Enter schroot and source robot environment for currently installed mt-sim-robot.service
+simschrootrobot() {
+  local service='mt-sim-robot.service'
+  local dir='test_robot_1'
+  cd "$(systemctl cat "$service" | grep WorkingDirectory | cut -d= -f2)" || return 1
+  local sname
+  sname="$(systemctl cat "$service" | grep -o "chroot:\S*" | cut -d: -f2)"
+  schroot -c "$sname" -- /bin/bash --init-file <(echo ". ~/.bashrc && . live_env/setenv -d '$dir'")
+}
+## @fn simschrootmaster()
+## Enter schroot and source master environment for currently installed mt-sim-master.service
+simschrootmaster() {
+  local service='mt-sim-master.service'
+  local dir='test_master_1'
+  cd "$(systemctl cat "$service" | grep WorkingDirectory | cut -d= -f2)" || return 1
+  local sname
+  sname="$(systemctl cat "$service" | grep -o "chroot:\S*" | cut -d: -f2)"
+  schroot -c "$sname" -- /bin/bash --init-file <(echo ". ~/.bashrc && . live_env/setenv -d '$dir'")
+}

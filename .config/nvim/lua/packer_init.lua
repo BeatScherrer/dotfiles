@@ -89,7 +89,6 @@ return packer.startup(function(use)
 	use("Badhi/nvim-treesitter-cpp-tools")
 
 	-- Color schemes
-	use("navarasu/onedark.nvim")
 	use("tanvirtin/monokai.nvim")
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	use("folke/tokyonight.nvim")
@@ -163,6 +162,12 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("ggandor/leap.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

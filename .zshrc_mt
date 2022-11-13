@@ -12,6 +12,10 @@ ccd() {
   cd "${HOME}/workspace/mtr_sys/${1:-develop}/mtrsys-core"
 }
 
+cdmtrsys() {
+  cd "${HOME}/workspace/mtrsys-core.git/${1:-develop}"
+}
+
 # Helper function to change to a particular build directory
 cdbuild() {
   ccd $1 && cd  build
@@ -58,14 +62,14 @@ function sourceros2(){
   export UNITR_MODEL="a1"
   export ROS_DOMAIN_ID=1
 
-  if [[ -f "$HOME/workspace/ros2_ws/install/setup.zsh" ]]; then
+  if [[ -f "$HOME/src/ros2_ws/install/setup.zsh" ]]; then
     echo "sourcing ros2_ws"
-    source $HOME/workspace/ros2_ws/install/setup.zsh
+    source $HOME/src/ros2_ws/install/setup.zsh
   fi
 
-  if [[ -f "$HOME/workspace/ros2_connextdds/install/setup.zsh" ]]; then
+  if [[ -f "$HOME/src/ros2_connextdds/install/setup.zsh" ]]; then
     echo "sourcing ros2_connextdds"
-    source "$HOME/workspace/ros2_connextdds/install/setup.zsh"
+    source "$HOME/src/ros2_connextdds/install/setup.zsh"
     echo "setting RMW_IMPLEMENTATION=rmw_connextdds"
     export RMW_IMPLEMENTATION=rmw_connextdds
   else
@@ -184,6 +188,7 @@ rungazebo()
 {
   xhost +local:;
   schroot -c mt_ubuntu20 /usr/bin/zsh -- -ic ' \
+   export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
    sourceros2 && \
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }

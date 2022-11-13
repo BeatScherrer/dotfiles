@@ -17,6 +17,9 @@ super + {minus, bar}
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + b
+  chromium
+
 #
 # bspwm hotkeys
 #
