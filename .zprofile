@@ -30,11 +30,17 @@ if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
 	elif [[ $(tty) == "/dev/tty3" ]]; then
 		echo "running hyprland"
 		export LIBVA_DRIVER_NAME=nvidia
+		export CLUTTER_BACKEND=wayland
 		export XDG_SESSION_TYPE=wayland
+		export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+		export MOZ_ENABLE_WAYLAND=1
 		export GBM_BACKEND=nvidia-drm
 		export __GLX_VENDOR_LIBRARY_NAME=nvidia
 		export WLR_NO_HARDWARE_CURSORS=1
-    exec Hyprland --config "${HOME}/.config/hypr/hyprland.conf"
+		export WLR_BACKEND=vulkan
+		export QT_QPA_PLATFORM=wayland
+		export GDK_BACKEND=wayland
+		exec Hyprland --config "${HOME}/.config/hypr/hyprland.conf"
 	fi
 else
 	echo "not running graphical environment. use tty1 for bspwm and tty2 for sway"
