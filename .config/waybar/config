@@ -25,6 +25,7 @@
     "modules-left": [
         "custom/launcher",
         "wlr/workspaces",
+        "sway/workspaces",
     ],
     "modules-center": [
         /* "sway/window", */

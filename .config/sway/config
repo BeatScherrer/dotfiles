@@ -85,6 +85,7 @@ gaps inner 15
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+b exec chromium
 
     # Kill focused window
     bindsym $mod+w kill
@@ -161,8 +162,8 @@ gaps inner 15
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+alt+h splith
+    bindsym $mod+alt+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
