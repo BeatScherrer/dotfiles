@@ -1,5 +1,5 @@
------------------------------------------------------------
 -- Plugin manager configuration file
+-----------------------------------------------------------
 -----------------------------------------------------------
 
 -- Plugin manager: packer.nvim
@@ -75,9 +75,10 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-gps", opt = false } } })
 	use("karb94/neoscroll.nvim")
+	use("nanozuki/tabby.nvim")
 
 	-- Tag viewer
-	use("preservim/tagbar")
+	-- use("preservim/tagbar")
 
 	-- Treesitter interface
 	use({
@@ -95,9 +96,10 @@ return packer.startup(function(use)
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	--use("BeatScherrer/gravel-pit.nvim")
+	-- use("$BeatScherrer/gravel-pit.nvim")
 	use("$HOME/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
+	use("EdenEast/nightfox.nvim")
 
 	-- Autocomplete
 	use({
