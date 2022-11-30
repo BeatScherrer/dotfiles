@@ -84,7 +84,8 @@ keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 keymap("n", "<leader>gw", "<cmd>Telescope git_worktree<cr>")
 keymap("n", "<leader>dvo", "<cmd>DiffviewOpen<cr>")
-keymap("n", "<leader>dvfh", "<cmd>DiffviewFileHistory<cr>")
+keymap("n", "<leader>dvfh", "<cmd>DiffviewFileHistory %<cr>")
+keymap("n", "<leader>dvr", "<cmd>DiffviewRefresh %<cr>")
 
 -- minimap
 keymap("n", "<leader>mt", "<cmd>MinimapToggle<cr>")
