@@ -1,6 +1,6 @@
 [user]
-	name = Beat Scherrer
-	email = beat.scherrer@gmail.com
+  name = Beat Scherrer
+  email = beat.scherrer@gmail.com
 
 [core]
   editor = vim
@@ -27,10 +27,10 @@
   default = simple
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 
 [mergetool]
-  prompt = true
+  prompt = false
   keepBackup = false
 
 [mergetool "vimdiff"]

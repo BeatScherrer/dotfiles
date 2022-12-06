@@ -2,8 +2,8 @@
 -----------------------------------------------------------
 -----------------------------------------------------------
 
--- Plugin manager: packer.nvim
 -- url: https://github.com/wbthomason/packer.nvim
+-- Plugin manager: packer.nvim
 
 -- For information about installed plugins see the README:
 -- neovim-lua/README.md
@@ -96,7 +96,7 @@ return packer.startup(function(use)
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
-	-- use("$BeatScherrer/gravel-pit.nvim")
+	-- use("$eatScherrer/gravel-pit.nvim")
 	use("$HOME/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 	use("EdenEast/nightfox.nvim")
