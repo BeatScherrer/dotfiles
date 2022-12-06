@@ -15,7 +15,7 @@ M.setup = function()
 
 	local config = {
 		-- disable virtual text
-		virtual_text = false,
+		virtual_text = true,
 		-- show signs
 		signs = {
 			active = signs,
@@ -96,7 +96,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	if client.name == "clangd" then
-	client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
 
 	if client.name == "cmake" then

@@ -7,6 +7,7 @@ require("core/keymaps")
 require("core/colorscheme")
 require("core/options")
 require("core/filetypes")
+require("core/autocommands")
 
 -- TODO:
 -- Quickfix setup to jump to the compilation error location directly (requires to overwrite the make command?)
