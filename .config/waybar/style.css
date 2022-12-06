@@ -1,0 +1,243 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@define-color base00 #1e2132;
+@define-color base01 #e27878;
+@define-color base02 #b4be82;
+@define-color base03 #e2a478;
+@define-color base04 #84a0c6;
+@define-color base05 #a093c7;
+@define-color base06 #89b8c2;
+@define-color base07 #c6c8d1;
+@define-color base08 #6b7089;
+@define-color base09 #e98989;
+@define-color base0A #c0ca8e;
+@define-color base0B #e9b189;
+@define-color base0C #91acd1;
+@define-color base0D #ada0d3;
+@define-color base0E #95c4ce;
+@define-color base0F #d2d4de;
+
+@define-color bg @base00;
+@define-color fg @base0F;
+
+@keyframes blink-warning {
+    70% {
+        color: @fg;
+    }
+
+    to {
+        color: @fg;
+        background-color: @base03;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @fg;
+    }
+
+    to {
+        color: @fg;
+        background-color: @base01;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 2 5;
+}
+
+/* The whole bar */
+#waybar {
+    /* background: #33374c; */
+    background: rgba(0, 0, 0, 0);
+    color: @fg;
+    font-family: Noto, Noto Sans, sans-serif;
+    font-size: 20px;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#custom-keyboard-layout,
+#custom-launcher,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#custom-scrot,
+#custom-music,
+#mpd,
+#temperature,
+#tray {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: @bg;
+    color: @fg;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: @base03;
+}
+
+#battery.critical {
+    color: @base01;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#clock {
+    /* font-weight: bold; */
+}
+
+#cpu {
+  /* No styles */
+}
+
+#cpu.warning {
+    color: @base03;
+}
+
+#cpu.critical {
+    color: @base01;
+}
+
+#custom-keyboard-layout {
+}
+
+#custom-scrot {
+  color: @bg;
+  background-color: @fg;
+  margin-right: 10px;
+}
+
+#custom-launcher {
+  font-size: 32px;
+  padding: 5 10px;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: @base03;
+}
+
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+    background: @bg;
+    border-top: 2px solid @fg;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+}
+
+#network {
+    /* No styles */
+  margin-left: 10px;
+}
+
+#network.disconnected {
+    color: @base03;
+}
+
+#pulseaudio {
+    /* No styles */
+}
+
+#pulseaudio.muted {
+    /* No styles */
+}
+
+#custom-music,
+#mpd {
+  background-color: @fg;
+  color: @bg;
+  margin-left: 10px;
+}
+
+
+#temperature {
+  /* No styles */
+  margin-right: 10px;
+}
+
+#temperature.critical {
+    color: @base01;
+}
+
+#tray {
+    /* No styles */
+}
+
+#window {
+    font-weight: bold;
+}
+
+#workspaces button {
+    border-top: 2px solid transparent;
+    background-color: @base08;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @fg;
+}
+
+#workspaces button.focused {
+    border-color: @base0B;
+    color: @bg;
+    background-color: @base0B;
+}
+
+#workspaces button.urgent {
+    border-color: @base01;
+    color: @base01;
+}
+

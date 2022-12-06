@@ -1,0 +1,276 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+[
+// main bar
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    "output": "DP-1",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 30,
+
+    "modules-left": [
+        "custom/launcher",
+        "wlr/workspaces",
+        "sway/workspaces",
+    ],
+    "modules-center": [
+        /* "sway/window", */
+        "clock#date",
+        "clock#time",
+        //"mpd"
+        "custom/music"
+    ],
+    "modules-right": [
+        "custom/scrot",
+        "pulseaudio",
+        //"custom/bluetooth",
+        "network",
+        "memory",
+        "cpu",
+        "temperature",
+        "custom/keyboard-layout",
+        "battery",
+        "tray",
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "  {icon}  {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "  {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "  {usage}% ({load})", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    "custom/launcher": {
+      "on-click": "wofi --show drun -I | xargs swaymsg exec --",
+      "on-click-right": "$HOME/.config/waybar/scripts/screenshot_area.sh",
+      "on-click-middle": "$HOME/.config/waybar/scripts/screenshot_all.sh",
+      "format": "",
+      "tooltip": false
+      },
+
+    "custom/scrot": {
+      "on-click": "$HOME/.config/waybar/scripts/screenshot_window.sh",
+      "on-click-right": "$HOME/.config/waybar/scripts/screenshot_area.sh",
+      "on-click-middle": "$HOME/.config/waybar/scripts/screenshot_all.sh",
+      "format": "",
+      "tooltip": false
+      },
+
+    "custom/music": {
+        "exec": "$HOME/.config/waybar/scripts/get_song.sh",
+        "format": " {}",
+        "tooltip": false,
+        "interval": 2
+      },
+    "custom/bluetooth": {
+      "exec": "$HOME/.config/waybar/scripts/bluetooth.zsh",
+      "format": "{}",
+      "tooltip": false,
+      "interval": 5
+    },
+
+    "custom/keyboard-layout": {
+      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+      // Interval set only as a fallback, as the value is updated by signal
+      "interval": 30,
+      "format": "  {}", // Icon: keyboard
+      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+      "signal": 1, // SIGHUP
+      "tooltip": false
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "wlr/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "1:www": "龜", // Icon: firefox-browser
+            "2:mail": "", // Icon: mail
+            "3:editor": "", // Icon: code
+            "4:terminals": "", // Icon: terminal
+            "5:portal": "", // Icon: terminal
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+
+    "mpd": {
+      "format": "{title} - {artist}"
+      
+
+      },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}% |  {desc}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "interval": 5
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+
+},
+// Secondary bar
+{
+
+    "layer": "top",
+
+    "position": "top",
+
+    "output": "DP-2",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 30,
+
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "1:www": "龜", // Icon: firefox-browser
+            "2:mail": "", // Icon: mail
+            "3:editor": "", // Icon: code
+            "4:terminals": "", // Icon: terminal
+            "5:portal": "", // Icon: terminal
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+},
+]

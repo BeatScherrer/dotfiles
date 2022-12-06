@@ -1,51 +1,53 @@
-# ~/.aliases: Personal aliases to be loaded by bash and zsh
-# This file contains aliases in the sh format to be sourced
-# in either bash or zsh (or other) shells.
+#!/bin/sh
 
-# ---------------------------------------------------------
-# Safety aliases
-# ---------------------------------------------------------
-alias rm='rm -I --preserve-root'
-alias mv='mv -i'
-alias cp='cp -i'
-alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+# system
+alias hibernate='systemctl hibernate'
 
+# overwrite aliases
+if command -v nvim >/dev/null 2>&1; then
+  alias vim='nvim'
+fi
+alias egrep='grep -E'
 
-# ---------------------------------------------------------
-# dotfiles
-# --------------------------------------------------------
+# config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias sourcezsh='source ~/.zshrc'
 
-# ---------------------------------------------------------
-# color aliases
-# ---------------------------------------------------------
-alias grep='grep --color=auto'
-# ccat is must be installed manually in ubuntu therefore just not use it in ubuntu
-#alias cat='ccat'
+# convenience
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat'
+fi
 
-# ---------------------------------------------------------
-# convenience aliases
-# ---------------------------------------------------------
-alias untar='tar -xzvf'
-alias c='clear'
+# wtf
+alias wts='stty sane; clear;'
 
-alias clipboard='xclip -selection clipboard'
-alias cdgit='cd ~/git/'
+# navigation
+alias cddata1='cd /media/data1'
+alias cdconfig='cd ~/.config'
+alias cdlog='cd /var/log'
+alias cdnvim='cdconfig && cd nvim'
+alias cdkitty='cdconfig && cd kitty'
+alias cdbspwm='cdconfig && cd bspwm'
+alias cdsway='cdconfig && cd sway'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias cdws='cd "$HOME/workspace"'
+alias cdsandbox='cdws && cd sandbox'
+alias cdgit='cdws && cd git'
+alias cdcarlo='cdgit && cd beat/carlo'
+alias cdkb='cdgit && cd beat/kitebuddies'
+alias cdseeme='cdgit && cd beat/see-me'
+alias cdnavlog='cdws && cd analysis/navigation_analysis'
+alias cdnas='cd /mnt/wutang_nas'
+alias cdwine='cd $HOME/.wine'
+alias cdjust='cdgit && cd just'
 
-# ROS aliases
-alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf & cd - '
-alias tf2='cd /var/tmp && rosrun tf2_tools view_frames.py && evince frames.pdf & cd - '
+alias 'rm -rf'='rm -rfi'
 
-# ---------------------------------------------------------
-# General setup
-# ---------------------------------------------------------
+# schroot aliases
+alias ubuntu-see-me='schroot -c chroot:see-me'
 
-# add toptask alias
-alias toptask="javaws /opt/javatoptask/jtt.jnlp"
+alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
+
+if [ -f "${HOME}/.aliases_mt" ]; then
+  . "${HOME}/.aliases_mt"
+fi

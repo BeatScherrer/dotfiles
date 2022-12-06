@@ -1,0 +1,76 @@
+@define-color base00 #1e2132;
+@define-color base01 #e27878;
+@define-color base02 #b4be82;
+@define-color base03 #e2a478;
+@define-color base04 #84a0c6;
+@define-color base05 #a093c7;
+@define-color base06 #89b8c2;
+@define-color base07 #c6c8d1;
+@define-color base08 #6b7089;
+@define-color base09 #e98989;
+@define-color base0A #c0ca8e;
+@define-color base0B #e9b189;
+@define-color base0C #91acd1;
+@define-color base0D #ada0d3;
+@define-color base0E #95c4ce;
+@define-color base0F #d2d4de;
+
+@define-color bg @base00;
+@define-color fg @base0F;
+
+window {
+    opacity: 1.0;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 18px;
+    color: @fg;
+    background-color: @bf;
+}
+
+#input {
+	border-radius: 10px 10px 0px 0px;
+  border:  0px;
+  padding: 10px;
+  margin: 0px;
+  font-size: 28px;
+	color: @fg;
+	background-color: @base08;
+}
+
+#inner-box {
+	margin: 20px;
+	color: @base06;
+	background-color: @bg;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+#outer-box {
+	margin: 0px;
+	background-color: @bg;
+  border-radius: 10px;
+}
+
+#selected {
+	background-color: @base0B;
+  padding: 20px;
+  border: none;
+}
+
+#entry {
+	padding: 0px;
+  margin: 0px;
+	background-color: @base00;
+}
+
+#scroll {
+	margin: 5px;
+	background-color: @base00;
+  margin-left: 100px;
+}
+
+#text {
+	margin: 0px;
+	padding: 2px 2px 2px 10px;
+}
