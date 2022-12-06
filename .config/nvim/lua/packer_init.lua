@@ -76,6 +76,12 @@ return packer.startup(function(use)
 	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-gps", opt = false } } })
 	use("karb94/neoscroll.nvim")
 	use("nanozuki/tabby.nvim")
+	use({
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	})
 
 	-- Tag viewer
 	-- use("preservim/tagbar")

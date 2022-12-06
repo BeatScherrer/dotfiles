@@ -23,10 +23,10 @@ opt.fillchars = {
 }
 
 -- treesitter folding
-opt.foldlevel = 20
 -- opt.foldcolumn = "3"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 20
 
 -- opt.errorformat:append("./%f: line %l: %m") --shell
 
