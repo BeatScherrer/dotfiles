@@ -1,11 +1,11 @@
 local opts = { noremap = true, silent = true }
 
 local function keymap(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Leader key
@@ -102,12 +102,12 @@ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
 
 -- tabs
-keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
+keymap("n", "<leader>tn", ":$tabnew<CR>", { noremap = true })
 keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
 keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true })
-keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
+keymap("n", "<leader>tl", ":tabn<CR>", { noremap = true })
+keymap("n", "<leader>th", ":tabp<CR>", { noremap = true })
 -- move current tab to previous position
-keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+keymap("n", "<leader>tml", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
-keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+keymap("n", "<leader>tmh", ":+tabmove<CR>", { noremap = true })
