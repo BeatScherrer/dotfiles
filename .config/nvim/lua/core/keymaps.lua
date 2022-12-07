@@ -108,6 +108,6 @@ keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
 keymap("n", "<leader>tl", ":tabn<CR>", { noremap = true })
 keymap("n", "<leader>th", ":tabp<CR>", { noremap = true })
 -- move current tab to previous position
-keymap("n", "<leader>tml", ":-tabmove<CR>", { noremap = true })
+keymap("n", "<leader>tmh", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
-keymap("n", "<leader>tmh", ":+tabmove<CR>", { noremap = true })
+keymap("n", "<leader>tml", ":+tabmove<CR>", { noremap = true })
