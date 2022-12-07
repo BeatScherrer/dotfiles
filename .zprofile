@@ -10,8 +10,8 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
 
 	if [[ $(tty) == "/dev/tty1" ]]; then
-		#echo "running bspwm"
-		#exec startx
+		echo "running bspwm"
+		exec startx
 	elif [[ $(tty) == "/dev/tty2" ]]; then
 		echo "running sway"
 		export __GL_GSYNC_ALLOWED=0

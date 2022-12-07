@@ -6,6 +6,7 @@ end
 
 local actions = telescope.actions
 
+-- extensions
 telescope.load_extension("git_worktree")
 telescope.load_extension("just")
 
@@ -33,12 +34,6 @@ telescope.setup({
 		-- Now the picker_config_key will be applied every time you call this
 		-- builtin picker
 	},
-	-- Your extension configuration goes here:
-	-- extension_name = {
-	--   extension_config_key = value,
-	-- }
-	-- please take a look at the readme of the extension you want to configure
-	--
 	extensions = {
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
