@@ -41,8 +41,6 @@ alias cdnas='cd /mnt/wutang_nas'
 alias cdwine='cd $HOME/.wine'
 alias cdjust='cdgit && cd just'
 
-alias 'rm -rf'='rm -rfi'
-
 # schroot aliases
 alias ubuntu-see-me='schroot -c chroot:see-me'
 
