@@ -11,6 +11,8 @@ export OSH='/home/beat/.oh-my-bash'
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="beat"
 
+[[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --rcfile "$HOME/.config/blesh/init.sh"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -131,4 +133,5 @@ source "$OSH"/oh-my-bash.sh
 . "$HOME/.aliases"
 . "$HOME/.aliases_mt"
 . "$HOME/.bashrc_mt"
-. "$HOME/.local/share/blesh/ble.sh"
+
+[[ ${BLE_VERSION-} ]] && ble-attach
