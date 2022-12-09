@@ -25,7 +25,6 @@ cdsrc() {
 }
 
 function sourceros() {
-  echo -n "$fg[cyan]"
   echo "sourcing ros"
   source /opt/ros/melodic/setup.bash
   #echo "setting ROS_MASTER_URI=http:10.0.52.114:11311/"
@@ -39,8 +38,6 @@ function sourceros() {
   fi
 
   alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
-
-  echo -n "$reset_color"
 }
 
 # source ros automatically if present
@@ -51,7 +48,6 @@ fi
 function sourceros2() {
   export MT_ROS_VERSION=galactic
 
-  echo -n "$fg[cyan]"
   echo "sourcing ros2: ${MT_ROS_VERSION}"
   source "/opt/ros/${MT_ROS_VERSION}/setup.bash"
   source "${HOME}/workspace/ros2_connextdds/install/setup.bash"
@@ -72,8 +68,6 @@ function sourceros2() {
   else
     echo "WARNING: rmw_connextdds is not available. Make sure to build it!"
   fi
-
-  echo -n "$reset_color"
 }
 
 function sourcerti() {
@@ -180,8 +174,12 @@ nugetDelete() {
 ############
 rungazebo() {
   xhost +local:
-  schroot -c mt_ubuntu20 /usr/bin/bash -- -ic ' \
-   export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
+  export DISPLAY=:1
+   #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
+  schroot -c ub20 /bin/bash -- -ic ' \
    sourceros2 && \
+    export DISPLAY=:1 && \
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }
+
+[[ -f '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh' ]] && source '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh'
