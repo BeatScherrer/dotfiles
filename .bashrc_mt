@@ -1,0 +1,187 @@
+#!/usr/bin/bash
+
+#aliases
+if [[ -f "${HOME}/.aliases_mt" ]]; then
+  source "${HOME}/.aliases_mt"
+fi
+
+# Helper function to change to git dir
+ccd() {
+  cd "${HOME}/workspace/mtr_sys/${1:-develop}/mtrsys-core"
+}
+
+cdmtrsys() {
+  cd "${HOME}/workspace/mtrsys-core.git/${1:-develop}"
+}
+
+# Helper function to change to a particular build directory
+cdbuild() {
+  ccd $1 && cd build
+}
+
+# Helper function to change to a particular source directory
+cdsrc() {
+  ccd $1 && cd src
+}
+
+function sourceros() {
+  echo -n "$fg[cyan]"
+  echo "sourcing ros"
+  source /opt/ros/melodic/setup.bash
+  #echo "setting ROS_MASTER_URI=http:10.0.52.114:11311/"
+  #export ROS_MASTER_URI=http://10.0.52.114:11311/
+  #export ROS_IP=10.0.20.244
+  export TURTLEBOT3_MODEL=burger
+
+  if [[ -f "$HOME/workspace/ros_ws/devel/setup.bash" ]]; then
+    echo "sourcing ros_ws"
+    source "$HOME/workspace/ros_ws/devel/setup.bash"
+  fi
+
+  alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
+
+  echo -n "$reset_color"
+}
+
+# source ros automatically if present
+if [[ -f "/opt/ros/melodic/setup.bash" ]]; then
+  sourceros
+fi
+
+function sourceros2() {
+  export MT_ROS_VERSION=galactic
+
+  echo -n "$fg[cyan]"
+  echo "sourcing ros2: ${MT_ROS_VERSION}"
+  source "/opt/ros/${MT_ROS_VERSION}/setup.bash"
+  source "${HOME}/workspace/ros2_connextdds/install/setup.bash"
+
+  export UNITR_MODEL="a1"
+  export ROS_DOMAIN_ID=1
+
+  if [[ -f "$HOME/src/ros2_ws/install/setup.bash" ]]; then
+    echo "sourcing ros2_ws"
+    source $HOME/src/ros2_ws/install/setup.bash
+  fi
+
+  if [[ -f "$HOME/src/ros2_connextdds/install/setup.bash" ]]; then
+    echo "sourcing ros2_connextdds"
+    source "$HOME/src/ros2_connextdds/install/setup.bash"
+    echo "setting RMW_IMPLEMENTATION=rmw_connextdds"
+    export RMW_IMPLEMENTATION=rmw_connextdds
+  else
+    echo "WARNING: rmw_connextdds is not available. Make sure to build it!"
+  fi
+
+  echo -n "$reset_color"
+}
+
+function sourcerti() {
+  source "/opt/rti_connext_dds-6.1.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
+}
+
+if [[ -f "/opt/ros/galactic/setup.bash" ]]; then
+  sourceros2
+fi
+
+#
+#  ccache
+if [[ -n "$SCHROOT_GID" ]]; then
+  export PATH=/usr/lib/ccache:$PATH
+  export CC="ccache gcc"
+  export CXX="ccache g++"
+  export CCACHE_BASEDIR="/home/beat/workspace/mtr_sys"
+  export DISPLAY=:0
+fi
+
+#
+# distcc
+#export CCACHE_PREFIX="distcc"
+
+#
+# Aliases
+alias ubuntu20='schroot -c mt_ubuntu20'
+alias ubuntu18='schroot -c mt_ubuntu18'
+alias debian='schroot -c mt_jessie'
+alias make='export CCACHE_BASEDIR=$(pwd); echo "Set CCACHE_BASEDIR ${CCACHE_BASEDIR} -- Building with -j16"; make -j16'
+alias sourcews='source ./install/setup.bash'
+
+__make() {
+  filename="/tmp/nvim_quickfix.log"
+  cd build && schroot -c chroot:mt_ubuntu18 -- make "$@" |& tee "$filename"
+}
+
+# navigation aliases
+alias cdws='cd $HOME/workspace'
+alias cdros='cdws && cd ros2_ws'
+alias cdmtr='cdws && cd mtr_sys'
+
+# add rti tools to path if present
+if [[ -d "/opt/rti_connext_dds-6.1.0/bin" ]]; then
+  export PATH=/opt/rti_connext_dds-6.1.0/bin:$PATH
+fi
+
+cleanws() {
+  if [[ -d "build" && -d "install" && -d "log" ]]; then
+    rm -rf build install log
+  fi
+}
+
+sshr() {
+  ssh -X mtr@robot-$1.mt
+}
+
+sshv() {
+  declare -r arg="$1"
+  local disp="0"
+  [[ -z "$arg" ]] && echo "usage: mssh <host>" && return 1
+  local server="${arg}"
+  [[ ! -z "${2-}" ]] && disp="$2"
+  ssh -t -f -L 5900:localhost:5900 "mtr@$server" "x11vnc -auth guess -localhost -display :$disp" &>/dev/null
+  sleep 2
+  vncviewer localhost:5900
+}
+
+sshm() {
+  ssh mtr@ms-$1.mt
+}
+
+mt-rti-spy() {
+  mt-spy -topicRegex "$1" -printSample
+}
+
+####################
+# UCC functionality
+####################
+cleanbuild() {
+  dotnet nuget locals all -c # when nuget package changed with the same version, generally unneeded
+  dotnet restore
+  dotnet clean # generally unneeded
+  dotnet build
+}
+
+nugetPushIDLStorageV() {
+  if [[ -z "${1-}" ]]; then
+    echo "usage: nugetPushIDLStorageV: <version>" 1>&2
+    return 1
+  fi
+  nuget push "MTRobot.UCC.Data.IDLStorage*$1*.nupkg" -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b'
+}
+
+nugetList() {
+  nuget list IDLStorage -source http://ms-build.mt/nuget -AllVersions -PreRelease
+}
+
+nugetDelete() {
+  nuget delete MTRobot.UCC.Data.IDLStorage $1 -Source "C:\NugetRepository"
+}
+############
+# Simulation
+############
+rungazebo() {
+  xhost +local:
+  schroot -c mt_ubuntu20 /usr/bin/bash -- -ic ' \
+   export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
+   sourceros2 && \
+    ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
+}
