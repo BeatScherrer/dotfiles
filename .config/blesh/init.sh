@@ -1,5 +1,9 @@
 #!/bin/sh
 
+bleopt exec_errexit_mark=
+bleopt exec_elapsed_mark=
+bleopt prompt_eol_mark=
+
 # highlighting related to editing
 ble-face -s region bg=60,fg=white
 ble-face -s region_target bg=153,fg=black

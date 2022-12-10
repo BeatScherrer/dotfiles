@@ -135,7 +135,3 @@ source "$OSH"/oh-my-bash.sh
 . "$HOME/.bashrc_mt"
 
 [[ -f '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh' ]] && source '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh'
-
-
-[[ ${BLE_VERSION-} ]] && ble-attach
-
