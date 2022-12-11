@@ -7,21 +7,17 @@ fi
 
 # Helper function to change to git dir
 ccd() {
-  cd "${HOME}/workspace/mtr_sys/${1:-develop}/mtrsys-core"
-}
-
-cdmtrsys() {
-  cd "${HOME}/workspace/mtrsys-core.git/${1:-develop}"
+  cd "${HOME}/workspace/mtrsys/${1:-develop}/" || exit
 }
 
 # Helper function to change to a particular build directory
 cdbuild() {
-  ccd $1 && cd build
+  ccd "$1" && cd build || exit
 }
 
 # Helper function to change to a particular source directory
 cdsrc() {
-  ccd $1 && cd src
+  ccd "$1" && cd src || exit
 }
 
 function sourceros() {
@@ -57,7 +53,7 @@ function sourceros2() {
 
   if [[ -f "$HOME/src/ros2_ws/install/setup.bash" ]]; then
     echo "sourcing ros2_ws"
-    source $HOME/src/ros2_ws/install/setup.bash
+    source "$HOME/src/ros2_ws/install/setup.bash"
   fi
 
   if [[ -f "$HOME/src/ros2_connextdds/install/setup.bash" ]]; then
@@ -130,14 +126,14 @@ sshv() {
   local disp="0"
   [[ -z "$arg" ]] && echo "usage: mssh <host>" && return 1
   local server="${arg}"
-  [[ ! -z "${2-}" ]] && disp="$2"
+  [[ -n "${2-}" ]] && disp="$2"
   ssh -t -f -L 5900:localhost:5900 "mtr@$server" "x11vnc -auth guess -localhost -display :$disp" &>/dev/null
   sleep 2
   vncviewer localhost:5900
 }
 
 sshm() {
-  ssh mtr@ms-$1.mt
+  ssh "mtr@ms-$1.mt"
 }
 
 mt-rti-spy() {
@@ -175,7 +171,7 @@ nugetDelete() {
 rungazebo() {
   xhost +local:
   export DISPLAY=:1
-   #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
+  #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
   schroot -c ub20 /bin/bash -- -ic ' \
    sourceros2 && \
     export DISPLAY=:1 && \

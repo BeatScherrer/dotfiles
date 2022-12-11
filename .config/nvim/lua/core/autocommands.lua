@@ -1,2 +1,4 @@
 -- Treesitter open folds
-vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, { pattern = "*", command = "normal zR" })
+-- TODO: Is this even required?
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, { pattern = "*", command = "normal zR" })
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, { pattern = "*", command = "lua vim.notify('a')" })
