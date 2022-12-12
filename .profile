@@ -7,8 +7,7 @@ if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
 		exec startx
 	elif [[ $(tty) == "/dev/tty2" ]]; then
     echo "running i3-gaps"
-    startx
-    exec i3
+    exec startx
 	elif [[ $(tty) == "/dev/tty3" ]]; then
 		echo "running sway"
 		export __GL_GSYNC_ALLOWED=0
