@@ -82,6 +82,7 @@ return packer.startup(function(use)
 			require("mason").setup()
 		end,
 	})
+  use "williamboman/mason-lspconfig.nvim"
 
 	-- Tag viewer
 	-- use("preservim/tagbar")

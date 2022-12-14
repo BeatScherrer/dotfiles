@@ -1,10 +1,12 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-	vim.notify("could not find plugin 'nvim-lsp-installer'")
 	return
 end
 
-local lspconfig = require("lspconfig")
+local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_1 then
+	return
+end
 
 local servers = {
 	"sumneko_lua",
@@ -23,10 +25,36 @@ local servers = {
 	"bashls",
 }
 
-lsp_installer.setup()
+-- Here we declare which settings to pass to the mason, and also ensure servers are installed. If not, they will be installed automatically.
+local settings = {
+	ui = {
+		border = "rounded",
+		icons = {
+			package_installed = "◍",
+			package_pending = "◍",
+			package_uninstalled = "◍",
+		},
+	},
+	log_level = vim.log.levels.INFO,
+	max_concurrent_installers = 4,
+}
 
+mason.setup(settings)
+mason_lspconfig.setup({
+	ensure_installed = servers,
+	automatic_installation = true,
+})
+
+-- we'll need to call lspconfig to pass our server to the native neovim lspconfig.
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	return
+end
+
+-- loop through the servers
 for _, server in pairs(servers) do
 	local opts = {
+		-- getting "on_attach" and capabilities from handlers
 		on_attach = require("plugins.lsp.handlers").on_attach,
 		capabilities = require("plugins.lsp.handlers").capabilities,
 	}
@@ -37,6 +65,7 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
 	end
 
+	-- Treat the rust analyzer server differently
 	if server == "rust_analyzer" then
 		require("rust-tools").setup({
 			server = {

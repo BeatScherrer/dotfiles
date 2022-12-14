@@ -1,6 +1,6 @@
 local M = {}
 
--- TODO: backfill this to template
+-- General settings
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -60,6 +60,8 @@ local function lsp_highlight_document(client)
 	end
 end
 
+--
+-- keymaps
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>h", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -88,41 +90,7 @@ local function rustKeymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>od", "<cmd>RustOpenExternalDocs<CR>", opts)
 end
 
-M.on_attach = function(client, bufnr)
-	lsp_keymaps(bufnr)
-
-	if client.name == "tsserver" then
-		client.server_capabilities.document_formatting = false
-	end
-
-	if client.name == "clangd" then
-		client.server_capabilities.document_formatting = false
-	end
-
-	if client.name == "cmake" then
-		client.server_capabilities.document_formatting = false
-	end
-
-	if client.name == "efm" then
-		client.server_capabilities.document_formatting = false
-	end
-
-	if client.name == "bashls" then
-		client.server_capabilities.document_formatting = false
-	end
-
-	if client.name == "sumneko_lua" then
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.document_range_formatting = false
-	end
-
-	if client.name == "rust_analyzer" then
-		client.server_capabilities.document_formatting = false
-		rustKeymaps(bufnr)
-	end
-
-	lsp_highlight_document(client)
-end
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -132,5 +100,72 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+
+--
+-- Formatting
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+function M.enable_format_on_save()
+	vim.cmd([[
+    augroup format_on_save
+        autocmd!
+        autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
+    augroup end
+    ]])
+	vim.notify("Enabled format on save")
+end
+
+function M.disable_format_on_save()
+	M.remove_augroup("format_on_save")
+	vim.notify("Disabled format on save")
+end
+
+function M.toggle_format_on_save()
+	if vim.fn.exists("#format_on_save#BufWritePre") == 0 then
+		M.enable_format_on_save()
+	else
+		M.disable_format_on_save()
+	end
+end
+
+function M.remove_augroup(name)
+	if vim.fn.exists("#" .. name) == 1 then
+		vim.cmd("au! " .. name)
+	end
+end
+
+vim.cmd([[ command! LspToggleAutoFormat execute 'lua ]])
+
+-- Toggle "format on save" once, to start with the format on.
+M.toggle_format_on_save()
+
+M.on_attach = function(client, bufnr)
+	lsp_keymaps(bufnr)
+
+	if client.name == "rust_analyzer" then
+		client.server_capabilities.document_formatting = false
+		rustKeymaps(bufnr)
+	end
+
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
+
+	lsp_highlight_document(client)
+end
 
 return M

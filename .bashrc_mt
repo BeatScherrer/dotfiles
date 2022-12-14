@@ -46,7 +46,7 @@ function sourceros2() {
 
   echo "sourcing ros2: ${MT_ROS_VERSION}"
   source "/opt/ros/${MT_ROS_VERSION}/setup.bash"
-  source "${HOME}/workspace/ros2_connextdds/install/setup.bash"
+  source "${HOME}/src/ros2_connextdds/install/setup.bash"
 
   export UNITR_MODEL="a1"
   export ROS_DOMAIN_ID=1
@@ -54,6 +54,8 @@ function sourceros2() {
   if [[ -f "$HOME/src/ros2_ws/install/setup.bash" ]]; then
     echo "sourcing ros2_ws"
     source "$HOME/src/ros2_ws/install/setup.bash"
+  else
+    echo "WARNING: ros2_ws cannot be sourced"
   fi
 
   if [[ -f "$HOME/src/ros2_connextdds/install/setup.bash" ]]; then
@@ -67,6 +69,7 @@ function sourceros2() {
 }
 
 function sourcerti() {
+  echo "sourcing rti_connext_dds-6.1.0"
   source "/opt/rti_connext_dds-6.1.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
 }
 
@@ -83,10 +86,6 @@ if [[ -n "$SCHROOT_GID" ]]; then
   export CCACHE_BASEDIR="/home/beat/workspace/mtr_sys"
   export DISPLAY=:0
 fi
-
-#
-# distcc
-#export CCACHE_PREFIX="distcc"
 
 #
 # Aliases
@@ -118,7 +117,7 @@ cleanws() {
 }
 
 sshr() {
-  ssh -X mtr@robot-$1.mt
+  ssh -X "mtr@robot-$1.mt"
 }
 
 sshv() {
@@ -163,7 +162,7 @@ nugetList() {
 }
 
 nugetDelete() {
-  nuget delete MTRobot.UCC.Data.IDLStorage $1 -Source "C:\NugetRepository"
+  nuget delete MTRobot.UCC.Data.IDLStorage "$1" -Source "C:\NugetRepository"
 }
 ############
 # Simulation
@@ -171,7 +170,7 @@ nugetDelete() {
 rungazebo() {
   xhost +local:
   #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
-  schroot -c ub20 /bin/bash -- -ic ' \
+  schroot -c a /bin/bash -- -ic ' \
    sourceros2 && \
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }

@@ -8,6 +8,7 @@ alias cdmtr='cdws && cd mtr_sys'
 alias cdnavlog='cd $HOME/workspace/analysis/navigation_analysis'
 alias cducc='cdws && cd ucc/web-gui'
 alias cducc2='cdws && cd ucc2/web-gui'
+alias cda='cdws && cd analysis'
 
 #
 ## Schroot aliases
