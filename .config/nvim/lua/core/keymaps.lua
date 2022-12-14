@@ -62,8 +62,10 @@ keymap("n", "<A-k>", "<cmd>m .-2<cr>==", opts)
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", opts)
 keymap("v", "p", '"_dP') -- keep buffer when pasting
 
--- NvimTree
+-- Neotree
 keymap("n", "<C-t>", "<cmd>NeoTreeShowToggle<cr>") -- open/close
+keymap("n", "<leader>tf", "<cmd>Neotree focus %<cr>") -- focus the currently opened file
+keymap("n", "<leader>tb", "<cmd>Neotree buffers<cr>") -- focus the currently opened file
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
