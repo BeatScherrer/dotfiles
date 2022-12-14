@@ -71,14 +71,7 @@ return packer.startup(function(use)
 		},
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
-	use("rmagatti/auto-session")
-	use({
-		"rmagatti/session-lens",
-		requires = {
-			"rmagatti/auto-session",
-			"nvim-telescope/telescope.nvim",
-		},
-	})
+	use("Shatur/neovim-session-manager")
 	use("windwp/nvim-autopairs")
 	use("kyazdani42/nvim-web-devicons")
 	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-gps", opt = false } } })
@@ -107,7 +100,6 @@ return packer.startup(function(use)
 	-- Color schemes
 	use("tanvirtin/monokai.nvim")
 	use({ "rose-pine/neovim", as = "rose-pine" })
-	use("folke/tokyonight.nvim")
 	use({ "jacoborus/tender.vim", as = "tender" })
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
