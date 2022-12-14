@@ -55,7 +55,15 @@ return packer.startup(function(use)
 
 	-- PDE Plugins
 	use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-	use("kyazdani42/nvim-tree.lua")
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	})
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -82,7 +90,7 @@ return packer.startup(function(use)
 			require("mason").setup()
 		end,
 	})
-  use "williamboman/mason-lspconfig.nvim"
+	use("williamboman/mason-lspconfig.nvim")
 
 	-- Tag viewer
 	-- use("preservim/tagbar")

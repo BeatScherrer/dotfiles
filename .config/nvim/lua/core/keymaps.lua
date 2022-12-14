@@ -1,11 +1,11 @@
 local opts = { noremap = true, silent = true }
 
 local function keymap(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Leader key
@@ -63,7 +63,7 @@ keymap("n", "<A-j>", "<cmd>m .+1<cr>==", opts)
 keymap("v", "p", '"_dP') -- keep buffer when pasting
 
 -- NvimTree
-keymap("n", "<C-t>", "<cmd>NvimTreeToggle<cr>") -- open/close
+keymap("n", "<C-t>", "<cmd>NeoTreeShowToggle<cr>") -- open/close
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
