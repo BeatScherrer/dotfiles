@@ -90,8 +90,6 @@ local function rustKeymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>od", "<cmd>RustOpenExternalDocs<CR>", opts)
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -111,6 +109,8 @@ local lsp_formatting = function(bufnr)
 		bufnr = bufnr,
 	})
 end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 function M.enable_format_on_save()
 	vim.cmd([[
@@ -141,10 +141,12 @@ function M.remove_augroup(name)
 	end
 end
 
-vim.cmd([[ command! LspToggleAutoFormat execute 'lua ]])
+vim.api.nvim_create_user_command("LspToggleAutoFormat", function()
+	M.toggle_format_on_save()
+end, {})
 
 -- Toggle "format on save" once, to start with the format on.
-M.toggle_format_on_save()
+M.enable_format_on_save()
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
@@ -154,16 +156,16 @@ M.on_attach = function(client, bufnr)
 		rustKeymaps(bufnr)
 	end
 
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				lsp_formatting(bufnr)
-			end,
-		})
-	end
+	-- if client.supports_method("textDocument/formatting") then
+	-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 		group = augroup,
+	-- 		buffer = bufnr,
+	-- 		callback = function()
+	-- 			lsp_formatting(bufnr)
+	-- 		end,
+	-- 	})
+	-- end
 
 	lsp_highlight_document(client)
 end
