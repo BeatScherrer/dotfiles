@@ -30,6 +30,8 @@ git clone ssh://git@bitbucket.mt:7999/dv/gazebo_unitr.git
 git clone ssh://git@bitbucket.mt:7999/dv/ros2-unitr.git
 
 info echo "Installing ros deps"
+
+# this is where dependencies are not getting installed?????????
 rosdep install --from-paths src --ignore-src -r -y
 
 info echo "Building workspace"
