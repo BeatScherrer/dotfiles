@@ -1,14 +1,17 @@
 #!/bin/bash
 
+ros2_connextdds_path="$HOME/src/ros2_connextdds/install/setup.bash"
+workspace_path="$HOME/src/ros2_ws"
+
 source "log.bash"
 
 info echo "Installing the MTR ros2 workspace"
 
-workspace_path="$HOME/src/"
+if [[ ! -d "workspace_path" ]]; then
+  mkdir -p $workspace_path
+fi
 
 cd "$workspace_path" || exit
-
-ros2_connextdds_path="$workspace_path/ros2_connextdds/install/setup.bash"
 
 if [[ -e $ros2_connextdds_path ]]; then
   source "$ros2_connextdds_path"
@@ -21,23 +24,32 @@ else
   exit 1
 fi
 
-mkdir -p "$workspace_path/ros2_ws/src" && "cd $workspace_path/ros2_ws/src"
+if [[ -e "/opt/ros/galactic/setup.bash" ]]; then
+  source "/opt/ros/galactic/setup.bash"
+else
+  error echo "could not source ros, make sure to install ros first"
+  exit 1
+fi
+
+mkdir src && cd src
 
 info echo "Cloning repos"
 git clone ssh://git@bitbucket.mt:7999/dv/tf2-transform-publisher.git
-git clone https://github.com/ignitionrobotics/ros_ign.git
+git clone https://github.com/ignitionrobotics/ros_ign.git --branch galactic
 git clone ssh://git@bitbucket.mt:7999/dv/gazebo_unitr.git
 git clone ssh://git@bitbucket.mt:7999/dv/ros2-unitr.git
 
 info echo "Installing ros deps"
 
 # this is where dependencies are not getting installed?????????
-rosdep install --from-paths src --ignore-src -r -y
+rosdep install --from-paths src/* --ignore-src -r -y
+
+cd ..
 
 info echo "Building workspace"
 colcon build --symlink-install
 
-if $?; then
+if [[ "$?" == 0 ]]; then
   info echo "SUCCESS"
 else
   error echo "error occurred while building the ros2 workspace!"
