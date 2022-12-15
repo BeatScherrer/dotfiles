@@ -157,7 +157,7 @@ nugetDelete() {
 rungazebo() {
   xhost +local:
   #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
-  schroot -c a /bin/bash -- -ic ' \
+  schroot -c ub20 /bin/bash -- -ic ' \
    sourceros2 && \
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }
