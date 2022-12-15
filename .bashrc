@@ -15,6 +15,8 @@ OSH_THEME="beat"
 
 [[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --rcfile "$HOME/.config/blesh/init.sh"
 
+PATH="$HOME/.local/bin/:$PATH"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

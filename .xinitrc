@@ -4,7 +4,7 @@ systemctl --user import-environment DISPLAY
 
 ## bspwm
 if [[ $(tty) == /dev/tty1 ]];then
-  echo "starting leftwm on $(tty)..."
+  echo "starting i3 on $(tty)..."
   exec i3
 ## LeftWM
 elif [[ $(tty) == /dev/tty2 ]]; then

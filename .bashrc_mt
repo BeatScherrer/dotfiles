@@ -87,23 +87,10 @@ if [[ -n "$SCHROOT_GID" ]]; then
   export DISPLAY=:0
 fi
 
-#
-# Aliases
-alias ubuntu20='schroot -c mt_ubuntu20'
-alias ubuntu18='schroot -c mt_ubuntu18'
-alias debian='schroot -c mt_jessie'
-alias make='export CCACHE_BASEDIR=$(pwd); echo "Set CCACHE_BASEDIR ${CCACHE_BASEDIR} -- Building with -j16"; make -j16'
-alias sourcews='source ./install/setup.bash'
-
 __make() {
   filename="/tmp/nvim_quickfix.log"
   cd build && schroot -c chroot:mt_ubuntu18 -- make "$@" |& tee "$filename"
 }
-
-# navigation aliases
-alias cdws='cd $HOME/workspace'
-alias cdros='cdws && cd ros2_ws'
-alias cdmtr='cdws && cd mtr_sys'
 
 # add rti tools to path if present
 if [[ -d "/opt/rti_connext_dds-6.1.0/bin" ]]; then

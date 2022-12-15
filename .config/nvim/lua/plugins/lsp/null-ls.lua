@@ -11,11 +11,14 @@ local conditional = function(fn)
 end
 
 null_ls.setup({
-	debug = false,
+	debug = true,
 
 	-- the sources are prettier, eslint_d and rubocop
 	sources = {
-		formatting.clang_format.with({ extra_args = { "-style=file" }, command = "/home/beat/.local/bin/clang-format" }),
+		formatting.clang_format.with({
+			extra_args = { "-style=file" },
+			command = "/home/beat/.local/bin/clang-format",
+		}),
 		formatting.prettier,
 		formatting.stylua,
 		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),
