@@ -1,11 +1,12 @@
-# Enable the subsequent settings only in interactive sessions
 case $- in
+# Enable the subsequent settings only in interactive sessions
 *i*) ;;
 *) return ;;
 esac
 
 # Path to your oh-my-bash installation.
 export OSH='/home/beat/.oh-my-bash'
+export SYSTEMD_EDITOR=vim
 
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 

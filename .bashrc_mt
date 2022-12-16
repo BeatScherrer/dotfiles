@@ -71,7 +71,7 @@ sourceros2() {
   source "${HOME}/src/${MT_ROS_VERSION}/ros2_connextdds/install/setup.bash"
 
   export UNITR_MODEL="a1"
-  export ROS_DOMAIN_ID=1
+  export ROS_DOMAIN_ID=0
 
   if [[ -f "$HOME/src/${MT_ROS_VERSION}/ros2_ws/install/setup.bash" ]]; then
     echo "sourcing ${MT_ROS_VERSION} ros2_ws"
