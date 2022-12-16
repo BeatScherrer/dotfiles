@@ -6,8 +6,6 @@ alias cdws='cd ${HOME}/workspace'
 alias cdros='cdws && cd ros2_ws'
 alias cdmtr='cdws && cd mtr_sys'
 alias cdnavlog='cd $HOME/workspace/analysis/navigation_analysis'
-alias cducc='cdws && cd ucc/web-gui'
-alias cducc2='cdws && cd ucc2/web-gui'
 alias cda='cdws && cd analysis'
 
 #
@@ -26,27 +24,3 @@ alias fixkscreen='rm .local/share/kscreen/ -rf'
 MAKE_CORES=10
 alias cm='echo "Ninja CMAKE_BUILD_TYPE=RelWithDebInfo"; cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias mm='export CCACHE_BASEDIR=${PWD}; echo "ninja build (CCACHE_BASEDIR set) (MAKE_CORES:${MAKE_CORES})"; ninja -j${MAKE_CORES}'
-
-# Simulation
-alias simon='sudo systemctl start mt-sim.target'
-alias simoff='sudo systemctl stop -- $(systemctl show -p BindsTo mt-sim.target | cut -d= -f2);'
-## @fn simschrootrobot()
-## Enter schroot and source robot environment for currently installed mt-sim-robot.service
-simschrootrobot() {
-  local service='mt-sim-robot.service'
-  local dir='test_robot_1'
-  cd "$(systemctl cat "$service" | grep WorkingDirectory | cut -d= -f2)" || return 1
-  local sname
-  sname="$(systemctl cat "$service" | grep -o "chroot:\S*" | cut -d: -f2)"
-  schroot -c "$sname" -- /bin/bash --init-file <(echo ". ~/.bashrc && . live_env/setenv -d '$dir'")
-}
-## @fn simschrootmaster()
-## Enter schroot and source master environment for currently installed mt-sim-master.service
-simschrootmaster() {
-  local service='mt-sim-master.service'
-  local dir='test_master_1'
-  cd "$(systemctl cat "$service" | grep WorkingDirectory | cut -d= -f2)" || return 1
-  local sname
-  sname="$(systemctl cat "$service" | grep -o "chroot:\S*" | cut -d: -f2)"
-  schroot -c "$sname" -- /bin/bash --init-file <(echo ". ~/.bashrc && . live_env/setenv -d '$dir'")
-}
