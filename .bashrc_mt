@@ -12,11 +12,11 @@ fi
 
 # Helper function to change to git dir
 ccd() {
-  cd "$workspace/mtrsys/${1:-develop}/" || exit
+  cd "$workspace/mtrsys/${1:-develop}/" || return
 }
 
 cducc() {
-  cd "$workspace/ucc/${1:-development}" || exit
+  cd "$workspace/ucc/${1:-development}" || return
 }
 
 cdclient() {
