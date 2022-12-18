@@ -140,3 +140,7 @@ source "$OSH"/oh-my-bash.sh
 . "$HOME/.bashrc_mt"
 
 [[ -f '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh' ]] && source '/home/beat/workspace/mtr_sys/vo/mtrsys-core/build/sim_helpers.sh'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
