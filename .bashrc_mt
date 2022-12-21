@@ -12,11 +12,11 @@ fi
 
 # Helper function to change to git dir
 ccd() {
-  cd "$workspace/mtrsys/${1:-develop}/" || return
+  cd "$workspace/mtrsys/${1:-develop}/" || return 1
 }
 
 cducc() {
-  cd "$workspace/ucc/${1:-development}" || return
+  cd "$workspace/ucc/${1:-development}" || return 1
 }
 
 cdclient() {
@@ -25,13 +25,26 @@ cdclient() {
 
 # Helper function to change to a particular build directory
 cdbuild() {
-  ccd "$1" && cd build || exit
+  ccd "$1" && cd build || return 1
 }
 
 # Helper function to change to a particular source directory
 cdsrc() {
-  ccd "$1" && cd src || exit
+  ccd "$1" && cd src || return 1
 }
+
+# submodule navigation helper
+cds() {
+  cd "$1" || return 1
+}
+_cds() {
+  COMPREPLY=()
+  cur=${COMP_WORDS[$COMP_CWORD]}
+  declare -a submdodules
+  submodules="$(git submodule 2>/dev/null | awk '{print $2}' | grep "^$cur" || echo '')"
+  COMPREPLY=($(compgen -W '$submodules' -- ''))
+}
+complete -F _cds cds
 
 sourceros() {
   echo "sourcing ros"
