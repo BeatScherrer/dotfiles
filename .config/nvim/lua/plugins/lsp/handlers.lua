@@ -116,7 +116,7 @@ function M.enable_format_on_save()
 	vim.cmd([[
     augroup format_on_save
         autocmd!
-        autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
+        autocmd BufWritePre * lua vim.lsp.buf.format({ async = true })
     augroup end
     ]])
 	vim.notify("Enabled format on save")
@@ -145,15 +145,23 @@ vim.api.nvim_create_user_command("LspToggleAutoFormat", function()
 	M.toggle_format_on_save()
 end, {})
 
--- Toggle "format on save" once, to start with the format on.
-M.enable_format_on_save()
-
+-- actual lsp registration happens here
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 
 	if client.name == "rust_analyzer" then
 		client.server_capabilities.document_formatting = false
 		rustKeymaps(bufnr)
+	end
+
+	if client.name == "clangd" then
+		client.server_capabilities.document_formatting = false
+	end
+
+	if client.server_capabilities.document_formatting then
+		vim.notify("client: " .. client.name .. " supports formating")
+	else
+		vim.notify("client: " .. client.name .. " does not support formating")
 	end
 
 	if client.supports_method("textDocument/formatting") then
@@ -169,5 +177,8 @@ M.on_attach = function(client, bufnr)
 
 	lsp_highlight_document(client)
 end
+-- TODO: this enables LSP formatting????? if we do not enable the auto command
+-- Toggle "format on save" once, to start with the format on.
+-- M.enable_format_on_save()
 
 return M
