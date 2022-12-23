@@ -13,7 +13,6 @@ end
 null_ls.setup({
 	debug = true,
 
-	-- the sources are prettier, eslint_d and rubocop
 	sources = {
 		formatting.clang_format.with({
 			extra_args = { "-style=file" },
