@@ -9,6 +9,8 @@ if command -v nvim >/dev/null 2>&1; then
 fi
 alias egrep='grep -E'
 
+local_config="$HOME/.config"
+
 # config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias sourcezsh='source ~/.zshrc'
@@ -24,12 +26,12 @@ alias wts='stty sane; clear;'
 
 # navigation
 alias cddata1='cd /media/data1'
-# alias cdconfig='cd ~/.config'
-# alias cdlog='cd /var/log'
-alias cdnvim='cdconfig && cd nvim'
-alias cdkitty='cdconfig && cd kitty'
-alias cdbspwm='cdconfig && cd bspwm'
-alias cdsway='cdconfig && cd sway'
+alias cdc='cd $local_config'
+alias cdl='cd /var/log'
+alias cdnvim='cd $local_config/nvim'
+alias cdkitty='cd $local_config/kitty'
+alias cdbspwm='cd $local_config/bspwm'
+alias cdsway='cd $local_config/sway'
 
 alias cdws='cd "$HOME/workspace"'
 alias cdsandbox='cdws && cd sandbox'

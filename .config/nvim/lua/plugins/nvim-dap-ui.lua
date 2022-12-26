@@ -24,7 +24,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 dap_ui.setup({
-	icons = { expanded = "▾", collapsed = "▸" },
+	icons = { expanded = "", collapsed = "", current_frame = "" },
 	mappings = {
 		-- Use a table to apply multiple mappings
 		expand = { "<CR>", "<2-LeftMouse>" },
@@ -34,9 +34,17 @@ dap_ui.setup({
 		repl = "r",
 		toggle = "t",
 	},
+	-- Use this to override mappings for specific elements
+	element_mappings = {
+		-- Example:
+		-- stacks = {
+		--   open = "<CR>",
+		--   expand = "o",
+		-- }
+	},
 	-- Expand lines larger than the window
 	-- Requires >= 0.7
-	expand_lines = vim.fn.has("nvim-0.7"),
+	expand_lines = vim.fn.has("nvim-0.7") == 1,
 	-- Layouts define sections of the screen to place windows.
 	-- The position can be "left", "right", "top" or "bottom".
 	-- The size specifies the height/width depending on position. It can be an Int
@@ -48,21 +56,37 @@ dap_ui.setup({
 		{
 			elements = {
 				-- Elements can be strings or table with id and size keys.
-				{ id = "breakpoints", size = 0.4 },
-				{ id = "scopes", size = 0.6 },
-				-- "stacks",
-				-- "watches",
+				"breakpoints",
+				"stacks",
+				"watches",
+				{ id = "scopes", size = 0.25 },
 			},
-			size = 60, -- 40 columns
-			position = "right",
+			size = 40, -- 40 columns
+			position = "left",
 		},
 		{
 			elements = {
-				-- 		"repl",
 				"console",
+				"repl",
 			},
-			size = 0.2, -- 20% of total lines
+			size = 0.25, -- 25% of total lines
 			position = "bottom",
+		},
+	},
+	controls = {
+		-- Requires Neovim nightly (or 0.8 when released)
+		enabled = true,
+		-- Display controls in this element
+		element = "repl",
+		icons = {
+			pause = "",
+			play = "",
+			step_into = "",
+			step_over = "",
+			step_out = "",
+			step_back = "",
+			run_last = "",
+			terminate = "",
 		},
 	},
 	floating = {
@@ -76,5 +100,6 @@ dap_ui.setup({
 	windows = { indent = 1 },
 	render = {
 		max_type_length = nil, -- Can be integer or nil.
+		max_value_lines = 100, -- Can be integer or nil.
 	},
 })

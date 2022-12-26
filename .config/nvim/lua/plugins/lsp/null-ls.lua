@@ -11,7 +11,7 @@ local conditional = function(fn)
 end
 
 null_ls.setup({
-	debug = true,
+	debug = false,
 
 	sources = {
 		formatting.clang_format.with({

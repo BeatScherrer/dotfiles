@@ -84,6 +84,14 @@ return packer.startup(function(use)
 		end,
 	})
 	use("williamboman/mason-lspconfig.nvim")
+	use("jay-babu/mason-nvim-dap.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup()
+		end,
+	})
 
 	-- Tag viewer
 	-- use("preservim/tagbar")

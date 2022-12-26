@@ -58,8 +58,8 @@ neotree.setup({
 		git_status = {
 			symbols = {
 				-- Change type
-				added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+				added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 				deleted = "✖", -- this can only be used in the git_status source
 				renamed = "", -- this can only be used in the git_status source
 				-- Status type
@@ -73,7 +73,7 @@ neotree.setup({
 	},
 	window = {
 		position = "left",
-		width = 40,
+		width = 50,
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -204,7 +204,7 @@ neotree.setup({
 		},
 	},
 	source_selector = {
-		winbar = false,
-		statusline = true,
+		winbar = true,
+		statusline = false,
 	},
 })

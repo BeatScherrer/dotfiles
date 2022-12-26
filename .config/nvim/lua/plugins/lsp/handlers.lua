@@ -158,12 +158,6 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = false
 	end
 
-	if client.server_capabilities.document_formatting then
-		vim.notify("client: " .. client.name .. " supports formating")
-	else
-		vim.notify("client: " .. client.name .. " does not support formating")
-	end
-
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {

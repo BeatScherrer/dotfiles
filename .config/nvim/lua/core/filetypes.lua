@@ -14,6 +14,7 @@ vim.filetype.add({
 	-- },
 	filename = {
 		["justfile"] = "just",
+		["nuget.config"] = "xml",
 	},
 	pattern = {
 		[".*/.ssh/config.d/.*"] = "sshconfig",
