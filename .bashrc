@@ -84,6 +84,16 @@ vpn() {
   nmcli connection "$state" "$target"
 }
 
+wake() {
+  local target="$1"
+
+  if [[ "$target" == "smolboi" ]]; then
+    wakeonlan b4:2e:99:a1:4d:aa
+  else
+    echo "target not found"
+  fi
+}
+
 . "$HOME/.aliases"
 . "$HOME/.aliases_mt"
 . "$HOME/.bashrc_mt"
