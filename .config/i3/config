@@ -19,6 +19,15 @@ gaps outer 8
 gaps inner 8 
 gaps top 35
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #de935f #de935f #ffffff #de935f   #de935f
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -252,6 +261,11 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+
+# workspace assignments
+assign [class="^Steam$"] $ws3
+assign [class="^Signal$"] $ws4
+assign [class="^Zulip$"] $ws4
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
