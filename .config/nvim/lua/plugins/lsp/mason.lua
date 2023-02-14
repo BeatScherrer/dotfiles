@@ -9,7 +9,7 @@ if not status_ok_1 then
 end
 
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"clangd",
 	"jsonls",
 	"yamlls",

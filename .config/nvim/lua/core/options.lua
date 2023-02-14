@@ -18,8 +18,8 @@ opt.sidescrolloff = 10
 opt.termguicolors = true
 opt.laststatus = 3
 opt.fillchars = {
-  diff = " ",
-  eob = " ",
+	diff = " ",
+	eob = " ",
 }
 
 -- treesitter folding
@@ -34,13 +34,13 @@ vim.wo.signcolumn = "yes"
 g.do_filetype_lua = 1
 
 -- TODO: How can we get this project based??
-opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18-cpp17 -- /usr/bin/zsh -ic "make"; cd - '
+opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18-cpp17 -- /bin/bash -ic "mm"; cd - '
 
 -- Neovide settings
 if g.neovide then
-  g.neovide_refresh_rate = 60
-  g.neovide_remember_window_size = true
-  g.neovide_cursor_animation_length = 0.05
-  g.neovide_cursor_trail_length = 0.6
-  opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h8" }
+	g.neovide_refresh_rate = 60
+	g.neovide_remember_window_size = true
+	g.neovide_cursor_animation_length = 0.05
+	g.neovide_cursor_trail_length = 0.6
+	opt.guifont = { "JetBrainsMonoNL Nerd Font", ":h8" }
 end

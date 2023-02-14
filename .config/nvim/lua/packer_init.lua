@@ -92,6 +92,15 @@ return packer.startup(function(use)
 			require("trouble").setup()
 		end,
 	})
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+		-- Uncomment next line if you want to follow only stable versions
+		-- tag = "*"
+	})
 
 	-- Tag viewer
 	-- use("preservim/tagbar")
@@ -130,7 +139,8 @@ return packer.startup(function(use)
 	use("github/copilot.vim")
 
 	-- Commenting
-	use("terrortylor/nvim-comment")
+	-- use("terrortylor/nvim-comment")
+	use("b3nj5m1n/kommentary")
 
 	-- Tasks
 	use("tpope/vim-dispatch")

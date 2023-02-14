@@ -103,6 +103,9 @@ keymap("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>")
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
 
+-- Code actions (more in lsp config)
+keymap("n", "<leader>cd", "<cmd>Neogen<cr>")
+
 -- tabs
 keymap("n", "<leader>tn", ":$tabnew<CR>", { noremap = true })
 keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })

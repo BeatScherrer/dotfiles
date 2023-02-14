@@ -14,9 +14,17 @@ null_ls.setup({
 	debug = false,
 
 	sources = {
+		-- conditional(function(utils)
+		-- 	return (utils.root_has_file("core/.clang-format") or utils.root_has_file(".clang-format"))
+		-- 		and formatting.clang_format.with({
+		-- 			extra_args = { "-style=file" },
+		-- 			command = "/home/beat/.local/bin/clang-format",
+		-- 		})
+		-- end),
 		formatting.clang_format.with({
 			extra_args = { "-style=file" },
 			command = "/home/beat/.local/bin/clang-format",
+			filetypes = { "c", "cpp", "h", "hpp" },
 		}),
 		formatting.prettier,
 		formatting.stylua,

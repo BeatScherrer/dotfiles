@@ -1,6 +1,6 @@
 local util = require("lspconfig.utils")
 
-local omnisharp_bin = "/usr/sbin/omnisharp"
+local omnisharp_bin = "/home/beat/.local/share/nvim/mason/bin/omnisharp"
 local pid = vim.fn.getpid()
 
 local root_dir = function(fname)
@@ -17,6 +17,5 @@ return {
 		"-lsp",
 		"--hostPID",
 		tostring(pid),
-		"--source /home/beat/workspace/ucc/web-gui/src/MTRobot.UCC",
 	},
 }

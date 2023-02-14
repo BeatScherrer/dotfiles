@@ -22,6 +22,7 @@ nvim_treesitter.setup({
 		"bash",
 		"c",
 		"cpp",
+		"c_sharp",
 		"rust",
 		"lua",
 		"python",
