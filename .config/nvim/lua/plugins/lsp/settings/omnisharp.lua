@@ -7,7 +7,7 @@ local root_dir = function(fname)
 	return util.root_pattern("*sln")(fname)
 		or util.root_pattern("*.csproj")(fname)
 		or util.find_git_ancestor(fname)
-		or "MTrobot.UCC"
+		or "MTRobot.UCC"
 end
 
 return {

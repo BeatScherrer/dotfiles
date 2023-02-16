@@ -67,6 +67,9 @@ keymap("n", "<C-t>", "<cmd>NeoTreeShowToggle<cr>") -- open/close
 keymap("n", "<leader>tf", "<cmd>Neotree focus %<cr>") -- focus the currently opened file
 keymap("n", "<leader>tb", "<cmd>Neotree buffers<cr>") -- focus the currently opened file
 
+-- snippets
+keymap("n", "<leader>sd", "<cmd>Neogen<cr>")
+
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
@@ -81,10 +84,11 @@ keymap("n", "<leader>fh", "<cmd>Telescope highlights<cr>")
 keymap("n", "<leader>fj", "<cmd>Telescope just<cr>")
 
 -- git
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
-keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
-keymap("n", "<leader>gw", "<cmd>Telescope git_worktree<cr>")
+keymap("n", "<leader>fgc", "<cmd>Telescope git_commits<cr>")
+keymap("n", "<leader>fgb", "<cmd>Telescope git_branches<cr>")
+keymap("n", "<leader>fgs", "<cmd>Telescope git_status<cr>")
+keymap("n", "<leader>fgw", "<cmd>Telescope git_worktree<cr>")
+
 keymap("n", "<leader>dvo", "<cmd>DiffviewOpen<cr>")
 keymap("n", "<leader>dvfh", "<cmd>DiffviewFileHistory %<cr>")
 keymap("n", "<leader>dvr", "<cmd>DiffviewRefresh %<cr>")
