@@ -1,0 +1,13 @@
+;TODO:
+; - [ ] split primary bar and secondary
+; - [ ] split individual widgets
+; - [ ] improve individual widgets
+
+; includes
+(include "./widgets/workspaces.yuck")
+(include "./widgets/music.yuck")
+(include "./widgets/utils/metric.yuck")
+
+(include "./primary.yuck")
+(include "./secondary.yuck")
+

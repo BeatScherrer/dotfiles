@@ -1,0 +1,20 @@
+; TODO: make workspaces widget more intelligent
+; - [ ] add current workspace indicator
+; - [ ] hide empty workspaces similar to polybar
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :onclick "scripts/ws.sh 1" 1)
+    (button :onclick "scripts/ws.sh 2" 2)
+    (button :onclick "scripts/ws.sh 3" 3)
+    (button :onclick "scripts/ws.sh 4" 4)
+    (button :onclick "scripts/ws.sh 5" 5)
+    (button :onclick "scripts/ws.sh 6" 6)
+    (button :onclick "scripts/ws.sh 7" 7)
+    (button :onclick "scripts/ws.sh 8" 8)
+    (button :onclick "scripts/ws.sh 9" 9)
+  )
+)

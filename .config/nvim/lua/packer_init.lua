@@ -124,6 +124,7 @@ return packer.startup(function(use)
 	-- use("$HOME/workspace/git/beat/gravel-pit.nvim")
 	use("nvim-treesitter/playground")
 	use("EdenEast/nightfox.nvim")
+	use("elkowar/yuck.vim")
 
 	-- Autocomplete
 	use({

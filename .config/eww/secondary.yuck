@@ -1,0 +1,24 @@
+
+(defwindow secondary
+  :monitor "DP-2"
+  :geometry (geometry :x "0%"
+                      :y "100px"
+                      :width "90%"
+                      :height "2%"
+                      :anchor "top center"
+              )
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (secondaryBar :class "secondary-bar")
+)
+
+(defwidget secondaryBar []
+  (centerbox :orientation "h" :class "secondary-bar"
+    (workspaces)
+    (box)
+    (box)
+    )
+  )
+

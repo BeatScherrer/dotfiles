@@ -3,11 +3,13 @@ local status_dap_ui_ok, dap_ui = pcall(require, "dapui")
 local status_dap_ok, dap = pcall(require, "dap")
 
 if not status_dap_ok then
-	vim.notify("could not find 'dap'")
+	vim.notify("could not find 'dap'", vim.log.levels.ERROR)
+	return
 end
 
 if not status_dap_ui_ok then
-	vim.notify("could not find nvim-dap-ui")
+	vim.notify("could not find nvim-dap-ui", vim.log.levels.ERROR)
+	return
 end
 
 -- attach to dap events
