@@ -5,81 +5,58 @@
 
 // variables
 $bg-dark: #3a3a3a;
+$bg-dark-light: #444444;
+$selection: #666666;
 $fg: #FFFFFF;
 
 $bg: $bg-dark;
 
 $padding: 12px;
 
-.primary-bar {
+.container {
+  background-color: $bg-dark;
+  padding: 2em;
+
+  :hover {
+    background-color: $selection;
+  }
+}
+
+.button {
+  background-color: $bg-dark-light;
+  padding: 1em;
+  font-size: 2em;
+
+  :hover {
+    background-color: #FF0000;
+  }
+}
+
+.bar-container {
+  background-color: $bg-dark;
+}
+
+.bar-button {
+  font-size: 1em;
+  padding: 0 0.2em;
+}
+
+.icon-highlight {
+  font-size: 3em;
+  padding: 0 0.3em;
+  background-color: white;
+  color: black;
+}
+
+.icon {
+  font-size: 2em;
+  padding: 0 0.3em;
+  background-color: $bg-dark;
   color: $fg;
-  padding: 20px;
-  font-size: 1.3em;
-  font-family: "Noto Mono for Powerline", "Font Awesome 6 Pro", "Font Awesome 6 Brands"
 }
 
-.secondary-bar {
-  color: $fg;
-  padding: 20px;
-  font-size: 1.3em;
-  font-family: "JetBrainsMonoNL Nerd Font", "Font Awesome 6 Pro", "Font Awesome 6 Brands"
-}
 
-// Styles on classes (see eww.yuck for more information)
-
-.sidestuff {
-  background-color: $bg;
-  padding: $padding;
-}
-
-.workspaces {
-  background-color: $bg;
-  padding: $padding;
-}
-
-.music {
-  background-color: $bg;
-  padding: $padding;
-}
-
-.sidestuff slider {
-  all: unset;
-  color: #ffd5cd;
-}
-
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.label-ram {
-  font-size: large;
-}
-.workspaces button:hover {
-  color: #D35D6E;
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
 }

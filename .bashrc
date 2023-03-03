@@ -94,6 +94,10 @@ wake() {
   fi
 }
 
+pacmanSearch() {
+  pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
+}
+
 . "$HOME/.aliases"
 . "$HOME/.aliases_mt"
 . "$HOME/.bashrc_mt"

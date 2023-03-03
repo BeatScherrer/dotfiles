@@ -3,6 +3,8 @@
 # TODO fix these colors, they pollute all sorts of stuff
 # source "$HOME/.scripts/log.bash"
 
+[[ -f '/home/beat/workspace/mtrsys/vo/build/sim_helpers.sh' ]] && source '/home/beat/workspace/mtrsys/vo/build/sim_helpers.sh'
+
 workspace="${HOME}/workspace"
 
 #aliases
@@ -214,4 +216,3 @@ rungazebo() {
     ros2 launch unitr_ignition unitr_world.launch.py world:="showroom_1unitr.sdf -v 4"'
 }
 
-[[ -f '/home/beat/workspace/mtrsys/vo/build/sim_helpers.sh' ]] && source '/home/beat/workspace/mtrsys/vo/build/sim_helpers.sh'
