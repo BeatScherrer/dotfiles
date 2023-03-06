@@ -83,7 +83,7 @@ tiling_drag modifier titlebar
 
 # programs
 bindsym $mod+Return exec alacritty
-bindsym $mod+b exec chromium
+bindsym $mod+b exec vivaldi-stable
 bindsym $mod+f exec nautilus
 
 # kill focused window

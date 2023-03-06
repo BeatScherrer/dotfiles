@@ -65,6 +65,13 @@ return packer.startup(function(use)
 		},
 	})
 	use({
+		"s1n7ax/nvim-window-picker",
+		tag = "v1.*",
+		config = function()
+			require("window-picker").setup()
+		end,
+	})
+	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			"nvim-lua/plenary.nvim",
