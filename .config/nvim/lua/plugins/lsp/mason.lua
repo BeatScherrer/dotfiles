@@ -15,7 +15,7 @@ local servers = {
 	"yamlls",
 	"cmake",
 	"angularls",
-	"pyright",
+	"pylsp",
 	"omnisharp",
 	"rust_analyzer",
 	"taplo",

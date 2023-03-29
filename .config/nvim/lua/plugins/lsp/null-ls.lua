@@ -24,9 +24,11 @@ null_ls.setup({
 		formatting.clang_format.with({
 			extra_args = { "-style=file" },
 			command = "/home/beat/.local/bin/clang-format",
-			filetypes = { "c", "cpp", "h", "hpp" },
+			filetypes = { "c", "cpp", "h", "hpp", "ts" },
 		}),
-		formatting.prettier,
+		formatting.prettier.with({
+			filetypes = { "html", "js", "tsx", "jsx" },
+		}),
 		formatting.stylua,
 		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),
 		formatting.rustfmt,

@@ -32,7 +32,11 @@ cdbuild() {
 
 # Helper function to change to a particular source directory
 cdsrc() {
-  ccd "$1" && cd src || return 1
+  if [[ -z "$1" ]];then
+    cd "$HOME/src"
+  else
+    ccd "$1" && cd src || return 1
+  fi
 }
 
 # submodule navigation helper
@@ -85,7 +89,7 @@ sourceros2() {
   source "/opt/ros/${MT_ROS_VERSION}/setup.bash"
   source "${HOME}/src/${MT_ROS_VERSION}/ros2_connextdds/install/setup.bash"
 
-  export UNITR_MODEL="a1"
+  export ROBOT_MODEL="unitr_a1"
   export ROS_DOMAIN_ID=1
 
   if [[ -f "$HOME/src/${MT_ROS_VERSION}/ros2_ws/install/setup.bash" ]]; then
