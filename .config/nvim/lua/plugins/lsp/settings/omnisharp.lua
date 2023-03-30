@@ -17,5 +17,7 @@ return {
 		"-lsp",
 		"--hostPID",
 		tostring(pid),
+		"--loglevel",
+		"Debug",
 	},
 }

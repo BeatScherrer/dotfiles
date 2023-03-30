@@ -51,3 +51,4 @@ source ~/.bashrc
 # export QT_QPA_PLATFORM=wayland
 # export GDK_BACKEND=wayland
 # exec Hyprland --config "${HOME}/.config/hypr/hyprland.conf"
+. "$HOME/.cargo/env"

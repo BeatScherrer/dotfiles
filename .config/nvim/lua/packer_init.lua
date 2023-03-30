@@ -168,8 +168,12 @@ return packer.startup(function(use)
 	-- Debugger
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-	use("theHamsta/nvim-dap-virtual-text")
-	use("ravenxrz/DAPInstall.nvim")
+	use({
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("nvim-dap-virtual-text").setup()
+		end,
+	})
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- buffer line

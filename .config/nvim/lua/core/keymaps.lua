@@ -106,6 +106,7 @@ keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>")
 keymap("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>")
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log Point message: ')<cr>")
 
 -- Code actions (more in lsp config)
 keymap("n", "<leader>cd", "<cmd>Neogen<cr>")
