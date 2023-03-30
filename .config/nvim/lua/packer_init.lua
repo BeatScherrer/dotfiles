@@ -1,5 +1,5 @@
--- Plugin manager configuration file
 -----------------------------------------------------------
+-- Plugin manager configuration file
 -----------------------------------------------------------
 
 -- url: https://github.com/wbthomason/packer.nvim

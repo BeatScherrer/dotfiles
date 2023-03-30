@@ -98,6 +98,10 @@ pacmanSearch() {
   pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
 
+unalias cp
+unalias mv
+unalias grep
+
 . "$HOME/.aliases"
 . "$HOME/.aliases_mt"
 . "$HOME/.bashrc_mt"
