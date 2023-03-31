@@ -82,6 +82,11 @@ keymap("n", "<leader>fo", "<cmd>Telescope resume<cr>")
 keymap("n", "<leader>f?", "<cmd>Telescope help_tags<cr>")
 keymap("n", "<leader>fh", "<cmd>Telescope highlights<cr>")
 keymap("n", "<leader>fj", "<cmd>Telescope just<cr>")
+vim.keymap.set("v", "<leader>fg", function()
+	local tb = require("telescope.builtin")
+	local text = vim.getVisualSelection()
+	tb.live_grep({ default_text = text })
+end)
 
 -- git
 keymap("n", "<leader>fgc", "<cmd>Telescope git_commits<cr>")
