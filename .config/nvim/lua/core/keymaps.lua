@@ -126,3 +126,10 @@ keymap("n", "<leader>th", ":tabp<CR>", { noremap = true })
 keymap("n", "<leader>tmh", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
 keymap("n", "<leader>tml", ":+tabmove<CR>", { noremap = true })
+
+-- Terminal
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h") -- keep navigating windows even when in terminal
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j")
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k")
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l")
+keymap("t", "<Esc>", "<C-\\><C-N>")
