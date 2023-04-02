@@ -112,3 +112,4 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm use v16.15.1
 . "$HOME/.cargo/env"
+[[ -f "/home/beat/workspace/mtrsys/simulation/build/sim_helpers.sh" ]] && source "/home/beat/workspace/mtrsys/simulation/build/sim_helpers.sh"
