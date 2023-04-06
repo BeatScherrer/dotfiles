@@ -1,0 +1,8 @@
+[[language]]
+  name = "rust"
+  auto-format = true
+
+[[language]]
+  name = "cpp"
+  language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt"] }
+  formatter = { command = "/home/beat/.local/bin/clang-format", args = ["-style=file"]}
