@@ -1,8 +1,31 @@
 [[language]]
-  name = "rust"
-  auto-format = true
+name = "rust"
+auto-format = true
 
 [[language]]
-  name = "cpp"
-  language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt"] }
-  formatter = { command = "/home/beat/.local/bin/clang-format", args = ["-style=file"]}
+name = "cpp"
+language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt"] }
+formatter = { command = "/home/beat/.local/bin/clang-format", args = ["-style=file"]}
+
+[language.debugger]
+name = "lldb-vscode"
+transport = "stdio"
+command = "lldb-vscode"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { console = "internalConsole", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "attach"
+request = "attach"
+completion = [ "pid" ]
+args = { console = "internalConsole", pid = "{0}" }
+
+[[language.debugger.templates]]
+name = "gdbserver attach"
+request = "attach"
+completion = [ { name = "lldb connect url", default = "connect://localhost:1234" }, { name = "file", completion = "filename" }, "pid" ]
+args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
