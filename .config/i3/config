@@ -264,7 +264,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 
 # workspace assignments
 assign [class="^Steam$"] $ws3
-assign [class="^Signal$"] $ws4
+assign [class="^Signal$"] $ws10
 assign [class="^Zulip$"] $ws4
 
 #######################################################################
