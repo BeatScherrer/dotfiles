@@ -27,7 +27,7 @@ null_ls.setup({
 			filetypes = { "c", "cpp", "h", "hpp", "ts" },
 		}),
 		formatting.prettier.with({
-			filetypes = { "html", "js", "tsx", "jsx" },
+			filetypes = { "html", "js", "tsx", "jsx", "xml" },
 		}),
 		formatting.stylua,
 		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),

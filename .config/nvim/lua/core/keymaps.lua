@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 local opts = { noremap = true, silent = true }
 
 local function keymap(mode, lhs, rhs, opts)
@@ -82,11 +84,11 @@ keymap("n", "<leader>fo", "<cmd>Telescope resume<cr>")
 keymap("n", "<leader>f?", "<cmd>Telescope help_tags<cr>")
 keymap("n", "<leader>fh", "<cmd>Telescope highlights<cr>")
 keymap("n", "<leader>fj", "<cmd>Telescope just<cr>")
-vim.keymap.set("v", "<leader>fg", function()
+--[[ vim.keymap.set("v", "<leader>fg", function()
 	local tb = require("telescope.builtin")
-	local text = vim.getVisualSelection()
+	-- local text = TODO
 	tb.live_grep({ default_text = text })
-end)
+end) ]]
 
 -- git
 keymap("n", "<leader>fgc", "<cmd>Telescope git_commits<cr>")
