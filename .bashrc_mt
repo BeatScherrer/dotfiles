@@ -118,11 +118,11 @@ sourcerti7() {
 
 }
 
-if [[ -f "/opt/ros/galactic/setup.bash" ]]; then
-  sourceros2
-elif [[ -f "/opt/ros/humble/setup.bash" ]]; then
-  sourceros2
-fi
+# if [[ -f "/opt/ros/galactic/setup.bash" ]]; then
+#   sourceros2
+# elif [[ -f "/opt/ros/humble/setup.bash" ]]; then
+#   sourceros2
+# fi
 
 #
 #  ccache
