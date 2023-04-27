@@ -47,6 +47,11 @@ alias cdflarmrs='cdgit && cd beat/flarm-rs'
 alias cdflarmcli='cdgit && cd beat/flarm-cli'
 alias cdairshow='cdgit && cd beat/airshow'
 
+# editing
+alias vimbashrc='vim ~/.bashrc'
+alias vimsim='vim $SIMULATION_CONFIG'
+alias vimdds='vim $MTR_DDS_APPLICATION_PROFILE'
+
 # schroot aliases
 alias ubuntu-see-me='schroot -c chroot:see-me'
 
