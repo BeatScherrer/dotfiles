@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#author Martin Dilger - EffectiveTrainings.de
+#get the original commit msg
+orig_msg=$(cat "$1")
+
+# check if original message already contains the regex
+regexMessage='^[A-Z]{2}-\d+#'
+
+messageMatches=$(echo "$orig_msg" | grep -E "$regexMessage")
+
+# do nothing if the messages already contains an appropriate prefix
+if [ "$messageMatches" ]; then
+  exit 0
+fi
+
+#expects branchnames in the form fb_task-4711_some_description
+branchName=$(git rev-parse --abbrev-ref HEAD)
+
+#branches may start with fb_task and then have "-1234"
+regexpForBranches='^(feature|bugfix|hotfix|release|subtask|)/([A-Za-z]{1,15})(-|_)[0-9]'
+
+branchMatches=$(echo "$branchName" | grep -E "$regexpForBranches")
+if [ "$branchMatches" ]; then
+  echo "matched branch"
+  #split branchname by underscore and take the second chunk
+  task=$(git rev-parse --abbrev-ref HEAD | cut -f 2 -d '/' | cut -f 1,2 -d '-')
+
+  #prepend task name to original msg
+  msg="$task# $orig_msg"
+  echo "$msg" >"$1"
+else
+  echo "[ATTENTION] - branch name does not match, no task number in branch but committing"
+fi
