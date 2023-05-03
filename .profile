@@ -24,8 +24,6 @@ if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
     export MOZ_ENABLE_WAYLAND=1
     exec sway --unsupported-gpu
   fi
-else
-  echo "not running graphical environment. use tty1 for bspwm and tty2 for sway"
 fi
 
 if [[ -d "/opt/homebrew" ]]; then
