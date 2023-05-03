@@ -12,10 +12,10 @@ return {
 	cmd = {
 		"/usr/bin/schroot",
 		"-c",
-		"chroot:mt_ubuntu18-cpp17",
+		"chroot:ub22",
 		"--",
 		"/home/beat/.local/share/nvim/mason/bin/clangd",
-		"--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt",
+		"--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt",
 	},
 	settings = {},
 }

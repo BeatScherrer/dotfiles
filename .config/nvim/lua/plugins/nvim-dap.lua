@@ -27,7 +27,7 @@ dap.adapters.coreclr = {
 dap.adapters.cppdbg = {
 	id = "cppdbg",
 	type = "executable",
-	command = "/home/beat/.vscode/extensions/ms-vscode.cpptools-1.14.4-linux-x64/debugAdapters/bin/OpenDebugAD7",
+	command = "/home/beat/.vscode/extensions/ms-vscode.cpptools-1.14.5-linux-x64/debugAdapters/bin/OpenDebugAD7",
 }
 -- Configurations
 dap.configurations.c = dap.configurations.cpp

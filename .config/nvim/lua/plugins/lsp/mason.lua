@@ -20,7 +20,6 @@ local servers = {
 	"rust_analyzer",
 	"taplo",
 	"tsserver",
-	"tailwindcss",
 	"prismals",
 	"bashls",
 }

@@ -207,16 +207,29 @@ nugetDeleteIDLStorageV ()
     nuget delete MTRobot.UCC.Data.IDLStorageXML -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b' "$1"
 }
 
-############
-# Simulation
-############
-rungazebo() {
-  xhost +local:
-  #export QT_AUTO_SCREEN_SCALE_FACTOR=1 && \
-  schroot -c ub22 /bin/bash -- -ic ' \
-   sourceros2 && \
-    ros2 launch mt_gazebo_worlds world.launch.py world:="showroom" && \
-    ros2 launch mt_gazebo_robots spawn_robot.launch.py id:=robot_1 x:=1 y:=1 && \
-    ros2 launch mt_gazebo_robots spawn_robot.launch.py id:=robot_2 x:=2 y:=2'
+## @fn coredumpgdb()
+## coredumpctl debug a dump created inside a schroot or systemd container
+## @param id the coredumpctl list pid
+coredumpgdb() {
+  local id="$1"
+  local info schroot bin bin_path build_path args
+  info="$(coredumpctl info "$id")"
+  schroot="$(grep Executable <<<"$info" | grep -oP "(?<=mount/)[^-]*" ||
+    grep Unit <<<"Unit: machine-ub22.scope" | grep -oP "[^-]*(?=.scope)")"
+  bin="$(grep Executable <<<"$info" | rev | cut -d'/' -f1 | rev)"
+  build_path="$(grep Executable <<<"$info" | grep -o '/home.*/build')"
+  bin_path="$(find "$build_path" ! -path "*live_env*" -name "$bin" | tail -n1)"
+  args=" -q -ex 'set confirm off' -ex 'set sysroot /srv/chroot/$schroot' -ex 'set debug-file-directory $build_path' -ex 'file $bin_path'"
+  echo "Running: coredumpctl debug '$id' --debugger-arguments='$args'" 1>&2
+  coredumpctl debug "$id" --debugger-arguments="$args"
+}
+
+viewDot() {
+  local file="$1"
+  local dot_temp
+  dot_temp="$(mktemp).png"
+
+  dot -Tpng "$file" > "$dot_temp"
+  DISPLAY=:0 xdg-open "$dot_temp"
 }
 

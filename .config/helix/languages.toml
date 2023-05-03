@@ -29,3 +29,7 @@ name = "gdbserver attach"
 request = "attach"
 completion = [ { name = "lldb connect url", default = "connect://localhost:1234" }, { name = "file", completion = "filename" }, "pid" ]
 args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
+
+[[language]]
+name = "c"
+file-types = ["c", "h", "idl"]

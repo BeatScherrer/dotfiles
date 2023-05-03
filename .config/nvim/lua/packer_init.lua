@@ -81,7 +81,7 @@ return packer.startup(function(use)
 	use("Shatur/neovim-session-manager")
 	use("windwp/nvim-autopairs")
 	use("kyazdani42/nvim-web-devicons")
-	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-gps", opt = false } } })
+	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-navic", opt = false } } })
 	use("karb94/neoscroll.nvim")
 	use("nanozuki/tabby.nvim")
 	use({

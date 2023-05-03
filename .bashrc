@@ -8,6 +8,11 @@ esac
 export OSH='/home/beat/.oh-my-bash'
 export SYSTEMD_EDITOR=vim
 
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+fzfe() {
+  echo -n "" | fzf --print-query --prompt="Enter regex> " --preview='echo {} | highlight --syntax regex'
+}
+
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
