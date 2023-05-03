@@ -71,42 +71,6 @@ if [[ -f "/opt/ros/melodic/setup.bash" ]]; then
   sourceros
 fi
 
-sourceros2() {
-  source /etc/os-release
-
-  if echo "$VERSION" | grep -i jammy &>/dev/null; then
-    export MT_ROS_VERSION=humble
-  elif echo "$VERSION" | grep -i focal &>/dev/null; then
-    export MT_ROS_VERSION=galactic
-  else
-    echo "did not find ubuntu version and cannot source ros2"
-    return
-  fi
-
-  echo "sourcing ros2: ${MT_ROS_VERSION}"
-  source "/opt/ros/${MT_ROS_VERSION}/setup.bash"
-  source "${HOME}/src/${MT_ROS_VERSION}/ros2_connextdds/install/setup.bash"
-
-  export ROBOT_MODEL="unitr_a1"
-  export ROS_DOMAIN_ID=1
-
-  if [[ -f "$HOME/src/${MT_ROS_VERSION}/ros2_ws/install/setup.bash" ]]; then
-    echo "sourcing ${MT_ROS_VERSION} ros2_ws"
-    source "$HOME/src/${MT_ROS_VERSION}/ros2_ws/install/setup.bash"
-  else
-    echo "WARNING: ros2_ws cannot be sourced"
-  fi
-
-  if [[ -f "$HOME/src/${MT_ROS_VERSION}/ros2_connextdds/install/setup.bash" ]]; then
-    echo "sourcing ${MT_ROS_VERSION} ros2_connextdds"
-    source "$HOME/src/${MT_ROS_VERSION}/ros2_connextdds/install/setup.bash"
-    echo "setting RMW_IMPLEMENTATION=rmw_connextdds"
-    export RMW_IMPLEMENTATION=rmw_connextdds
-  else
-    echo "WARNING: rmw_connextdds is not available. Make sure to build it!"
-  fi
-}
-
 sourcerti6() {
   echo "sourcing rti_connext_dds-6.1.0"
   source "/opt/rti_connext_dds-6.1.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
@@ -117,12 +81,6 @@ sourcerti7() {
   source "/opt/rti_connext_dds-7.0.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
 
 }
-
-# if [[ -f "/opt/ros/galactic/setup.bash" ]]; then
-#   sourceros2
-# elif [[ -f "/opt/ros/humble/setup.bash" ]]; then
-#   sourceros2
-# fi
 
 #
 #  ccache
