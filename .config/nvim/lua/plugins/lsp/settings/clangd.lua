@@ -1,21 +1,26 @@
-local util = require("lspconfig.util")
+local status_ok, util = pcall(require, "lspconfig.util")
+
+if not status_ok then
+	vim.notify("could not find lspconfig utilities")
+end
 
 local root_files = {
+	"core",
 	".clangd",
 	"compile_commands.json",
 }
 
+local schroot = "ub22"
+
 return {
-	root_dir = function(fname)
-		return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
-	end,
+	root_dir = util.root_pattern(root_files),
 	cmd = {
 		"/usr/bin/schroot",
 		"-c",
-		"chroot:ub22",
+		"chroot:" .. schroot,
 		"--",
 		"/home/beat/.local/share/nvim/mason/bin/clangd",
-		"--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt",
+		"--path-mappings=/usr=/srv/chroot/" .. schroot .. "/usr,/opt=/srv/chroot/" .. schroot .. "/opt",
 	},
 	settings = {},
 }

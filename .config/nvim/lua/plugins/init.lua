@@ -7,7 +7,10 @@ require("plugins/telescope")
 require("plugins/alpha-nvim")
 require("plugins/nvim-autopairs")
 require("plugins/galaxyline")
-require("plugins/nvim-gps")
+
+-- This is broken as of 0.9.0
+-- require("plugins/nvim-gps")
+
 require("plugins/neoscroll")
 require("plugins/diffview")
 require("plugins/neovim-session-manager")

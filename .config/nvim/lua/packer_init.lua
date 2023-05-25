@@ -74,7 +74,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
-			"nvim-lua/plenary.nvim",
+			{ "nvim-lua/plenary.nvim" },
 		},
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
@@ -177,14 +177,14 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- buffer line
-	use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-	-- use({
-	-- 	"noib3/nvim-cokeline",
-	-- 	requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
-	-- 	config = function()
-	-- 		require("cokeline").setup()
-	-- 	end,
-	-- })
+	-- use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({
+		"noib3/nvim-cokeline",
+		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+		config = function()
+			require("cokeline").setup()
+		end,
+	})
 
 	-- git
 	use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })

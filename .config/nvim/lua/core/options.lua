@@ -34,7 +34,7 @@ vim.wo.signcolumn = "yes"
 g.do_filetype_lua = 1
 
 -- TODO: How can we get this project based??
-opt.makeprg = 'cd build && schroot -c chroot:mt_ubuntu18-cpp17 -- /bin/bash -ic "mm"; cd - '
+opt.makeprg = 'cd build && schroot -c chroot:ub22 -- /bin/bash -ic "mm"; cd - '
 
 -- Neovide settings
 if g.neovide then

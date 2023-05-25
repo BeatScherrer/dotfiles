@@ -11,24 +11,15 @@ local conditional = function(fn)
 end
 
 null_ls.setup({
-	debug = false,
+	debug = true,
 
 	sources = {
-		-- conditional(function(utils)
-		-- 	return (utils.root_has_file("core/.clang-format") or utils.root_has_file(".clang-format"))
-		-- 		and formatting.clang_format.with({
-		-- 			extra_args = { "-style=file" },
-		-- 			command = "/home/beat/.local/bin/clang-format",
-		-- 		})
-		-- end),
 		formatting.clang_format.with({
 			extra_args = { "-style=file" },
 			command = "/home/beat/.local/bin/clang-format",
 			filetypes = { "c", "cpp", "h", "hpp", "ts" },
 		}),
-		formatting.prettier.with({
-			filetypes = { "html", "js", "tsx", "jsx", "xml" },
-		}),
+		formatting.prettier,
 		formatting.stylua,
 		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),
 		formatting.rustfmt,

@@ -33,16 +33,14 @@ nvim_treesitter.setup({
 		"yaml",
 		"json",
 	},
-	ignore_install = { "" },
 	autopairs = {
 		enable = true,
 	},
 	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+	sync_install = true,
 	highlight = {
 		-- `false` will disable the whole extension
 		enable = true,
-		disable = { "" },
 		additional_vim_regex_highlighting = true,
 	},
 	indent = { enable = true, disable = { "" } },
@@ -57,7 +55,7 @@ nvim_treesitter.setup({
 		}, --table with hex strings
 		--termcolors = {} -- table of colour name strings
 	},
-	playground = {
+	--[[ playground = {
 		enable = true,
 		disable = {},
 		updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
@@ -74,27 +72,5 @@ nvim_treesitter.setup({
 			goto_node = "<cr>",
 			show_help = "?",
 		},
-	},
-	-- nt_cpp_tools = {
-	-- 	enable = true,
-	-- 	preview = {
-	-- 		quit = "q", -- optional keymapping for quit preview
-	-- 		accept = "<tab>", -- optional keymapping for accept preview
-	-- 	},
-	-- 	header_extension = "h", -- optional
-	-- 	source_extension = "cxx", -- optional
-	-- 	custom_define_class_function_commands = { -- optional
-	-- 		TSCppImplWrite = {
-	-- 			output_handle = require("nvim-treesitter.nt-cpp-tools.output_handlers").get_add_to_cpp(),
-	-- 		},
-	-- 		--[[
-  --       <your impl function custom command name> = {
-  --           output_handle = function (str, context)
-  --               -- string contains the class implementation
-  --               -- do whatever you want to do with it
-  --           end
-  --       }
-  --       ]]
-	-- 	},
-	-- },
+	}, ]]
 })

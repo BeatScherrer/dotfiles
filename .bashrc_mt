@@ -183,11 +183,12 @@ coredumpgdb() {
 }
 
 viewDot() {
-  local file="$1"
-  local dot_temp
-  dot_temp="$(mktemp).png"
-
-  dot -Tpng "$file" > "$dot_temp"
-  DISPLAY=:0 xdg-open "$dot_temp"
+  local dotfile="$1"
+  
+  local tmp
+  tmp="$(mktemp).png"
+  dot -Tpng "$dotfile" -o "${tmp}"
+  eog "$tmp"
 }
 
+export SIMULATION_CONFIG="$HOME/sim_config.xml"

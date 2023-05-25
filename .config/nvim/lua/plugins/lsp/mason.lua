@@ -5,6 +5,7 @@ end
 
 local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok_1 then
+	vim.notify("could not find mason-lspconfig")
 	return
 end
 
@@ -47,6 +48,7 @@ mason_lspconfig.setup({
 -- we'll need to call lspconfig to pass our server to the native neovim lspconfig.
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
+	vim.notify("could not find lspconfig")
 	return
 end
 
