@@ -11,17 +11,11 @@ alias cdgazebo='cd $HOME/src/humble/ros2_ws'
 
 #
 ## Schroot aliases
-alias ubuntu22='schroot -c ub22'
-alias ubuntu20='schroot -c ub20'
+alias ub18='schroot -c ub18'
 alias ub22='schroot -c ub22'
-alias ub20='schroot -c ub20'
-alias ubuntu18='schroot -c mt_ubuntu18'
-alias ubuntu18-cpp17='schroot -c mt_ubuntu18-cpp17'
-alias debian='schroot -c mt_jessie'
-alias debian2='schroot -c mt_jessie2'
 alias fixegrepschroot='for f in $(sudo grep -arl "egrep"); do sudo sed -i "s/egrep/grep -E/g" $f; done'
 alias fixkscreen='rm .local/share/kscreen/ -rf'
 
-MAKE_CORES=10
+MAKE_CORES=25
 alias cm='echo "Ninja CMAKE_BUILD_TYPE=RelWithDebInfo"; cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias mm='export CCACHE_BASEDIR=${PWD}; echo "ninja build (CCACHE_BASEDIR set) (MAKE_CORES:${MAKE_CORES})"; ninja -j${MAKE_CORES}'

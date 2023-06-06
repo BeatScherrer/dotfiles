@@ -33,3 +33,8 @@ args = { console = "internalConsole", attachCommands = [ "platform select remote
 [[language]]
 name = "c"
 file-types = ["c", "h", "idl"]
+
+[[language]]
+name = "jsx"
+file-types = ["jsx", "tsx", "ts"]
+language-server = { command = "typescript-language-server", args=["--stdio"]}

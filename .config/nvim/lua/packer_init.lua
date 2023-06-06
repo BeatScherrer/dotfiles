@@ -55,6 +55,9 @@ return packer.startup(function(use)
 
 	-- PDE Plugins
 	use({ "goolord/alpha-nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+
+	-- Unless you are still migrating, remove the deprecated commands from v1.x
+	-- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -64,6 +67,7 @@ return packer.startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 	})
+
 	use({
 		"s1n7ax/nvim-window-picker",
 		tag = "v1.*",
@@ -81,7 +85,12 @@ return packer.startup(function(use)
 	use("Shatur/neovim-session-manager")
 	use("windwp/nvim-autopairs")
 	use("kyazdani42/nvim-web-devicons")
-	use({ "nvim-lualine/lualine.nvim", requires = { { "SmiteshP/nvim-navic", opt = false } } })
+
+	use("nvim-lualine/lualine.nvim")
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 	use("karb94/neoscroll.nvim")
 	use("nanozuki/tabby.nvim")
 	use({
@@ -108,7 +117,13 @@ return packer.startup(function(use)
 		-- Uncomment next line if you want to follow only stable versions
 		-- tag = "*"
 	})
-
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+		config = function()
+			require("ufo").setup()
+		end,
+	})
 	-- Tag viewer
 	-- use("preservim/tagbar")
 

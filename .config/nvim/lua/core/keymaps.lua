@@ -33,6 +33,10 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- fodling
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")
 keymap("n", "<C-Down>", ":resize -2<CR>")

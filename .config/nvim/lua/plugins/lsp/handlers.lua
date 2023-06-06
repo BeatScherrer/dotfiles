@@ -92,6 +92,11 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
 	return
@@ -167,6 +172,11 @@ M.on_attach = function(client, bufnr)
 				lsp_formatting(bufnr)
 			end,
 		})
+
+		if client.server_capabilities.documentSymbolProvider then
+			local navic = require("nvim-navic")
+			navic.attach(client, bufnr)
+		end
 	end
 
 	lsp_highlight_document(client)

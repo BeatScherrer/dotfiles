@@ -23,7 +23,7 @@ require("plugins/git-worktree")
 require("plugins/leap")
 require("plugins/tabby")
 require("plugins/nvim-colorizer")
--- require("plugins/nvim-cokeline")
+require("plugins/nvim-cokeline")
 
 require("plugins/lsp")
 require("plugins/dap")

@@ -10,17 +10,15 @@ local root_files = {
 	"compile_commands.json",
 }
 
-local schroot = "ub22"
-
 return {
 	root_dir = util.root_pattern(root_files),
 	cmd = {
 		"/usr/bin/schroot",
 		"-c",
-		"chroot:" .. schroot,
+		"chroot:ub18",
 		"--",
 		"/home/beat/.local/share/nvim/mason/bin/clangd",
-		"--path-mappings=/usr=/srv/chroot/" .. schroot .. "/usr,/opt=/srv/chroot/" .. schroot .. "/opt",
+		"--path-mappings=/usr=/srv/chroot/ub18/usr,/opt=/srv/chroot/ub18/opt",
 	},
 	settings = {},
 }
