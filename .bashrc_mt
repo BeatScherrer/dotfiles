@@ -4,6 +4,12 @@
 # source "$HOME/.scripts/log.bash"
 
 workspace="${HOME}/workspace"
+mtr_bash_utils="${workspace}/bash/mtr_utils.bash"
+
+if [[ -f ${mtr_bash_utils} ]]; then
+  # shellcheck source=/home/beat/workspace/bash/mtr_utils.bash
+  . "${mtr_bash_utils}"
+fi
 
 #aliases
 if [[ -f "${HOME}/.aliases_mt" ]]; then
@@ -114,17 +120,6 @@ sshr() {
   ssh -X "mtr@robot-$1.mt"
 }
 
-sshv() {
-  declare -r arg="$1"
-  local disp="0"
-  [[ -z "$arg" ]] && echo "usage: mssh <host>" && return 1
-  local server="${arg}"
-  [[ -n "${2-}" ]] && disp="$2"
-  ssh -t -f -L 5900:localhost:5900 "mtr@$server" "x11vnc -auth guess -localhost -display :$disp" &>/dev/null
-  sleep 2
-  vncviewer localhost:5900
-}
-
 sshm() {
   ssh "mtr@ms-$1.mt"
 }
@@ -143,52 +138,12 @@ cleanbuild() {
   dotnet build
 }
 
-nugetPushIDLStorageV() {
-  if [[ -z "${1-}" ]]; then
-    echo "usage: nugetPushIDLStorageV: <version>" 1>&2
-    return 1
-  fi
-  nuget push "MTRobot.UCC.Data.IDLStorage*$1*.nupkg" -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b'
+vncpi() {
+  ssh -t -f -L 5900:localhost:5900 "pi2" "x11vnc -auth guess -localhost -display :0" &> /dev/null
+  sleep 2
+  vncviewer localhost:5900
 }
 
-nugetList() {
-  nuget list IDLStorage -source http://ms-build.mt/nuget -AllVersions -PreRelease
-}
-
-nugetDeleteIDLStorageV ()
-{
-    if [[ -z "${1-}" ]]; then
-        echo "usage: nugetDeleteIDLStorageV: <version>" 1>&2;
-        return 1;
-    fi;
-    nuget delete MTRobot.UCC.Data.IDLStorage -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b' "$1";
-    nuget delete MTRobot.UCC.Data.IDLStorageXML -Source http://ms-build.mt/nuget -apiKey '5a742973-dd02-464c-9da0-52ded9e74a8b' "$1"
-}
-
-## @fn coredumpgdb()
-## coredumpctl debug a dump created inside a schroot or systemd container
-## @param id the coredumpctl list pid
-coredumpgdb() {
-  local id="$1"
-  local info schroot bin bin_path build_path args
-  info="$(coredumpctl info "$id")"
-  schroot="$(grep Executable <<<"$info" | grep -oP "(?<=mount/)[^-]*" ||
-    grep Unit <<<"Unit: machine-ub22.scope" | grep -oP "[^-]*(?=.scope)")"
-  bin="$(grep Executable <<<"$info" | rev | cut -d'/' -f1 | rev)"
-  build_path="$(grep Executable <<<"$info" | grep -o '/home.*/build')"
-  bin_path="$(find "$build_path" ! -path "*live_env*" -name "$bin" | tail -n1)"
-  args=" -q -ex 'set confirm off' -ex 'set sysroot /srv/chroot/$schroot' -ex 'set debug-file-directory $build_path' -ex 'file $bin_path'"
-  echo "Running: coredumpctl debug '$id' --debugger-arguments='$args'" 1>&2
-  coredumpctl debug "$id" --debugger-arguments="$args"
-}
-
-viewDot() {
-  local dotfile="$1"
-  
-  local tmp
-  tmp="$(mktemp).png"
-  dot -Tpng "$dotfile" -o "${tmp}"
-  eog "$tmp"
-}
+export SIMULATION_CONFIG="$HOME/sim_config.xml"
 
 export SIMULATION_CONFIG="$HOME/sim_config.xml"

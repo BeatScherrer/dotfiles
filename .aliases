@@ -2,9 +2,9 @@
 
 # system
 alias hibernate='systemctl hibernate'
-alias jc='sudo journalctl'
 alias esc='sudo -E systemctl edit --full'
 alias sc='sudo SYSTEMD_EDITOR=vim systemctl'
+alias jc='sudo journalctl'
 
 # overwrite aliases
 if command -v nvim >/dev/null 2>&1; then

@@ -154,6 +154,11 @@ end, {})
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 
+	if client.server_capabilities.documentSymbolProvider then
+		local navic = require("nvim-navic")
+		navic.attach(client, bufnr)
+	end
+
 	if client.name == "rust_analyzer" then
 		client.server_capabilities.document_formatting = false
 		rustKeymaps(bufnr)

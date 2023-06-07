@@ -17,7 +17,7 @@ font pango:monospace 8
 for_window [class="^.*"] border pixel 2 
 gaps outer 8 
 gaps inner 8 
-gaps top 35
+gaps top 50
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #de935f #de935f #ffffff #de935f   #de935f
@@ -167,16 +167,16 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace 1 output DP-2
-workspace 2 output DP-2
-workspace 3 output DP-2
-workspace 4 output DP-0
-workspace 5 output DP-0
-workspace 6 output DP-0
-workspace 7 output DP-2
-workspace 8 output DP-2
-workspace 9 output DP-2
-workspace 10 output DP-2
+workspace 1 output DP-2.1
+workspace 2 output DP-2.1
+workspace 3 output DP-2.1
+workspace 4 output DP-2.3
+workspace 5 output DP-2.3
+workspace 6 output DP-2.3
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 9 output DP-4
+workspace 10 output DP-4
 
 
 # switch to workspace

@@ -7,6 +7,7 @@ esac
 # Path to your oh-my-bash installation.
 export OSH='/home/beat/.oh-my-bash'
 export SYSTEMD_EDITOR=vim
+export DISPLAY=:0
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 fzfe() {
@@ -61,6 +62,7 @@ plugins=(
 #      plugins+=(tmux-autoattach)
 #  fi
 
+# shellcheck source=/home/beat/.oh-my-bash/oh-my-bash.sh
 source "$OSH"/oh-my-bash.sh
 
 # User configuration
@@ -112,9 +114,12 @@ unalias grep
 . "$HOME/.bashrc_mt"
 
 export NVM_DIR="$HOME/.nvm"
+# shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# shellcheck source=/dev/null
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-nvm use v16.15.1
+export SIMULATION_CONFIG="$HOME/sim_config.xml"
+
 . "$HOME/.cargo/env"
 [[ -f "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.bash" ]] && source "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.bash"

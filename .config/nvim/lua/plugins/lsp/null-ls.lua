@@ -23,6 +23,9 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.shfmt.with({ extra_args = { "--indent", "2" } }),
 		formatting.rustfmt,
+		--[[ formatting.xmlformat.with({
+			filetypes = { "xml", "xacro" },
+		}), ]]
 
 		-- setting eslint_d only if we have a ".eslintrc.js" file in the project
 		diagnostics.eslint_d.with({
