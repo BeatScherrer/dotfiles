@@ -1,3 +1,5 @@
+-- how is this properly integrated in the config?
+
 return {
   "mfussenegger/nvim-dap",
 
@@ -58,7 +60,22 @@ return {
 
         -- You can provide additional configuration to the handlers,
         -- see mason-nvim-dap README for more information
-        handlers = {},
+        handlers = {
+          -- cpp = function(config)
+          --   config.adapters.cppdbg = {
+          --     id = "cppdbg",
+          --     type = "executable",
+          --     command = "/home/beat/.vscode/extensions/ms-vscode.cpptools-1.16.0-linux-x64/debugAdapters/bin/OpenDebugAD7",
+          --     args = {
+          --       "-eval-command",
+          --       "target",
+          --       "remote",
+          --       "beebot-2.mt:7777"
+          --     }
+          --   }
+          --   require('mason-nvim-dap').default_setup(config) -- don't forget this!
+          -- end
+        },
 
         -- You'll need to check that you have the required things installed
         -- online, please don't ask me how to install them :)
@@ -100,5 +117,43 @@ return {
         { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
       )
     end
+
+    -- Adapter definition
+    local dap = require("dap")
+    dap.adapters.cppdbg = {
+      id = "cppdbg",
+      type = "executable",
+      command = "/home/beat/.vscode/extensions/ms-vscode.cpptools-1.16.0-linux-x64/debugAdapters/bin/OpenDebugAD7",
+      options = {
+        detached = false,
+      },
+    }
+
+    -- configuration
+    local dap = require("dap")
+    dap.configurations.cpp = {
+      {
+        name = "Launch file",
+        type = "cppdbg",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopAtEntry = true,
+      },
+      {
+        name = "Attach to gdbserver :7777",
+        type = "cppdbg",
+        request = "launch",
+        MIMode = "gdb",
+        miDebuggerServerAddress = "beebot-2.mt:7777",
+        miDebuggerPath = "/usr/bin/gdb",
+        cwd = "${workspaceFolder}",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+      },
+    }
   end,
 }
