@@ -147,11 +147,14 @@ return {
         type = "cppdbg",
         request = "launch",
         MIMode = "gdb",
-        miDebuggerServerAddress = "beebot-2.mt:7777",
+        miDebuggerServerAddress = function()
+          local host vim.fn.input("Host to debug (port 7777): ")
+          return host .. ":7777"
+        end,
         miDebuggerPath = "/usr/bin/gdb",
         cwd = "${workspaceFolder}",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
         end,
       },
     }
