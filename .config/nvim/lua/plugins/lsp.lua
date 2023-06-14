@@ -30,12 +30,14 @@ return {
       severity_sort = true,
     },
     -- add any global capabilities here
-    capabilities = {},
+    capabilities = {
+      -- TODO add ufo capability here
+    },
     -- Automatically format on save
     autoformat = true,
     -- Enable this to show formatters used in a notification
     -- Useful for debugging formatter issues
-    format_notify = false,
+    format_notify = true,
     -- options for vim.lsp.buf.format
     -- `bufnr` and `filter` is handled by the LazyVim formatter,
     -- but can be also overridden when specified
@@ -50,10 +52,10 @@ return {
         cmd = {
           "/usr/bin/schroot",
           "-c",
-          "chroot:mt_ubuntu18-cpp17",
+          "chroot:ub18",
           "--",
           "/home/beat/.local/share/nvim/mason/bin/clangd",
-          "--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt",
+          "--path-mappings=/usr=/srv/chroot/ub18/usr,/opt=/srv/chroot/ub18/opt",
         },
       },
       jsonls = {},

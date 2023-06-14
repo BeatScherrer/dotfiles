@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 local status_ok, lualine = pcall(require, "lualine")
 
 if not status_ok then
@@ -53,3 +54,15 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 })
+=======
+return {
+  -- the opts function can also be used to change the default opts:
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, "😄")
+    end,
+  },
+}
+>>>>>>> ea299d0309eb2c4cff46f3c6c077eb6b55e34691

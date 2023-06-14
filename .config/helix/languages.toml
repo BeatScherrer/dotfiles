@@ -1,10 +1,16 @@
+#--- Rust ---
 [[language]]
 name = "rust"
 auto-format = true
+language-server = { command = "rust-analyzer" }
 
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+#--- C++ ---
 [[language]]
 name = "cpp"
-language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/mt_ubuntu18-cpp17/usr,/opt=/srv/chroot/mt_ubuntu18-cpp17/opt"] }
+language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt"] }
 formatter = { command = "/home/beat/.local/bin/clang-format", args = ["-style=file"]}
 
 [language.debugger]
@@ -30,10 +36,12 @@ request = "attach"
 completion = [ { name = "lldb connect url", default = "connect://localhost:1234" }, { name = "file", completion = "filename" }, "pid" ]
 args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
 
+#--- C ---
 [[language]]
 name = "c"
 file-types = ["c", "h", "idl"]
 
+#--- JSX ---
 [[language]]
 name = "jsx"
 file-types = ["jsx", "tsx", "ts"]
