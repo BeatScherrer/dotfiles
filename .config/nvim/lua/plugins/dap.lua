@@ -148,7 +148,8 @@ return {
         request = "launch",
         MIMode = "gdb",
         miDebuggerServerAddress = function()
-          local host vim.fn.input("Host to debug (port 7777): ")
+          local host
+          vim.fn.input("Host to debug (port 7777): ")
           return host .. ":7777"
         end,
         miDebuggerPath = "/usr/bin/gdb",
@@ -156,6 +157,41 @@ return {
         program = function()
           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
         end,
+      },
+    }
+
+    -- React
+    -- note: chrome has to be started with --remote-debugging-port=9222
+    -- clone https://github.com/Microsoft/vscode-chrome-debug
+    dap.adapters.chrome = {
+      type = "executable",
+      command = "node",
+      args = { os.getenv("HOME") .. "/workspace/git/vscode-chrome-debug/src/chromeDebug.ts" }, -- TODO adjust
+    }
+
+    dap.configurations.javascriptreact = { -- change this to javascript if needed
+      {
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}",
+      },
+    }
+
+    dap.configurations.typescriptreact = { -- change to typescript if needed
+      {
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}",
       },
     }
   end,
