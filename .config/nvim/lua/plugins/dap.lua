@@ -1,4 +1,4 @@
--- how is this properly integrated in the config?
+-- TODO: split the different dap adapters and configs into separate files
 
 return {
   "mfussenegger/nvim-dap",
