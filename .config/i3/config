@@ -17,7 +17,7 @@ font pango:monospace 8
 for_window [class="^.*"] border pixel 2 
 gaps outer 8 
 gaps inner 8 
-gaps top 50
+gaps top 35
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #de935f #de935f #ffffff #de935f   #de935f
