@@ -264,6 +264,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 
 # MTR stuff
 for_window [title="MT Visualizer"] floating enable
+for_window [class="^RTI Administration Console$"] floating enable
 
 # workspace assignments
 assign [class="^Steam$"] $ws3
