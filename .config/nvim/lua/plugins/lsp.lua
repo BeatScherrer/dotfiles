@@ -4,6 +4,7 @@ return {
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "folke/neodev.nvim", opts = {} },
+    { "SmiteshP/nvim-navic", opts = {} },
     "mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     {
@@ -52,10 +53,10 @@ return {
         cmd = {
           "/usr/bin/schroot",
           "-c",
-          "chroot:ub18",
+          "chroot:ub22",
           "--",
           "/home/beat/.local/share/nvim/mason/bin/clangd",
-          "--path-mappings=/usr=/srv/chroot/ub18/usr,/opt=/srv/chroot/ub18/opt",
+          "--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt",
         },
       },
       jsonls = {},
@@ -95,6 +96,9 @@ return {
     -- setup formatting and keymaps
     Util.on_attach(function(client, buffer)
       require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
+      if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, buffer)
+      end
     end)
 
     -- diagnostics

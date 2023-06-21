@@ -143,7 +143,7 @@ return {
         stopAtEntry = true,
       },
       {
-        name = "Attach to gdbserver :7777",
+        name = "Robot debuggin",
         type = "cppdbg",
         request = "launch",
         MIMode = "gdb",
@@ -155,7 +155,12 @@ return {
         miDebuggerPath = "/usr/bin/gdb",
         cwd = "${workspaceFolder}",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
+          -- TODO: maybe we can attach the gdbserver on the remote as part of launching the debugger
+
+          -- local target = "root@" .. miDebuggerServerAddress
+          local executable = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
+          -- os.execute("ssh -c root@" .. target .. "gdbserver --attach :7777 $(pgrep " .. executable")")
+          return executable
         end,
       },
     }

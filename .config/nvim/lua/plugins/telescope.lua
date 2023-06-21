@@ -2,6 +2,13 @@ return {
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
+    },
     keys = {
       -- add a keymap to browse plugin files
       -- stylua: ignore
@@ -10,6 +17,19 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
+      {"<leader>ff", "<cmd>Telescope find_files<cr>"},
+      {"<leader>ff", "<cmd>Telescope find_files<cr>"},
+      {"<leader>ff", "<cmd>Telescope find_files<cr>"},
+      {"<leader>fb", "<cmd>Telescope buffers<cr>"},
+      {"<leader>fl", "<cmd>Telescope live_grep<cr>"},
+      {"<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>"},
+      {"<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>"},
+      {"<leader>fr", "<cmd>Telescope lsp_references<cr>"},
+      {"<leader>fg", "<cmd>Telescope grep_string<cr>"},
+      {"<leader>fo", "<cmd>Telescope resume<cr>"},
+      {"<leader>f?", "<cmd>Telescope help_tags<cr>"},
+      {"<leader>fh", "<cmd>Telescope highlights<cr>"},
+      {"<leader>fj", "<cmd>Telescope just<cr>"},
     },
     -- change some options
     opts = {
@@ -19,18 +39,6 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
-    },
-  },
-
-  -- add telescope-fzf-native
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
     },
   },
 }

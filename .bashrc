@@ -122,4 +122,4 @@ export NVM_DIR="$HOME/.nvm"
 export SIMULATION_CONFIG="$HOME/sim_config.xml"
 
 . "$HOME/.cargo/env"
-[[ -f "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.bash" ]] && source "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.bash"
+[[ -f "/home/beat/workspace/mtrsys/sim/build/sim/sim_helpers.bash" ]] && source "/home/beat/workspace/mtrsys/sim/build/sim/sim_helpers.bash"
