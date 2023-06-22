@@ -143,7 +143,7 @@ return {
         stopAtEntry = true,
       },
       {
-        name = "Robot debuggin",
+        name = "Remote",
         type = "cppdbg",
         request = "launch",
         MIMode = "gdb",
@@ -161,6 +161,20 @@ return {
           local executable = vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
           -- os.execute("ssh -c root@" .. target .. "gdbserver --attach :7777 $(pgrep " .. executable")")
           return executable
+        end,
+      },
+      {
+        name = "Local",
+        type = "cppdbg",
+        request = "launch",
+        MIMode = "gdb",
+        miDebuggerServerAddress = function()
+          return "localhost:7777"
+        end,
+        miDebuggerPath = "/usr/bin/gdb",
+        cwd = "${workspaceFolder}",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/build/live_env/bin/service/", "file")
         end,
       },
     }

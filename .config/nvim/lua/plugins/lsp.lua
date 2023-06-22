@@ -14,6 +14,9 @@ return {
       end,
     },
   },
+  keys = {
+    {"<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>"}
+  },
   ---@class PluginLspOpts
   opts = {
     -- options for vim.diagnostic.config()
