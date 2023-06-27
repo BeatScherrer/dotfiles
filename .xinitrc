@@ -2,6 +2,7 @@
 
 systemctl --user import-environment DISPLAY
 
+
 ## bspwm
 if [[ $(tty) == /dev/tty1 ]];then
   echo "starting i3 on $(tty)..."
