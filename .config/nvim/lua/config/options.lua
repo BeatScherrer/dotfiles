@@ -4,5 +4,5 @@
 
 vim.opt.fillchars = [[diff: ,eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-SCHROOT_NAME="ub18"
+SCHROOT_NAME="ub22"
 vim.opt.makeprg = "cd build && schroot -c chroot:" .. SCHROOT_NAME .. ' -- /bin/bash -ic "mm"; cd - '

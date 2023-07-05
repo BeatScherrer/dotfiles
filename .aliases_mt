@@ -16,6 +16,8 @@ alias ub22='schroot -c ub22'
 alias fixegrepschroot='for f in $(sudo grep -arl "egrep"); do sudo sed -i "s/egrep/grep -E/g" $f; done'
 alias fixkscreen='rm .local/share/kscreen/ -rf'
 
+alias coredumplast="coredumpctl dump \"\$(coredumpctl list | tail -n1 | awk '{print \$5}')\" -o coredump"
+
 MAKE_CORES=10
 alias cm='echo "Ninja CMAKE_BUILD_TYPE=RelWithDebInfo"; cmake -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias mm='export CCACHE_BASEDIR=${PWD}; echo "ninja build (CCACHE_BASEDIR set) (MAKE_CORES:${MAKE_CORES})"; ninja -j${MAKE_CORES}'

@@ -8,6 +8,7 @@ esac
 export OSH='/home/beat/.oh-my-bash'
 export SYSTEMD_EDITOR=vim
 export DISPLAY=:0
+# export GIT_EDITOR="NVR --remote-tab-wait + 'set bufhidden=delete'"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 fzfe() {
