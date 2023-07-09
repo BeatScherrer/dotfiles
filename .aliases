@@ -6,6 +6,7 @@ alias esc='sudo -E systemctl edit --full'
 alias sc='sudo SYSTEMD_EDITOR=vim systemctl'
 alias jc='sudo journalctl'
 
+alias nvimnvim="nvim \$HOME/.config/nvim"
 alias lazyconfig='lazygit -g "$HOME/.cfg" -w "$HOME"'
 
 . /usr/share/bash-completion/completions/systemctl
