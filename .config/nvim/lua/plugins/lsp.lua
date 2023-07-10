@@ -2,8 +2,17 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
+
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "folke/neodev.nvim", opts = {} },
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+      },
+      opts = { lsp = { auto_attach = true } },
+    },
     { "SmiteshP/nvim-navic", opts = {} },
     "mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -15,7 +24,7 @@ return {
     },
   },
   keys = {
-    {"<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>"}
+    { "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>" },
   },
   ---@class PluginLspOpts
   opts = {
