@@ -7,6 +7,8 @@ alias sc='sudo SYSTEMD_EDITOR=vim systemctl'
 alias jc='sudo journalctl'
 alias cless="less -R"
 
+alias fzfp="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias vimf='nvim $(fzf)'
 alias nvimnvim="nvim \$HOME/.config/nvim"
 alias lazyconfig='lazygit -g "$HOME/.cfg" -w "$HOME"'
 
@@ -21,8 +23,6 @@ if command -v nvim >/dev/null 2>&1; then
   alias vim='nvim'
 fi
 alias egrep='grep -E'
-
-local_config="$HOME/.config"
 
 # config git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -39,12 +39,14 @@ alias wts='stty sane; clear;'
 
 # navigation
 alias cddata1='cd /media/data1'
-alias cdc='cd $local_config'
+alias cdc='cd $XDG_CONFIG_HOME'
 alias cdl='cd /var/log'
-alias cdnvim='cd $local_config/nvim'
-alias cdkitty='cd $local_config/kitty'
-alias cdbspwm='cd $local_config/bspwm'
-alias cdsway='cd $local_config/sway'
+alias cdnvim='cd $XDG_CONFIG_HOME/nvim'
+alias cdkitty='cd $XDG_CONFIG_HOME/kitty'
+alias cdbspwm='cd $XDG_CONFIG_HOME/bspwm'
+alias cdsway='cd $XDG_CONFIG_HOME/sway'
+alias cdgpwm='cd $HOME/git/beat/gpwm'
+alias cdhlwm='cd $XDG_CONFIG_HOME/herbstluftwm'
 
 alias cdws='cd "$HOME/workspace"'
 alias cdsandbox='cdws && cd sandbox'
@@ -69,6 +71,9 @@ alias vimdds='vim $MTR_DDS_APPLICATION_PROFILE'
 alias ubuntu-see-me='schroot -c chroot:see-me'
 
 alias nvidia-power='nvidia-smi -i 0 -q -d POWER'
+
+alias hc="herbstclient"
+
 
 if [ -f "${HOME}/.aliases_mt" ]; then
   . "${HOME}/.aliases_mt"

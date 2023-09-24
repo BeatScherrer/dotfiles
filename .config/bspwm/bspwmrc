@@ -77,7 +77,8 @@ bspc config external_rules_command ~/.config/bspwm/external_rules.sh
 ##############################
 bspc config focused_border_color $(xresource color3)
 bspc config active_border_color $(xresource foreground)
-bspc config normal_border_color $(xresource foreground-alt)
+bspc config normal_border_color $(xresource foreg
+round-alt)
 
 ## Desktop environment
 #

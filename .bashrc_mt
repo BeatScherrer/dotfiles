@@ -85,17 +85,24 @@ sourcerti6() {
 sourcerti7() {
   echo "sourcing rti_connext_dds-7.0.0"
   source "/opt/rti_connext_dds-7.0.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash"
-
 }
 
 #
 #  ccache
-if [[ -n "$SCHROOT_GID" ]]; then
+if [[ "${SCHROOT_CHROOT_NAME-}" == "ub22-cpp23" ]]; then
   export PATH=/usr/lib/ccache:$PATH
-  export CC="ccache gcc"
-  export CXX="ccache g++"
-  export CCACHE_BASEDIR="/home/beat/workspace/mtr_sys"
-  export DISPLAY=:0
+  export CC="ccache clang-16"
+  export CXX="ccache clang++-16"
+  export CCACHE_DIR="${HOME}/.ccache_ub22"
+  export CCACHE_SLOPPINESS="pch_defines,time_macros,include_file_ctime,include_file_mtime"
+fi
+
+if [[ "${SCHROOT_CHROOT_NAME-}" == "ub22" ]]; then
+  export PATH=/usr/lib/ccache:$PATH
+  export CC="ccache clang-16"
+  export CXX="ccache clang++-16"
+  export CCACHE_DIR="${HOME}/.ccache_ub22"
+  export CCACHE_SLOPPINESS="pch_defines,time_macros,include_file_ctime,include_file_mtime"
 fi
 
 __make() {
@@ -143,7 +150,5 @@ vncpi() {
   sleep 2
   vncviewer localhost:5900
 }
-
-export SIMULATION_CONFIG="$HOME/sim_config.xml"
 
 export SIMULATION_CONFIG="$HOME/sim_config.xml"

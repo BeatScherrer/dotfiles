@@ -5,7 +5,8 @@ export EDITOR=vim
 if [[ -z "$SCHROOT_CHROOT_NAME" ]]; then
 
   if [[ $(tty) == "/dev/tty1" ]]; then
-    exec startx
+    true
+    # exec startx
   elif [[ $(tty) == "/dev/tty2" ]]; then
     exec startx
   elif [[ $(tty) == "/dev/tty3" ]]; then

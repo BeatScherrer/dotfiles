@@ -44,3 +44,7 @@
 
 [init]
 	defaultBranch = main
+[pack]
+	windowMemory = 100m
+	packSizeLimit = 100m
+	threads = 1

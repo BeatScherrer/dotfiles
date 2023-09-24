@@ -4,10 +4,14 @@ case $- in
 *) return ;;
 esac
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # Path to your oh-my-bash installation.
-export OSH='/home/beat/.oh-my-bash'
+export OSH="${HOME}/.oh-my-bash"
 export SYSTEMD_EDITOR=vim
-export DISPLAY=:0
 # export GIT_EDITOR="NVR --remote-tab-wait + 'set bufhidden=delete'"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
@@ -44,7 +48,7 @@ completions=(
 # Example format: aliases=(vagrant composer git-avh)
 # Add wisely, as too many aliases slow down shell startup.
 aliases=(
-  general
+  # general
 )
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -85,6 +89,8 @@ source "$OSH"/oh-my-bash.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+export DISPLAY=${DISPLAY:-:1}
+
 vpn() {
   local target="$1"
   local state="$2"
@@ -106,9 +112,7 @@ pacmanSearch() {
   pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
 
-unalias cp
-unalias mv
-unalias grep
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
 . "$HOME/.aliases"
 . "$HOME/.aliases_mt"
