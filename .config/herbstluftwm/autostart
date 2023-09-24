@@ -132,17 +132,15 @@ hc keybind $Mod-i jumpto urgent
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
-# TODO: fix these
-hc set frame_border_active_color '#ff000000'
-hc set frame_border_normal_color '#101010cc'
-# hc set frame_bg_normal_color '#565656aa'
-# hc set frame_bg_active_color '#de935fff'
-
-hc set frame_border_width 1
+# hc set frame_border_active_color '#00ff0000'
+# hc set frame_border_normal_color '#00000000'
+# hc set frame_bg_normal_color '#00000000'
+hc set frame_bg_active_color "$color_active"
+hc set frame_border_width 0
+hc set frame_transparent_width 3
 hc set show_frame_decorations 'focused_if_multiple'
-hc set frame_bg_transparent on
-hc set frame_transparent_width 5
-hc set frame_gap 15
+# hc set frame_bg_transparent on
+hc set frame_gap 10
 
 hc attr theme.title_height 15
 hc attr theme.title_when always
