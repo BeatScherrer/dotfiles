@@ -143,8 +143,8 @@ hc attr theme.title_color '#ffffff'
 hc attr theme.normal.color '#323232dd'
 hc attr theme.urgent.color '#7811A1dd'
 hc attr theme.tab_color '#1F1F1Fdd'
-hc attr theme.active.tab_color '#2B4F0Add'
 hc attr theme.active.tab_outer_color '#6C8257dd'
+hc attr theme.active.tab_color '#323232dd'
 hc attr theme.active.tab_title_color '#ababab'
 hc attr theme.normal.title_color '#898989'
 hc attr theme.inner_width 1
@@ -213,4 +213,4 @@ picom
 dunst
 
 # spin up default layout
-hc load "$HOME/.config/herbstluftwm/layouts/25-50-25"
+hc load "$(cat "$HOME/.config/herbstluftwm/layouts/25-50-25")"
