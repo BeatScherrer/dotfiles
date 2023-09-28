@@ -139,7 +139,7 @@ hc set frame_bg_active_color "$color_active"
 hc set frame_border_width 0
 hc set frame_transparent_width 3
 hc set show_frame_decorations 'focused_if_multiple'
-# hc set frame_bg_transparent on
+hc set frame_bg_transparent on
 hc set frame_gap 10
 
 hc attr theme.title_height 15
@@ -153,7 +153,7 @@ hc attr theme.normal.color "$color_normal"
 hc attr theme.urgent.color "$color_urgent"
 hc attr theme.tab_color "$color_normal"
 # hc attr theme.active.tab_outer_color '#6C8257dd'
-hc attr theme.active.tab_color "$color_active"
+# hc attr theme.active.tab_color "$color_active"
 hc attr theme.active.tab_title_color '#ababab'
 hc attr theme.normal.title_color '#898989'
 # hc attr theme.inner_width 0
@@ -221,5 +221,4 @@ hc keybind $Mod-space spawn rofi -modi drun -show drun
 picom
 dunst
 
-# spin up default layout
 hc load "$(cat "$HOME/.config/herbstluftwm/layouts/25-50-25")"
