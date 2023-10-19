@@ -57,6 +57,8 @@ hc keybind $Mod-Shift-h shift left
 hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
+# TODO: move window to scratchpad
+#hc keybind $Mod-Shift-minus 
 
 # splitting frames
 # create an empty frame at the specified direction
@@ -184,7 +186,7 @@ hc pad 0 80 0 0 0
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
-hc rule floatplacement=smart
+hc rule floatplacement=center # is it really smart??
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
@@ -192,6 +194,9 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
+
+hc rule class="Pavucontrol" floating=on
+hc rule class="Blueman-manager" floating=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
