@@ -113,11 +113,6 @@ return {
         --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
         --   end,
         -- },
-        --
-        -- # Example of using shfmt with extra args
-        -- shfmt = {
-        --   prepend_args = { "-i", "2", "-ci" },
-        -- },
         mt_clang_format = {
           command = "/home/beat/.local/bin/clang-format",
           args = { "-style=file" },
