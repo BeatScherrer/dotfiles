@@ -6,3 +6,6 @@ vim.keymap.set("n", "<leader>qn", "<cmd>cnext<cr>")
 vim.keymap.set("n", "<leader>qp", "<cmd>cprevious<cr>")
 
 vim.keymap.set("n", "<C-p>", "<Nop>")
+vim.keymap.set("n", "<leader>mm", "<cmd>Make<cr>")
+vim.keymap.set("n", "<C-w>u", "<cmd>split<cr>")
+vim.keymap.set("n", "<C-w>o", "<cmd>vsplit<cr>")

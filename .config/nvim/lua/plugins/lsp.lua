@@ -41,7 +41,6 @@ return {
       timeout_ms = nil,
     },
     -- LSP Server Settings
-    ---@type lspconfig.options
     servers = {
       lua_ls = {
         -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -61,6 +60,9 @@ return {
         },
       },
       clangd = {
+        -- cmd = {
+        --   "/usr/bin/clangd-16"
+        -- },
         cmd = {
           "/usr/bin/schroot",
           "-c",
