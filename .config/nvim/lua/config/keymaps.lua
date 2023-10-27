@@ -9,3 +9,5 @@ vim.keymap.set("n", "<C-p>", "<Nop>")
 vim.keymap.set("n", "<leader>mm", "<cmd>Make<cr>")
 vim.keymap.set("n", "<C-w>u", "<cmd>split<cr>")
 vim.keymap.set("n", "<C-w>o", "<cmd>vsplit<cr>")
+
+vim.keymap.set("n", "<M-o>", "<cmd>ClangdSwitchSourceHeader<cr>")
