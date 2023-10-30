@@ -93,10 +93,11 @@ return {
       ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
         lua = { "stylua" },
-        fish = { "fish_indent" },
         sh = { "shfmt" },
         bash = { "shfmt" },
-        cpp = { "mt_clang_format" }
+        cpp = { "clang_format" },
+        -- ["*"] = { "codespell" }, -- For all files
+        ["_"] = { "trim_whitespace" }, -- Fallback
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
@@ -113,9 +114,18 @@ return {
         --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
         --   end,
         -- },
+        clang_format = {
+          prepend_args = {"-style=file"}
+        },
+        -- TODO: the following formatter does not work properly...
         mt_clang_format = {
           command = "/home/beat/.local/bin/clang-format",
           args = { "-style=file" },
+          -- condition = function(ctx)
+          -- add exceptions:
+          -- IDL files
+          -- return true;
+          -- end
         },
         shfmt = {
           prepend_args = { "-i", "2", "-ci" },
