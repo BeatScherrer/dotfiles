@@ -1,3 +1,5 @@
+#!/bin/bash
+
 case $- in
 # Enable the subsequent settings only in interactive sessions
 *i*) ;;
@@ -12,9 +14,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Path to your oh-my-bash installation.
 export OSH="${HOME}/.oh-my-bash"
 export SYSTEMD_EDITOR=vim
+export DISPLAY=:1
 # export GIT_EDITOR="NVR --remote-tab-wait + 'set bufhidden=delete'"
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+# TODO: fix the command to act like I actually want
+# export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+
 fzfe() {
   echo -n "" | fzf --print-query --prompt="Enter regex> " --preview='echo {} | highlight --syntax regex'
 }
@@ -25,13 +30,14 @@ PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="beat"
 
+# shellcheck source=/dev/null
 [[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --rcfile "$HOME/.config/blesh/init.sh"
 
 PATH="$HOME/.local/bin/:$PATH"
 
 # To disable the uses of "sudo" by oh-my-bash, please set "false" to
 # this variable.  The default behavior for the empty value is "true".
-OMB_USE_SUDO=true
+export OMB_USE_SUDO=true
 
 # Which completions would you like to load? (completions can be found in ~/.oh-my-bash/completions/*)
 # Custom completions may be added to ~/.oh-my-bash/custom/completions/
@@ -127,4 +133,4 @@ export NVM_DIR="$HOME/.nvm"
 export SIMULATION_CONFIG="$HOME/sim_config.xml"
 
 . "$HOME/.cargo/env"
-[[ -f "/home/beat/workspace/mtrsys/sim/build/sim/sim_helpers.bash" ]] && source "/home/beat/workspace/mtrsys/sim/build/sim/sim_helpers.bash"
+[[ -f "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.sh" ]] && source "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.sh"

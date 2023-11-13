@@ -5,7 +5,6 @@ alias hibernate='systemctl hibernate'
 alias esc='sudo -E systemctl edit --full'
 alias sc='sudo SYSTEMD_EDITOR=vim systemctl'
 alias jc='sudo journalctl'
-alias cless="less -R"
 
 alias fzfp="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 alias vimf='nvim $(fzf)'

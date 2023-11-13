@@ -10,7 +10,8 @@ command = "clippy"
 #--- C++ ---
 [[language]]
 name = "cpp"
-language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/home/beat/.local/share/nvim/mason/bin/clangd", "--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt"] }
+language-server = { command = "/usr/bin/schroot", args = ["-c", "chroot:ub22", "--", "/usr/bin/clangd-16", "--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt", "--clang-tidy"] }
+# language-server = { command = "/usr/bin/clangd"}
 formatter = { command = "/home/beat/.local/bin/clang-format", args = ["-style=file"]}
 
 [language.debugger]
