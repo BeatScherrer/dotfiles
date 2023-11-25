@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=RTI Admin Console 7.2
 Comment=RTI admin console to debug RTI DDS stuff
-Exec=schroot -c chroot:ub22 /bin/bash -- -c "export DISPLAY=:0 && /opt/rti_connext_dds-7.2.0/bin/rtiadminconsole&"
+Exec=schroot -c chroot:ub22 -- /bin/bash -ic "export DISPLAY && /opt/rti_connext_dds-7.2.0/bin/rtiadminconsole&"
 Terminal=false
 Icon=/srv/chroot/ub22/opt/rti_connext_dds-7.2.0/resource/app/app_support/launcher/icons/RTI_Launcher_Dock-Icon_256x256.png
 Categories=Utility;Development;
