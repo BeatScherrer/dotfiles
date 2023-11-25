@@ -95,7 +95,8 @@ return {
         lua = { "stylua" },
         sh = { "shfmt" },
         bash = { "shfmt" },
-        cpp = { "clang_format" },
+        cpp = { "mt_clang_format" },
+        tsx = { "biome" },
         -- ["*"] = { "codespell" }, -- For all files
         ["_"] = { "trim_whitespace" }, -- Fallback
       },

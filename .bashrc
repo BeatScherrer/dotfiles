@@ -1,9 +1,9 @@
 #!/bin/bash
 
 case $- in
-# Enable the subsequent settings only in interactive sessions
-*i*) ;;
-*) return ;;
+  # Enable the subsequent settings only in interactive sessions
+  *i*) ;;
+  *) return ;;
 esac
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -120,17 +120,36 @@ pacmanSearch() {
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
-. "$HOME/.aliases"
-. "$HOME/.aliases_mt"
-. "$HOME/.bashrc_mt"
+if [[ -f "$HOME/.aliases" ]]; then
+  . "$HOME/.aliases"
+fi
+
+if [[ -f "$HOME/.aliases_mt" ]]; then
+  . "$HOME/.aliases_mt"
+fi
+
+if [[ -f "$HOME/.bashrc_mt" ]]; then
+  . "$HOME/.bashrc_mt"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # shellcheck source=/dev/null
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 export SIMULATION_CONFIG="$HOME/sim_config.xml"
 
-. "$HOME/.cargo/env"
+if [[ -f "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+fi
+
+# pnpm
+export PNPM_HOME="/${HOME}.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 [[ -f "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.sh" ]] && source "/home/beat/workspace/mtrsys/develop/build/sim/sim_helpers.sh"
