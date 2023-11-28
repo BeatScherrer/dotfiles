@@ -19,6 +19,7 @@ vim.filetype.add({
   pattern = {
     [".*/.ssh/config.d/.*"] = "sshconfig",
     [".*.xacro"] = "xml",
+    [".*.sdf"] = "xml",
     -- [".*&zwj;/etc/foo/.*"] = "fooscript",
     -- -- Using an optional priority
     -- [".*&zwj;/etc/foo/.*%.conf"] = { "dosini", { priority = 10 } },

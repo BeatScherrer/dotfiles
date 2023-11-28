@@ -89,18 +89,10 @@ sourcerti7() {
 
 #
 #  ccache
-if [[ "${SCHROOT_CHROOT_NAME-}" == "ub22-cpp23" ]]; then
-  export PATH=/usr/lib/ccache:$PATH
-  export CC="ccache clang-16"
-  export CXX="ccache clang++-16"
-  export CCACHE_DIR="${HOME}/.ccache_ub22"
-  export CCACHE_SLOPPINESS="pch_defines,time_macros,include_file_ctime,include_file_mtime"
-fi
-
 if [[ "${SCHROOT_CHROOT_NAME-}" == "ub22" ]]; then
   export PATH=/usr/lib/ccache:$PATH
-  export CC="ccache clang-16"
-  export CXX="ccache clang++-16"
+  export CC="ccache clang-17"
+  export CXX="ccache clang++-17"
   export CCACHE_DIR="${HOME}/.ccache_ub22"
   export CCACHE_SLOPPINESS="pch_defines,time_macros,include_file_ctime,include_file_mtime"
 fi

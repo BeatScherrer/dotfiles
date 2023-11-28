@@ -77,26 +77,13 @@ return {
           "-c",
           "chroot:ub22",
           "--",
-          "/usr/bin/clangd-16",
+          "/usr/bin/clangd-17",
           "--path-mappings=/usr=/srv/chroot/ub22/usr,/opt=/srv/chroot/ub22/opt",
           "--clang-tidy",
           "--header-insertion-decorators",
         },
       },
       jsonls = {},
-      lua_ls = {
-        -- mason = false, -- set to false if you don't want this server to be installed with mason
-        settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      },
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
