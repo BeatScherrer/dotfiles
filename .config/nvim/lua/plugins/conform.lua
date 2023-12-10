@@ -32,6 +32,7 @@ return {
         cpp = { "mt_clang_format" },
         typescriptreact = { "biome" }, -- tsx/jsx
         ts = { "biome" },
+        typescript = { "biome" },
         -- ["*"] = { "codespell" }, -- For all files
         ["_"] = { "trim_whitespace" }, -- Fallback
       },

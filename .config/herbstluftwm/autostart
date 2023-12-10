@@ -62,9 +62,9 @@ hc keybind $Mod-Shift-l shift right
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind Mod1-u split bottom 0.5
-hc keybind Mod1-o split right 0.5
-hc keybind Mod1-y split left 0.5
+hc keybind $Mod-u split bottom 0.5
+hc keybind $Mod-o split right 0.5
+hc keybind $Mod-y split left 0.5
 # let the current frame explode into subframes
 hc keybind Mod1-Shift-x split explode
 hc keybind Mod1-s spawn "/home/beat/.config/herbstluftwm/scripts/save_layout.sh"

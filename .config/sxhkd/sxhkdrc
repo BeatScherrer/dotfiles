@@ -138,7 +138,7 @@ super + {Left,Down,Up,Right}
 
 # lock screen
 super + shift + x
-  betterlockscreen -l dim 
+  betterlockscreen -l dim
 
 # reload sxhkdrc
 super + shift + r
@@ -160,7 +160,7 @@ XF86AudioLowerVolume
   pactl set-sink-volume @DEFAULT_SINK@ -1%
 
 # Play/Pause
-XF86AudioPlay 
+XF86AudioPlay
   playerctl play-pause
 
 # Play/Pause
