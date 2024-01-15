@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LINUX_DISTRIBUTION="$(. /etc/*-release && echo $DISTRIB_ID)"
+
 # system
 alias hibernate='systemctl hibernate'
 alias esc='sudo -E systemctl edit --full'
@@ -24,7 +26,11 @@ fi
 alias egrep='grep -E'
 
 # config git alias
+if [[ "$LINUX_DISTRIBUTION" == "nixos" ]]; then
+alias config='/run/current-system/sw/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+else
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+fi
 alias sourcezsh='source ~/.zshrc'
 alias sourcebash='source ~/.bashrc'
 
